@@ -341,8 +341,9 @@ http://localhost:8080/api/swagger-ui.html
 ## 📞 联系方式
 
 如有问题或建议，请通过以下方式联系：
-- 提交 [GitHub Issue](https://github.com/your-repo/issues)
-- 发送邮件至：your-email@example.com
+- 提交 [GitHub Issue](https://github.com/2213918304/tiku-system/issues)
+- 发送邮件至：2213918304@qq.com
+- 作者：罗泽
 
 ## 🙏 致谢
 
