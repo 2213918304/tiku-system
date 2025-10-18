@@ -1,0 +1,4908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辽师马克思主义基本原理学习题库</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6e9f0 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #c62828 0%, #b71c1c 100%);
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-reset {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: linear-gradient(90deg, #e53935 0%, #c62828 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-reset i {
+            margin-right: 8px;
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(229, 57, 53, 0.4);
+        }
+
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #ffd54f;
+        }
+
+        .header-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            margin: 10px auto;
+            line-height: 1.7;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 12px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+            width: 35%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 20px;
+        }
+
+        .tab {
+            padding: 16px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .tab:hover {
+            color: #c62828;
+        }
+
+        .tab.active {
+            color: #c62828;
+            background-color: white;
+        }
+
+        .tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #c62828;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: 650px;
+        }
+
+        .sidebar {
+            width: 320px;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 25px 15px;
+            overflow-y: auto;
+            position: relative;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .unit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .unit-title {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .unit-title i {
+            margin-right: 12px;
+            color: #4fc3f7;
+        }
+
+        .question-count {
+            background: rgba(76, 175, 80, 0.2);
+            color: #66BB6A;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .search-box {
+            position: relative;
+            margin: 15px 0 25px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border-radius: 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.5);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #90a4ae;
+        }
+
+        .question-list {
+            list-style: none;
+        }
+
+        .question-item {
+            padding: 14px 18px;
+            margin: 10px 0;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+
+        .question-item:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .question-item.active {
+            background-color: rgba(41, 182, 246, 0.2);
+            border-left-color: #29B6F6;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(41, 182, 246, 0.4);
+        }
+
+        .question-number {
+            background-color: #e53935;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .question-content {
+            flex: 1;
+            font-size: 1.05rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .question-tag {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .question-tag.single {
+            color: #4CAF50;
+        }
+
+        .question-tag.multi {
+            color: #FF9800;
+        }
+
+        .question-tag.short {
+            color: #29B6F6;
+        }
+
+        .question-panel {
+            flex: 1;
+            padding: 30px;
+            background-color: #fafafa;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-header {
+            background: linear-gradient(90deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            padding: 18px 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-type {
+            font-size: 1.15rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-type i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .question-id {
+            background-color: #e53935;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding: 0 15px;
+            color: #2c3e50;
+            font-weight: 500;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .options-container {
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .option {
+            padding: 16px 22px;
+            margin: 15px 0;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .option:hover {
+            border-color: #64b5f6;
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(100, 181, 246, 0.2);
+        }
+
+        .option.selected {
+            border-color: #2196f3;
+            background-color: #bbdefb;
+            font-weight: bold;
+        }
+
+        .option-prefix {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #2196f3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .short-answer-container {
+            margin-bottom: 30px;
+            padding: 0 10px;
+            display: none;
+        }
+
+        .answer-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .answer-textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .answer-textarea:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.3);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 0 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 13px 28px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(90deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(67, 160, 71, 0.35);
+        }
+
+        .btn-favorite {
+            background: linear-gradient(90deg, #ffb300 0%, #f57f17 100%);
+            color: white;
+        }
+
+        .btn-favorite:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 179, 0, 0.35);
+        }
+
+        .btn-add-note {
+            background: linear-gradient(90deg, #7e57c2 0%, #5e35b1 100%);
+            color: white;
+        }
+
+        .btn-add-note:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(126, 87, 194, 0.35);
+        }
+
+        .btn-nav {
+            background: linear-gradient(90deg, #5c6bc0 0%, #3949ab 100%);
+            color: white;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(92, 107, 192, 0.35);
+        }
+
+        .result-panel {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #e8f5e9;
+            border-left: 5px solid #43a047;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-title {
+            font-size: 1.35rem;
+            color: #2e7d32;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .result-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        .correct-answer {
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 15px 0;
+            font-size: 1.15rem;
+        }
+
+        .explanation {
+            color: #37474f;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 10px 0;
+        }
+
+        .notes-section {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #fffde7;
+            border: 1px solid #ffecb3;
+            display: none;
+        }
+
+        .notes-title {
+            font-size: 1.25rem;
+            color: #f57f17;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .notes-title i {
+            margin-right: 10px;
+        }
+
+        .notes-content {
+            min-height: 100px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #ffe082;
+        }
+
+        .statistics {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #37474f;
+            font-weight: 500;
+        }
+
+        .add-question-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 20px;
+            display: none;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1e88e5;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-title i {
+            margin-right: 12px;
+            color: #1e88e5;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #64b5f6;
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.3);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .option-input {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .option-input input {
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .add-option-btn {
+            background-color: #42a5f5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .add-option-btn:hover {
+            background-color: #1e88e5;
+            transform: translateY(-2px);
+        }
+
+        .submit-form-btn {
+            background: linear-gradient(90deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-form-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(30, 136, 229, 0.4);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: #7f8c8d;
+        }
+
+        .empty-state i {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            color: #cfd8dc;
+        }
+
+        .empty-state h3 {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            color: #546e7a;
+        }
+
+        .empty-state p {
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .empty-state .btn {
+            display: inline-flex;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-height: 350px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .question-panel {
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .btn {
+                flex: 1;
+                padding: 12px;
+                min-width: auto;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .tab {
+                padding: 14px 20px;
+                white-space: nowrap;
+            }
+
+            .statistics {
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                flex: 1 0 45%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .question-text {
+                font-size: 1.15rem;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+
+            .option {
+                padding: 14px;
+            }
+
+            .option-prefix {
+                width: 28px;
+                height: 28px;
+                margin-right: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="header-content">
+                    <h1>辽师马克思主义基本原理学习题库</h1>
+                    <p class="subtitle">全面掌握马克思主义基本原理，提升思想政治素养，培养科学世界观和方法论</p>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-text">已学习：<span id="progressText">35%</span>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="questions">题库练习</div>
+            <div class="tab" data-tab="wrong">错题集</div>
+            <div class="tab" data-tab="favorites">收藏夹</div>
+            <div class="tab" data-tab="notes">学习笔记</div>
+            <div class="tab" data-tab="add">添加题目</div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="unit-header">
+                    <div class="unit-title">
+                        <i class="fas fa-book-open"></i>
+                        <span id="unitTitle">23版 导论</span>
+                    </div>
+                    <div class="question-count">共 242 题</div>
+                </div>
+
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜索题目...">
+                </div>
+
+                <button class="btn btn-reset" id="resetBtn">
+                    <i class="fas fa-redo"></i> 重置学习进度
+                </button>
+
+                <ul class="question-list" id="questionList">
+                    <!-- 题目列表由JS动态生成 -->
+                </ul>
+            </div>
+
+            <div class="question-panel">
+                <div class="question-header">
+                    <div class="question-type" id="questionType">
+                        <i class="fas fa-list-ol"></i> 单项选择题
+                    </div>
+                    <div class="question-id" id="questionId">题号: 1.1</div>
+                </div>
+
+                <div class="question-text" id="questionText">
+                    （ ）是马克思主义的本质属性。
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <div class="option" data-value="A">
+                        <div class="option-prefix">A</div>
+                        <div class="option-text">人民性</div>
+                    </div>
+                    <div class="option" data-value="B">
+                        <div class="option-prefix">B</div>
+                        <div class="option-text">科学性</div>
+                    </div>
+                    <div class="option" data-value="C">
+                        <div class="option-prefix">C</div>
+                        <div class="option-text">发展性</div>
+                    </div>
+                    <div class="option" data-value="D">
+                        <div class="option-prefix">D</div>
+                        <div class="option-text">实践性</div>
+                    </div>
+                </div>
+
+                <div class="short-answer-container" id="shortAnswerContainer">
+                    <label class="answer-label">您的答案：</label>
+                    <textarea class="answer-textarea" id="answerTextarea" placeholder="请在此输入您的答案..."></textarea>
+                </div>
+
+                <div class="actions">
+                    <div class="btn-group">
+                        <button class="btn btn-nav" id="prevBtn">
+                            <i class="fas fa-arrow-left"></i> 上一题
+                        </button>
+                        <button class="btn btn-nav" id="nextBtn">
+                            <i class="fas fa-arrow-right"></i> 下一题
+                        </button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-favorite" id="favoriteBtn">
+                            <i class="far fa-star"></i> 收藏题目
+                        </button>
+                        <button class="btn btn-add-note" id="addNoteBtn">
+                            <i class="fas fa-edit"></i> 添加笔记
+                        </button>
+                        <button class="btn btn-submit" id="submitBtn">
+                            <i class="fas fa-check-circle"></i> 提交答案
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-panel" id="resultPanel">
+                    <div class="result-title">
+                        <i class="fas fa-lightbulb"></i> 答案解析
+                    </div>
+                    <div class="correct-answer">正确答案：<span id="correctAnswer"></span></div>
+                    <div class="explanation" id="explanation">
+                        人民性是马克思主义的本质属性。马克思主义是人民的理论，第一次创立了人民实现自身解放的思想体系。人民性是马克思主义区别于其他理论的显著特征。
+                    </div>
+                </div>
+
+                <div class="notes-section" id="notesSection">
+                    <div class="notes-title">
+                        <i class="fas fa-sticky-note"></i> 学习笔记
+                    </div>
+                    <div class="notes-content" id="notesContent">
+                        马克思主义的人民性体现在它始终站在人民立场，代表最广大人民的根本利益。在当代中国，坚持和发展中国特色社会主义，必须坚持以人民为中心的发展思想。
+                    </div>
+                </div>
+
+                <div class="statistics">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalQuestions">120</div>
+                        <div class="stat-label">总题数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="correctCount">85</div>
+                        <div class="stat-label">正确数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="wrongCount">35</div>
+                        <div class="stat-label">错误数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="favoriteCount">28</div>
+                        <div class="stat-label">收藏数</div>
+                    </div>
+                </div>
+
+                <div class="add-question-form" id="addQuestionForm">
+                    <div class="form-title">
+                        <i class="fas fa-plus-circle"></i> 添加新题目
+                    </div>
+                    <div class="form-group">
+                        <label for="questionUnit">单元名称</label>
+                        <input type="text" id="questionUnit" placeholder="例如：导论">
+                    </div>
+                    <div class="form-group">
+                        <label for="questionTypeSelect">题目类型</label>
+                        <select id="questionTypeSelect">
+                            <option value="single">单项选择题</option>
+                            <option value="multi">多项选择题</option>
+                            <option value="short">简答题</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newQuestionText">题目内容</label>
+                        <textarea id="newQuestionText" placeholder="请输入题目内容..."></textarea>
+                    </div>
+                    <div class="form-group" id="optionsGroup">
+                        <label>选项（点击添加选项）</label>
+                        <div id="optionsContainerForm">
+                            <div class="option-input">
+                                <input type="text" placeholder="选项A内容">
+                                <button class="add-option-btn" type="button">+</button>
+                            </div>
+                            <div class="option-input">
+                                <input type="text" placeholder="选项B内容">
+                                <button class="add-option-btn" type="button">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="correctAnswerInput">正确答案</label>
+                        <input type="text" id="correctAnswerInput" placeholder="例如：A 或 AB">
+                    </div>
+                    <div class="form-group">
+                        <label for="explanationInput">答案解析</label>
+                        <textarea id="explanationInput" placeholder="请输入答案解析..."></textarea>
+                    </div>
+                    <button class="submit-form-btn" id="submitFormBtn">
+                        <i class="fas fa-plus"></i> 添加题目
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 题库数据
+        const questions = [
+            {
+                id: 1,
+                type: "single",
+                unit: "导论",
+                question: "（ ）是马克思主义的本质属性。",
+                options: ["A.人民性", "B.科学性", "C.发展性", "D.实践性"],
+                answer: "A",
+                explanation: "人民性是马克思主义的本质属性。马克思主义是人民的理论，第一次创立了人民实现自身解放的思想体系。人民性是马克思主义区别于其他理论的显著特征。"
+            },
+            {
+                id: 2,
+                type: "single",
+                unit: "导论",
+                question: "马克思一生在理论上的两大发现是（ ）。",
+                options: [
+                    "A.科学社会主义和认识论",
+                    "B.辩证法和剩余价值学说",
+                    "C.辩证法和唯物史观",
+                    "D.唯物史观和剩余价值学说"
+                ],
+                answer: "D",
+                explanation: "马克思一生中的两个伟大发现是唯物史观和剩余价值学说。这两大发现使社会主义从空想变成了科学。"
+            },
+            {
+                id: 3,
+                type: "single",
+                unit: "导论",
+                question: "马克思主义产生的经济社会根源是（ ）。",
+                options: [
+                    "A.工场手工业的发展",
+                    "B.帝国主义殖民活动",
+                    "C.资本主义生产方式的发展",
+                    "D.原始资本积累"
+                ],
+                answer: "C",
+                explanation: "资本主义生产方式的发展是马克思主义产生的经济社会根源。工业革命推动了资本主义生产方式的迅速发展，同时也暴露了资本主义社会的内在矛盾。"
+            },
+            {
+                id: 4,
+                type: "single",
+                unit: "导论",
+                question: "俄国十月社会主义革命的胜利，开创了世界历史的新纪元，使科学社会主义开始（ ）。",
+                options: [
+                    "A.从空想变为科学",
+                    "B.从理论变为现实",
+                    "C.从一国变为多国",
+                    "D.从一种模式变为多种模式"
+                ],
+                answer: "B",
+                explanation: "十月革命使科学社会主义从理论变为现实，建立了世界上第一个社会主义国家，开创了人类历史新纪元。"
+            },
+            {
+                id: 5,
+                type: "single",
+                unit: "导论",
+                question: "马克思主义科学的世界观和方法论是（ ）。",
+                options: [
+                    "A.朴素唯物主义",
+                    "B.机械唯物主义",
+                    "C.辩证唯物主义和历史唯物主义",
+                    "D.唯心主义"
+                ],
+                answer: "C",
+                explanation: "辩证唯物主义和历史唯物主义是马克思主义科学的世界观和方法论，是无产阶级认识世界和改造世界的强大思想武器。"
+            },
+            // 替换第6题
+            {
+                id: 6,
+                type: "single",
+                unit: "导论",
+                question: "（ ）帮助了全世界的也帮助了中国的先进分子，用无产阶级的宇宙观作为观察国家命运的工具，重新考虑自己的问题。",
+                options: [
+                    "A.辛亥革命",
+                    "B.五四运动",
+                    "C.十月革命",
+                    "D.巴黎公社"
+                ],
+                answer: "C",
+                explanation: "十月革命一声炮响，给我们送来了马克思列宁主义。十月革命帮助了全世界的也帮助了中国的先进分子，用无产阶级的宇宙观作为观察国家命运的工具，重新考虑自己的问题。"
+            },
+            // 替换第7题
+            {
+                id: 7,
+                type: "single",
+                unit: "导论",
+                question: "在社会主义革命和建设时期，毛泽东提岀把马克思列宁主义基本原理同中国具体实际进行（ ），以毛泽东同志为主要代表的中国共产党人，结合新的实际丰富和发展毛泽东思想，提出关于社会主义建设的一系列重要思想。",
+                options: [
+                    "A.'第一次结合'",
+                    "B.'第二次结合'",
+                    "C.'第三次结合'",
+                    "D.'第四次结合'"
+                ],
+                answer: "B",
+                explanation: "毛泽东同志在1956年提出要进行马克思主义基本原理同中国具体实际的'第二次结合'，探索适合中国特点的社会主义建设道路。"
+            },
+            {
+                id: 8,
+                type: "single",
+                unit: "导论",
+                question: "毛泽东思想的（ ）是贯穿于各个组成部分的立场观点方法。",
+                options: [
+                    "A.实事求是",
+                    "B.群众路线",
+                    "C.独立自主",
+                    "D.活的灵魂"
+                ],
+                answer: "D",
+                explanation: "毛泽东思想的活的灵魂是贯穿其中的立场、观点、方法，包括实事求是、群众路线、独立自主三个基本方面。"
+            },
+            {
+                id: 9,
+                type: "single",
+                unit: "导论",
+                question: "（ ）是马克思主义首要的和基本的观点。",
+                options: [
+                    "A.人民观点",
+                    "B.实践观点",
+                    "C.群众观点",
+                    "D.理论观点"
+                ],
+                answer: "B",
+                explanation: "实践观点是马克思主义首要的和基本的观点。实践是人类能动地改造世界的客观物质活动，是认识的基础、发展的动力和目的。"
+            },
+            {
+                id: 10,
+                type: "single",
+                unit: "导论",
+                question: "（ ）是马克思主义观察、分析和解决问题的根本立足点和出发点。",
+                options: [
+                    "A.马克思主义的基本方法",
+                    "B.马克思主义的基本观点",
+                    "C.马克思主义的基本立场",
+                    "D.共产主义必然实现"
+                ],
+                answer: "C",
+                explanation: "马克思主义的基本立场是马克思主义观察、分析和解决问题的根本立足点和出发点，即始终站在人民大众的立场上，一切为了人民，一切依靠人民。"
+            },
+            {
+                id: 11,
+                type: "single",
+                unit: "导论",
+                question: "恩格斯于1820年11月28日出生在德国巴门市的一个工厂主家庭。他称自己一生所做的事就是'拉第二小提琴'。恩格斯不仅与马克思一起创立马克思主义，参加并指导国际工人运动，而且在传播和发展马克思主义方面作出了杰出的贡献。恩格斯全面阐述马克思主义理论体系的著作是（ ）。",
+                options: [
+                    "A.《共产党宣言》",
+                    "B.《家庭、私有制和国家的起源》",
+                    "C.《反杜林论》",
+                    "D.《自然辩证法》"
+                ],
+                answer: "C",
+                explanation: "恩格斯在《反杜林论》中全面阐述了马克思主义理论体系，该书被列宁称为'马克思主义的百科全书'。它系统阐述了马克思主义的三个组成部分（哲学、政治经济学和科学社会主义），是恩格斯最重要的理论著作之一。"
+            },
+            {
+                id: 12,
+                type: "single",
+                unit: "导论",
+                question: "马克思、恩格斯领导创建的世界上第一个无产阶级政党是（ ）。",
+                options: [
+                    "A.国际工人协会",
+                    "B.正义者联盟",
+                    "C.共产主义者同盟",
+                    "D.社会主义工人国际"
+                ],
+                answer: "C",
+                explanation: "1847年，马克思、恩格斯将正义者同盟改组为共产主义者同盟，并为其起草了《共产党宣言》，这是世界上第一个无产阶级政党。"
+            },
+            {
+                "id": 13,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义理论不可分割的三个主要组成部分是指（ ）。",
+                "options": [
+                    "A.马克思主义哲学",
+                    "B.马克思主义政治经济学",
+                    "C.科学社会主义",
+                    "D.新自由主义"
+                ],
+                "answer": ["A", "B", "C"],
+                "explanation": "马克思主义理论体系包括马克思主义哲学、马克思主义政治经济学和科学社会主义三个基本组成部分，它们是有机统一的整体。"
+            },
+            {
+                "id": 14,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义的直接理论渊源主要有（ ）。",
+                "options": [
+                    "A.德国古典哲学",
+                    "B.英国古典政治经济学",
+                    "C.中国传统文化",
+                    "D.英法空想社会主义"
+                ],
+                "answer": ["A", "B", "D"],
+                "explanation": "马克思主义的直接理论来源是德国古典哲学、英国古典政治经济学和英法空想社会主义。"
+            },
+            {
+                "id": 15,
+                "type": "multi",
+                "unit": "导论",
+                "question": "19世纪30－40年代，最能表现无产阶级高度政治觉悟与英勇精神，显示工人阶级在政治斗争上的威力，并标志着现代无产阶级作为独立的政治力量已经登上了历史舞台的工人运动有（ ）。",
+                "options": [
+                    "A.1831年和1834年法国里昂工人两次起义",
+                    "B.1836年在英国爆发延续长达十余年的宪章运动",
+                    "C.1844年德国西里西亚纺织工人起义",
+                    "D.1871年法国巴黎公社革命"
+                ],
+                "answer": ["A", "B", "C"],
+                "explanation": "三大工人运动标志着现代无产阶级作为独立的政治力量登上历史舞台，为马克思主义的产生提供了阶级基础和实践基础。"
+            },
+            {
+                "id": 16,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义的基本观点（ ）。",
+                "options": [
+                    "A.是关于自然、社会和人类思维发展一般规律的科学认识",
+                    "B.是对资本主义社会和社会主义社会发展规律的科学认识",
+                    "C.是对人类思想成果和社会实践经验的科学总结",
+                    "D.是马克思主义观察、分析和解决问题的根本立足点和出发点"
+                ],
+                "answer": ["A", "C"],
+                "explanation": "马克思主义的基本观点本质上是对自然、社会和思维发展一般规律的科学概括（A），同时建立在人类思想成果和实践经验的基础上（C）。B 选项局限于特定社会形态，D 选项混淆了理论立场与观点的定义，均不符合题意"
+            },
+            {
+                "id": 17,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义的基本特征是（ ）。",
+                "options": [
+                    "A.科学性",
+                    "B.人民性",
+                    "C.实践性",
+                    "D.发展性"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "马克思主义的四个基本特征：1. 科学性（对客观规律的正确反映）；2. 人民性（始终站在人民立场）；3. 实践性（理论与实践的统一）；4. 发展性（与时俱进的理论品质）。这些特征体现了马克思主义的科学本质和时代价值。"
+            },
+            {
+                "id": 18,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义的产生具有深刻（ ）条件。",
+                "options": [
+                    "A.社会根源",
+                    "B.阶级基础",
+                    "C.思想渊源",
+                    "D.经济根源"
+                ],
+                "answer": ["A", "B", "C"],
+                "explanation": "马克思主义的产生具有深刻的社会根源、阶级基础和思想渊源。"
+            },
+            {
+                "id": 19,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义是科学性与革命性的统一，其具体表现为（ ）。",
+                "options": [
+                    "A.马克思主义科学理论在指导无产阶级和人民群众进行伟大社会革命的过程中，其人民性、实践性和发展性集中地体现为革命性",
+                    "B.革命性是马克思主义的人民性、实践性和发展性的应有之义和必然要求",
+                    "C.马克思主义的革命性是建立在科学性基础上的，是与科学性高度统一的",
+                    "D.在无产阶级解放斗争和社会主义事业发展的任何时期，都必须始终坚持马克思主义的革命性，发扬马克思主义的革命精神"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "马克思主义是科学性和革命性的统一，革命性是马克思主义的内在品质，是科学性的必然要求。"
+            },
+            {
+                "id": 20,
+                "type": "multi",
+                "unit": "导论",
+                "question": "大学生在学习马克思主义理论的过程中，要有的正确态度和科学方法是（ ）。",
+                "options": [
+                    "A.努力学习和掌握马克思主义的基本立场观点方法",
+                    "B.坚持理论联系实际的马克思主义学风",
+                    "C.自觉将马克思主义内化于心、外化于行",
+                    "D.努力学习和掌握马克思主义中国化时代化的理论成果"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "学习马克思主义理论要掌握其基本立场、观点和方法，坚持理论联系实际，做到知行合一。"
+            },
+            {
+                "id": 21,
+                "type": "multi",
+                "unit": "导论",
+                "question": "马克思主义的当代价值在于（ ）。",
+                "options": [
+                    "A.探索宇宙的公理",
+                    "B.观察当代世界变化的认识工具",
+                    "C.指引当代中国发展的行动指南",
+                    "D.引领人类社会进步的科学真理"
+                ],
+                "answer": ["B", "C", "D"],
+                "explanation": "马克思主义的当代价值体现在它是观察当代世界变化的认识工具，是指引当代中国发展的行动指南，是引领人类社会进步的科学真理。"
+            },
+            {
+                id: 22,
+                type: "short",
+                unit: "第一章",
+                question: "简述什么是马克思主义。",
+                options: [],
+                answer: "马克思主义是由马克思、恩格斯创立并为后继者所不断发展的科学理论体系，是关于自然、社会和人类思维发展一般规律的学说，是关于社会主义必然代替资本主义、最终实现共产主义的学说，是关于无产阶级解放、全人类解放和每个人自由而全面发展的学说，是无产阶级政党和社会主义国家的指导思想，是指引人民创造美好生活的行动指南。（分值5）。",
+                explanation: "马克思主义是工人阶级的科学世界观和方法论，为社会主义运动提供了理论基础。"
+            },
+            {
+                id: 23,
+                type: "short",
+                unit: "第一章",
+                question: "简述什么是马克思主义的基本方法。",
+                options: [],
+                answer: "马克思主义的基本方法是建立在辩证唯物主义和历史唯物主义世界观和方法论基础上，指导我们正确认识世界和改造世界的思想方法和工作方法，主要包括实事求是的方法、辩证分析的方法、社会基本矛盾和主要矛盾分析的方法、历史分析的方法、阶级分析的方法、群众路线的方法等。",
+                explanation: "这一方法是马克思主义理论的核心工具，为科学分析社会现象和推动社会变革提供了方法论指导。"
+            },
+            {
+                "id": 24,
+                "type": "single",
+                "unit": "第一章",
+                "question": "哲学的基本问题是（ ）。",
+                "options": [
+                    "A.理论和实践的关系问题",
+                    "B.世界观与方法论的关系问题",
+                    "C.思维与存在的关系问题",
+                    "D.时间和空间的关系问题"
+                ],
+                "answer": "C",
+                "explanation": "哲学基本问题是思维与存在的关系问题，包括何者为第一性及有无同一性两方面。"
+            },
+
+            {
+                "id": 25,
+                "type": "single",
+                "unit": "第一章",
+                "question": "哲学上两大基本派别是（ ）。",
+                "options": [
+                    "A.辩证法和形而上学",
+                    "B.唯物主义和唯心主义",
+                    "C.可知论和不可知论",
+                    "D.反映论和先验论"
+                ],
+                "answer": "B",
+                "explanation": "根据对哲学基本问题第一方面（思维与存在何者为第一性）的不同回答，划分为唯物主义和唯心主义两大阵营。"
+            },
+            {
+                "id": 26,
+                "type": "single",
+                "unit": "第一章",
+                "question": "承认思维和存在有同一性，这是（ ）。",
+                "options": [
+                    "A.可知论",
+                    "B.不可知论",
+                    "C.辩证法",
+                    "D.形而上学"
+                ],
+                "answer": "A",
+                "explanation": "对哲学基本问题第二方面（思维能否认识存在）的肯定回答属于可知论，否定回答属于不可知论。"
+            },
+            {
+                "id": 27,
+                "type": "single",
+                "unit": "第一章",
+                "question": "运动和静止的关系是（ ）。",
+                "options": [
+                    "A.具体和抽象的关系",
+                    "B.内容和形式的关系",
+                    "C.绝对和相对的关系",
+                    "D.现象和本质的关系"
+                ],
+                "answer": "C",
+                "explanation": "运动是绝对的、无条件的，静止是相对的、有条件的，二者辩证统一。"
+            },
+            {
+                "id": 28,
+                "type": "single",
+                "unit": "第一章",
+                "question": "唯物辩证法的实质和核心是（ ）。",
+                "options": [
+                    "A.量变质变规律",
+                    "B.对立统一规律",
+                    "C.否定之否定规律",
+                    "D.联系和发展的规律"
+                ],
+                "answer": "B",
+                "explanation": "对立统一规律揭示了事物发展的源泉和动力，是理解其他规律和范畴的钥匙。"
+            },
+            {
+                "id": 29,
+                "type": "single",
+                "unit": "第一章",
+                "question": "矛盾的基本属性是（ ）。",
+                "options": [
+                    "A.同一性和斗争性",
+                    "B.有限性和无限性",
+                    "C.确定性和不确定性",
+                    "D.普遍性和特殊性"
+                ],
+                "answer": "A",
+                "explanation": "矛盾的同一性指对立面相互依存、相互贯通，斗争性指对立面相互排斥、相互分离。"
+            },
+            {
+                "id": 30,
+                "type": "single",
+                "unit": "第一章",
+                "question": "区分量变和质变的根本标志在于（ ）。",
+                "options": [
+                    "A.事物的变化是否显著",
+                    "B.事物的变化是否迅速",
+                    "C.事物的变化是大还是小",
+                    "D.事物的变化是否超出度的范围"
+                ],
+                "answer": "D",
+                "explanation": "量变是事物在度的范围内的变化，质变是超出度的范围的根本性质变化。"
+            },
+            {
+                "id": 31,
+                "type": "single",
+                "unit": "第一章",
+                "question": "物质的根本属性是（ ）。",
+                "options": [
+                    "A.运动",
+                    "B.变化",
+                    "C.发展",
+                    "D.静止"
+                ],
+                "answer": "A",
+                "explanation": "物质和运动不可分割，运动是物质的根本属性和存在方式。"
+            },
+            {
+                "id": 32,
+                "type": "single",
+                "unit": "",
+                "question": "时间的流逝一去不复返。时间的特点是（ ）。",
+                "options": [
+                    "A.持续性",
+                    "B.顺序性",
+                    "C.一维性",
+                    "D.三维性"
+                ],
+                "answer": "C",
+                "explanation": "时间的一维性指的是时间只沿一个方向流动，不可逆转，一去不复返，这体现了时间的单向性和不可逆性。"
+            },
+            {
+                "id": 33,
+                "type": "single",
+                "unit": "第一章",
+                "question": "物质、运动、时间、空间具有内在的统一性，要求我们想问题、办事情的方法论是（ ）。",
+                "options": [
+                    "A.以具体的时间、地点和条件为转移",
+                    "B.尊重客观规律",
+                    "C.用联系的观点看问题",
+                    "D.树立全局观念"
+                ],
+                "answer": "A",
+                "explanation": "物质运动总是在特定时空条件下进行，要求一切从实际出发，具体问题具体分析。"
+            },
+            // 第11题（单选）
+            {
+                id: 34,
+                type: "single",
+                unit: "第一章",
+                question: "\"矛盾无处不在，矛盾无时不有\"体现矛盾的特性（ ）。",
+                options: [
+                    "A.普遍性",
+                    "B.特殊性",
+                    "C.多样性",
+                    "D.条件性"
+                ],
+                answer: "A",
+                explanation: "矛盾的普遍性是指矛盾存在于一切事物的发展过程中，贯穿于每一事物发展过程的始终。"
+            },
+            // 第12题（单选）
+            {
+                id: 35,
+                type: "single",
+                unit: "第一章",
+                question: "内容与形式、本质与现象、原因与结果、必然与偶然、现实与可能，这一系列成对范畴，从不同角度揭示了事物联系和发展的（ ）。",
+                options: [
+                    "A.基本环节",
+                    "B.基本内容",
+                    "C.基本形式",
+                    "D.基本步骤"
+                ],
+                answer: "A",
+                explanation: "这些范畴揭示了事物联系和发展的基本环节，是唯物辩证法的重要组成部分。"
+            },
+            // 第13题（单选）
+            {
+                id: 36,
+                type: "single",
+                unit: "第一章",
+                question: "（ ）是揭示事物引起和被引起关系的一对范畴。",
+                options: [
+                    "A.内容与形式",
+                    "B.本质与现象",
+                    "C.原因与结果",
+                    "D.必然与偶然"
+                ],
+                answer: "C",
+                explanation: "原因与结果揭示的是事物之间引起和被引起的关系。"
+            },
+            // 第14题（单选）
+            {
+                id: 37,
+                type: "single",
+                unit: "第一章",
+                question: "（ ）是揭示事物产生、发展和衰亡过程中的不同趋势的一对范畴。",
+                options: [
+                    "A.内容与形式",
+                    "B.本质与现象",
+                    "C.原因与结果",
+                    "D.必然与偶然"
+                ],
+                answer: "D",
+                explanation: "必然与偶然揭示事物发展过程中的确定趋势和不确定趋势的关系。"
+            },
+            // 第15题（单选）
+            {
+                id: 38,
+                type: "single",
+                unit: "第一章",
+                question: "唯物辩证法本质上是（ ）。",
+                options: [
+                    "A.批判的和革命的",
+                    "B.对立统一的",
+                    "C.因果联系",
+                    "D.必然与偶然"
+                ],
+                answer: "A",
+                explanation: "唯物辩证法在对现存事物的肯定理解中包含对现存事物的否定理解，具有批判性和革命性。"
+            },
+            // 第16题（单选）
+            {
+                id: 39,
+                type: "single",
+                unit: "第一章",
+                question: "否定之否定规律揭示了（ ）。",
+                options: [
+                    "A.事物发展的渐进性与飞跃性的统一",
+                    "B.事物发展的前进性与曲折性的统一",
+                    "C.事物变化发展的内在动力",
+                    "D.事物变化发展的状态"
+                ],
+                answer: "B",
+                explanation: "否定之否定规律揭示了事物发展是前进性和曲折性的统一。"
+            },
+            // 第17题（单选）
+            {
+                id: 40,
+                type: "single",
+                unit: "第一章",
+                question: "辩证唯物主义最基本、最核心的观点是（ ）。",
+                options: [
+                    "A.物质与意识的辩证关系原理",
+                    "B.主观能动性与客观规律性的辩证关系原理",
+                    "C.世界的物质统一性原理",
+                    "D.事物的普遍联系与变化发展"
+                ],
+                answer: "C",
+                explanation: "世界的物质统一性原理是辩证唯物主义最根本的观点。"
+            },
+            // 第18题（多选）
+            {
+                id: 41,
+                type: "multi",
+                unit: "第一章",
+                question: "相对静止是物质运动在一定条件下的稳定状态，具体包括两种状态：（ ）。",
+                options: [
+                    "A.空间的相对位置暂时不变",
+                    "B.无条件的绝对运动",
+                    "C.事物的根本性质暂时不变",
+                    "D.有条件的相对静止"
+                ],
+                answer: ["A", "C"],
+                explanation: "相对静止包括空间位置相对不变和根本性质暂时不变两种状态。"
+            },
+            // 第19题（多选）
+            {
+                id: 42,
+                type: "multi",
+                unit: "第一章",
+                question: "物质世界的二重化是指（ ）。",
+                options: [
+                    "A.自然界与人类社会",
+                    "B.自然界与元宇宙",
+                    "C.人的意识与人类社会",
+                    "D.客观世界和主观世界"
+                ],
+                answer: ["A", "D"],
+                explanation: "物质世界二重化为自然界/人类社会、客观世界/主观世界。"
+            },
+            // 第20题（多选）
+            {
+                id: 43,
+                type: "multi",
+                unit: "第一章",
+                question: "联系具有一系列特点包括（ ）。",
+                options: [
+                    "A.客观性",
+                    "B.普遍性",
+                    "C.多样性",
+                    "D.条件性"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "联系具有客观性、普遍性、多样性和条件性等基本特征。"
+            },
+            // 第21题（多选）
+            {
+                id: 44,
+                type: "multi",
+                unit: "第一章",
+                question: "矛盾的同一性是指矛盾着的对立面相互依存、相互贯通的性质和趋势，有两个方面的含义：（ ）。",
+                options: [
+                    "A.矛盾着的对立面相互排斥、相互分离的性质和趋势",
+                    "B.矛盾的同一性和斗争性相结合，构成了事物的矛盾运动，推动着事物的变化发展",
+                    "C.矛盾着的对立面相互依存，互为存在的前提，并共处于一个统一体中",
+                    "D.矛盾着的对立面相互贯通，在一定条件下可以相互转化"
+                ],
+                answer: ["C", "D"],
+                explanation: "矛盾的同一性包括相互依存和相互转化两方面的含义。"
+            },
+            // 第22题（多选）
+            {
+                id: 45,
+                type: "multi",
+                unit: "第一章",
+                question: "辩证思维方法主要包括（ ）。",
+                options: [
+                    "A.归纳与演绎",
+                    "B.分析与综合",
+                    "C.抽象与具体",
+                    "D.逻辑与历史"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "辩证思维方法包括归纳与演绎、分析与综合、抽象与具体、逻辑与历史的统一等。"
+            },
+            // 第23题（多选）
+            {
+                id: 46,
+                type: "multi",
+                unit: "第一章",
+                question: "事物的发展是通过（ ）而实现的。",
+                options: [
+                    "A.其内在矛盾运动",
+                    "B.其外部矛盾运动",
+                    "C.以自我否定的方式",
+                    "D.以相互否定的方式"
+                ],
+                answer: ["A", "C"],
+                explanation: "事物发展通过内在矛盾运动和自我否定的方式实现。"
+            },
+            // 第24题（多选）
+            {
+                id: 47,
+                type: "multi",
+                unit: "第一章",
+                question: "矛盾的同一性在事物发展中的作用表现在：（ ）。",
+                options: [
+                    "A.事物存在和发展的前提",
+                    "B.使矛盾双方相互吸取有利于自身的因素",
+                    "C.规定着事物转化的可能和发展的趋势",
+                    "D.是一种矛盾统一体向另一种矛盾统一体过渡的决定性力量"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "矛盾的同一性为事物发展提供前提、促进矛盾双方相互吸取有利因素、规定转化趋势。"
+            },
+            // 第25题（多选）
+            {
+                id: 48,
+                type: "multi",
+                unit: "第一章",
+                question: "不仅要看到矛盾体系中存在主要矛盾，而且也要看到次要矛盾，体现的方法论是（ ）。",
+                options: [
+                    "A.\"两点论\"",
+                    "B.\"重点论\"",
+                    "C.注重牵住\"牛鼻子\"",
+                    "D.注重总体谋划"
+                ],
+                answer: ["A", "D"],
+                explanation: "兼顾主次要矛盾体现\"两点论\"和总体谋划的方法论要求。"
+            },
+            // 第26题（多选）
+            {
+                id: 49,
+                type: "multi",
+                unit: "第一章",
+                question: "唯物辩证法是（ ）与（ ）的统一。",
+                options: [
+                    "A.主要矛盾",
+                    "B.主观辩证法",
+                    "C.客观辩证法",
+                    "D.次要矛盾"
+                ],
+                answer: ["B", "C"],
+                explanation: "唯物辩证法是主观辩证法与客观辩证法的统一。"
+            },
+            // 第27题（多选）
+            {
+                id: 50,
+                type: "multi",
+                unit: "第一章",
+                question: "辩证否定观的基本内容体现在（ ）。",
+                options: [
+                    "A.否定是事物的自我否定、自我发展，是事物内部矛盾运动的结果",
+                    "B.否定是事物发展的环节，是旧事物向新事物的转变，是从旧质到新质的飞跃",
+                    "C.否定是新旧事物联系的环节，新事物孕育产生于旧事物，新旧事物是通过否定环节联系起来的",
+                    "D.辩证否定的实质是\"扬弃\""
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "辩证否定观包括自我否定、发展环节、联系环节和扬弃四个基本内容。"
+            },
+            // 第28题（多选）
+            {
+                id: 51,
+                type: "multi",
+                unit: "第一章",
+                question: "唯物辩证法就其本质来说是批判的、革命的，因为它（ ）。",
+                options: [
+                    "A.对现存事物的必然灭亡的理解",
+                    "B.对每一种既成的形式都从其暂时性方面去理解",
+                    "C.认为事物变化发展只有间断性，没有连续性",
+                    "D.对现存事物的肯定的理解中包含对现存事物的否定的理解"
+                ],
+                answer: ["A", "B", "D"],
+                explanation: "唯物辩证法的批判性和革命性体现在对事物暂时性、必然灭亡和肯定中包含否定的理解上。"
+            },
+            // 第29题（多选）
+            {
+                id: 52,
+                type: "multi",
+                unit: "第一章",
+                question: "鲁迅说过：\"描神画鬼，毫无对证，本可以专靠神思，所谓'天马行空'地挥写了。然而他们写出来的却是三只眼、长颈子，也就是在正常的人体身上增加了眼睛一只，拉长了颈子二三尺而已。\"这段话说明，人们头脑中的鬼神观念是（ ）。",
+                options: [
+                    "A.人的头脑中主观自生的",
+                    "B.人脑对客观世界的歪曲反映",
+                    "C.人脑对鬼神的虚幻反映",
+                    "D.可以从客观世界找到它的原型"
+                ],
+                answer: ["B", "D"],
+                explanation: "意识是对客观世界的反映，即使是歪曲反映也能在客观世界找到原型。"
+            },
+            // 第30题（多选）
+            {
+                id: 53,
+                type: "multi",
+                unit: "第一章",
+                question: "人工智能无法真正具有人的意识、不可能取代或超越人类智能的原因主要体现在（ ）。",
+                options: [
+                    "A.人类意识是知情意的统一体，而人工智能只是对人类的理性智能的模拟和扩展，不具备情感、信念、意志等人类意识形式",
+                    "B.社会性是人的意识所固有的本质属性，而人工智能不可能真正具备人类的社会属性",
+                    "C.人类的自然语言是思维的物质外壳和意识的现实形式，而人工智能难以完全具备理解自然语言真实意义的能力",
+                    "D.人工智能能够获得人类意识中可以化约为数字信号的内容，但人脑中总有许多东西是无法被化约的"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "人工智能在意识的社会性、情感性、语言理解等方面存在根本局限。"
+            },
+            // 第31题（多选）
+            {
+                id: 54,
+                type: "multi",
+                unit: "第一章",
+                question: "在事物新陈代谢的发展过程中，新事物是不可战胜的。这是因为（ ）。",
+                options: [
+                    "A.新事物有新的要素、结构和功能，适应已经变化了的环境和条件",
+                    "B.新事物既否定了旧事物中消极腐朽的东西，又保留了旧事物中合理的、适应新条件的因素，并添加了旧事物所不能容纳的新内容",
+                    "C.在社会历史领域，新事物从根本上符合人民群众的利益和要求，能够得到人民群众的拥护",
+                    "D.在社会急剧变革时期，新事物战胜旧事物表现得特别明显"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "三个选项从新事物的本质特征、辩证发展过程以及社会历史规律三个层面，揭示了新事物不可战胜的根本原因，而 D 选项属于现象描述，并非原因"
+            },
+            // 第32题（简答）
+            {
+                id: 55,
+                type: "short",
+                unit: "第一章",
+                question: "简述马克思主义的物质范畴及其理论意义。",
+                options: [],
+                answer: "（1）所谓物质，就是不依赖于人类的意识而存在，并能为人类的意识所反映的客观实在；所谓物质范畴，就是标志客观实在的哲学范畴。（2分）（2）马克思主义的物质范畴理论具有丰富而深刻的理论意义：第一，坚持了唯物主义一元论，同唯心主义一元论和二元论划清了界限。（2分）第二，坚持了能动的反映论和可知论，批判了不可知论。（2分）第三，体现了唯物论和辩证法的统一，克服了形而上学唯物主义的缺陷。（2分）第四，体现了唯物主义自然观与唯物主义历史观的统一，为彻底的唯物主义奠定了理论基础。（2分）",
+                explanation: "物质范畴从客观实在性角度定义物质，具有重要的哲学理论意义。"
+            },
+            // 第33题（简答）
+            {
+                id: 56,
+                type: "short",
+                unit: "第一章",
+                question: "简述意识的能动作用。",
+                options: [],
+                answer: "物质决定意识，意识对物质具有反作用，这种反作用就是意识的能动作用。（2分）第一，意识具有目的性和计划性。（2分）第二，意识具有创造性。（2分）第三，意识具有指导实践改造客观世界的作用。（2分）第四，意识具有调控人的行为和生理活动的作用。（2分）",
+                explanation: "意识具有指导实践、创造反映、调控行为等能动作用。"
+            },
+            // 第34题（简答）
+            {
+                id: 57,
+                type: "short",
+                unit: "第一章",
+                question: "简述量变与质变的含义及其辩证关系。",
+                options: [],
+                answer: "（1）含义：量变是事物数量的增减和组成要素排列次序的变动，是保持事物的质的稳定性的不显著变化，体现了事物发展渐进过程的连续性。（2分）质变是事物性质的根本变化，是事物由一种质态向另一种质态的飞跃，体现了事物发展渐进过程和连续性的中断。（2分）（2）量变和质变的辩证关系是：第一，量变是质变的必要准备。（2分）第二，质变是量变的必然结果。（2分）第三，量变和质变是相互渗透的。（2分）",
+                explanation: "量变和质变是事物发展的两种状态，相互依存、相互转化。"
+            },
+            // 第35题（论述）
+            {
+                id: 58,
+                type: "short",
+                unit: "第一章",
+                question: "正确认识和把握物质与意识的辩证关系，还需要处理好主观能动性和客观规律性的关系。试述如何在坚持遵循客观规律与发挥主观能动性相统一中充分发扬历史主动精神。",
+                options: [],
+                answer: "（1）一方面，尊重客观规律是正确发挥主观能动性的前提。规律是事物变化发展过程中本身所固有的内在的、本质的、必然的联系。人们只有在认识和掌握客观规律的基础上，才能正确地认识世界，有效地改造世界。另一方面，只有充分发挥主观能动性，才能正确认识和利用客观规律。承认规律的客观性，并不是说人在规律面前无能为力、无所作为。因此，尊重事物发展的客观规律性与发挥人的主观能动性是辩证统一的，实践是客观规律性与主观能动性统一的基础。（5分）（2）正确发挥人的主观能动性，有以下三个方面的前提和条件：第一，从实际出发是正确发挥人的主观能动性的前提。第二，实践是正确发挥人的主观能动性的根本途径。第三，正确发挥人的主观能动性，还要依赖于一定的物质条件和物质手段（5分）坚持遵循客观规律与发挥主观能动性相统一，要求充分发扬历史主动精神。历史主动精神是基于对历史发展规律的深刻认识和把握而表现出的一种积极、能动、进取的精神状态。发扬历史主动精神，意味着要遵循历史客观规律，主动积极作为，以历史主体的主人翁精神自觉促进社会进步与历史发展；意味着要坚持用马克思主义的立场观点方法观察时代、把握时代、引领时代，在机遇面前主动出击，不犹豫、不观望，在困难面前迎难而上，不推诿、不逃避，在风险面前积极应对，不畏缩、不躲闪；意味着要在砥砺奋进中把人们的主观力量最大限度地释放出来，把更为主动的精神力量充分发挥岀来，赢得历史主动，赢得美好未来。（5分）",
+                explanation: "坚持客观规律性与主观能动性统一，在历史实践中主动作为。"
+            },
+            // 第36题（论述）
+            {
+                id: 59,
+                type: "short",
+                unit: "第一章",
+                question: "请结合我国实际，试述矛盾的普遍性和特殊性辩证关系原理及其方法论意义。",
+                options: [],
+                answer: "P46-47矛盾的普遍性是指矛盾存在于一切事物中，存在于一切事物发展过程的始终，即矛盾无处不在，无时不有。但是，不同事物的矛盾又是具体的，特殊的，即矛盾有其特殊性。(1)矛盾的普遍性和矛盾的特殊性是辩证统一的关系。(2)矛盾的普遍性即矛盾的共性，矛盾的特殊性即矛盾的个性。矛盾的共性是无条件的、绝对的，矛盾的个性是有条件的、相对的。任何现实存在的事物都是共性和个性的有机统一，共性寓于个性之中，没有离开个性的共性，也没有离开共性的个性。(3)矛盾的共性和个性、绝对和相对的道理，是关于事物矛盾问题的精髓，是正确理解矛盾学说的关键。矛盾的共性和个性相统一的关系，既是客观事物固有的辩证法，也是科学的认识方法。意义: 矛盾的普遍性和特殊性辩证关系的原理是马克思主义的普遍真理同各的具体实际相结合的哲学基础，也是建设中国特色社会主义的哲学基础。中国共产党坚持把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合，不断推进马克思主义中国化时代化，取得一系列重大理论成果，指引中国革命、建设、改革取得伟大胜利，同时又用中国经验和理论创新丰富发展了马克思主义。",
+                explanation: "矛盾普遍性和特殊性关系原理是马克思主义中国化的哲学基础。"
+            },
+
+            {
+                id: 60,
+                type: "single",
+                unit: "第二章",
+                question: "真理与价值统一的基础是（    ）。",
+                options: [
+                    "A.认识",
+                    "B.发明",
+                    "C.创新",
+                    "D.实践"
+                ],
+                answer: ["D"],
+                explanation: "实践是真理与价值统一的基础，因为实践是认识的来源和检验标准，也是价值实现的途径。"
+            },
+            {
+                id: 61,
+                type: "single",
+                unit: "第二章",
+                question: "马克思提出，哲学家们只是用不同的方式解释世界，而问题在于改变世界的著作是（    ）。",
+                options: [
+                    "A.《自然辩证法》",
+                    "B.《德意志意识形态》",
+                    "C.《关于费尔巴哈的提纲》",
+                    "D.《共产党宣言》"
+                ],
+                answer: ["C"],
+                explanation: "《关于费尔巴哈的提纲》强调实践对认识的决定作用，提出改变世界而非仅解释世界。"
+            },
+            {
+                id: 62,
+                type: "single",
+                unit: "第二章",
+                question: "‘社会一旦有技术上的需要，这种需要就会比十所大学更能把科学推向前进。’恩格斯的这段话是指（    ）。",
+                options: [
+                    "A.实践是认识发展的动力",
+                    "B.实践为认识提供了可能",
+                    "C.实践使认识得以产生和发展",
+                    "D.实践是检验认识真理性的唯一标准"
+                ],
+                answer: ["A"],
+                explanation: "实践需求推动科学进步，体现实践是认识发展的根本动力。"
+            },
+            {
+                id: 63,
+                type: "single",
+                unit: "第二章",
+                question: "马克思说：‘人的思维是否具有客观的真理性，这不是一个理论的问题，而是一个实践的问题。’这段话的意思是（    ）。",
+                options: [
+                    "A.实践产生了认识的需要",
+                    "B.实践为认识提供了可能",
+                    "C.实践使认识得以产生和发展",
+                    "D.实践是检验认识真理性的唯一标准"
+                ],
+                answer: ["D"],
+                explanation: "实践是检验真理的唯一标准，真理需通过实践验证其现实性和力量。"
+            },
+            {
+                id: 64,
+                type: "single",
+                unit: "第二章",
+                question: "习近平指出：‘我们党现阶段提出和实施的理论和路线方针政策，之所以正确，就是因为它们都是以我国现时代的社会存在为基础的。’这段话说明（    ）。",
+                options: [
+                    "A.实践是认识的来源",
+                    "B.实践是认识的发展动力",
+                    "C.实践是认识的目的",
+                    "D.实践是检验真理性的唯一标准"
+                ],
+                answer: ["A"],
+                explanation: "理论政策以社会存在为基础，体现实践是认识的来源。"
+            },
+            {
+                id: 65,
+                type: "single",
+                unit: "第二章",
+                question: "在认识的本质问题上，存在的两条根本对立的认识路线是（    ）。",
+                options: [
+                    "A.唯物辩证法和形而上学的对立",
+                    "B.可知论和不可知论的对立",
+                    "C.唯物主义路线和唯心主义路线的对立",
+                    "D.能动的反映论和直观的反映论的对立"
+                ],
+                answer: ["C"],
+                explanation: "唯物主义与唯心主义在认识论上的根本对立是哲学的基本问题。"
+            },
+            {
+                id: 66,
+                type: "single",
+                unit: "第二章",
+                question: "习近平指出：‘如果能将理论高度与实践深度有机地结合起来，就能更好地做好领导工作。’这段话说明（    ）。",
+                options: [
+                    "A.理性认识依赖感性认识",
+                    "B.感性认识有待于上升到理性认识",
+                    "C.感性认识上升到理性认识要具备一定条件",
+                    "D.感性认识和理性认识是辩证统一关系"
+                ],
+                answer: ["D"],
+                explanation: "理论与实践结合体现感性认识与理性认识的辩证统一。"
+            },
+            {
+                id: 67,
+                type: "single",
+                unit: "第二章",
+                question: "实践作为检验认识真理性的标准的确定性即绝对性，是指实践作为检验认识真理性标准的（    ）。",
+                options: [
+                    "A.客观性",
+                    "B.真实性",
+                    "C.唯一性",
+                    "D.条件性"
+                ],
+                answer: ["C"],
+                explanation: "实践是唯一能检验真理的标准，其确定性体现为唯一性。"
+            },
+            {
+                id: 68,
+                type: "single",
+                unit: "第二章",
+                question: "‘没有革命的理论就没有革命的运动，没有正确的理论就没有正确的行动。’这一论断的含义是（    ）。",
+                options: [
+                    "A.革命理论比革命运动更重要",
+                    "B.革命理论派生出了革命运动",
+                    "C.革命理论对革命运动具有指导意义",
+                    "D.革命理论最终决定革命运动的成败"
+                ],
+                answer: ["C"],
+                explanation: "理论对实践具有指导作用，但实践是决定性的。"
+            },
+            {
+                id: 69,
+                type: "single",
+                unit: "第二章",
+                question: "当客体能满足主体的某种需要时，客体对于主体就有价值。而在实践中，人们往往会由于特定条件下的特殊需要而实现它的某一种或几种价值，同时却要放弃它的其他价值。这体现了价值的（    ）。",
+                options: [
+                    "A.客观性",
+                    "B.主体性",
+                    "C.社会历史性",
+                    "D.多维性"
+                ],
+                answer: ["D"],
+                explanation: "价值的多维性指客体可满足不同主体的多种需求。"
+            },
+            {
+                id: 70,
+                type: "single",
+                unit: "第二章",
+                question: "承载着一个民族、一个国家的精神追求，体现着一个社会评判是非曲直的价值标准是（    ）。",
+                options: [
+                    "A.价值观",
+                    "B.核心价值观",
+                    "C.社会主义核心价值观",
+                    "D.社会主义核心价值体系"
+                ],
+                answer: ["B"],
+                explanation: "核心价值观是民族精神追求和价值评判的根本标准。"
+            },
+            {
+                id: 71,
+                type: "single",
+                unit: "第二章",
+                question: "习近平指出：‘我国正处于并将长期处于社会主义初级阶段，我们不能做超越阶段的事情，而是要根据现有条件把能做的事情做起来，积小胜为大胜。’这段话说明（    ）。",
+                options: [
+                    "A.自由是绝对的",
+                    "B.自由是相对的",
+                    "C.自由可以忽视历史和具体条件",
+                    "D.自由是随心所欲的"
+                ],
+                answer: ["B"],
+                explanation: "自由的相对性强调受历史条件和实践限制。"
+            },
+            {
+                id: 72,
+                type: "single",
+                unit: "第二章",
+                question: "（    ）是马克思主义认识论的根本要求。",
+                options: [
+                    "A.一切从实际出发",
+                    "B.对立统一",
+                    "C.感性认识",
+                    "D.理性认识"
+                ],
+                answer: ["A"],
+                explanation: "一切从实际出发是马克思主义认识论的核心要求。"
+            },
+            {
+                id: 73,
+                type: "single",
+                unit: "第二章",
+                question: "（    ）是中国共产党思想路线的核心。",
+                options: [
+                    "A.与时俱进",
+                    "B.实事求是",
+                    "C.解放思想",
+                    "D.一切从实际出发"
+                ],
+                answer: ["B"],
+                explanation: "实事求是是中国共产党思想路线的核心原则。"
+            },
+            {
+                id: 74,
+                type: "single",
+                unit: "第二章",
+                question: "‘蜜蜂建筑蜂房的本领使人间的许多建筑师感到惭愧。但是，最蹩脚的建筑师从一开始就比最灵巧的蜜蜂高明的地方，是他在用蜂蜡建筑蜂房以前，已经在自己的头脑中把它建成了。’马克思这句话体现了实践的（    ）。",
+                options: [
+                    "A.自觉能动性",
+                    "B.物质性",
+                    "C.客观性",
+                    "D.社会历史性"
+                ],
+                answer: ["A"],
+                explanation: "实践的自觉能动性体现为人的意识对实践活动的指导作用。"
+            },
+            {
+                id: 75,
+                type: "single",
+                unit: "第二章",
+                question: "面对夕阳西下，有的人脱口而出‘落霞与孤鹜齐飞，秋水共长天一色’，有的人则只能说一句‘哇，好美’。同样接触客观事物，由于理论准备不同，感受就可能大不一样。这一事实所蕴含的哲理是(    )。",
+                options: [
+                    "A.意识具有调控人的行为和生理活动的作用",
+                    "B.人们的意识反作用于社会存在",
+                    "C.人的感觉是渗透着理性的感觉",
+                    "D.感性认识以理性认识为基础"
+                ],
+                answer: ["C"],
+                explanation: "理性认识影响感性体验，体现感觉与理性的统一。"
+            },
+            {
+                id: 76,
+                type: "single",
+                unit: "第二章",
+                question: "同一个物理学规律可以用不同的数学公式或语言文字的形式加以表述，而这一规律本身不会随之改变，这说明(    )。",
+                options: [
+                    "A.真理本身就是客观事物及其规律",
+                    "B.真理的内容和形式都是客观的",
+                    "C.真理形式的多样性并不否认真理内容的客观性",
+                    "D.真理离开人的意识、思维而独立存在"
+                ],
+                answer: ["C"],
+                explanation: "真理的形式多样，但内容的客观性不受影响。"
+            },
+            {
+                id: 77,
+                type: "single",
+                unit: "第二章",
+                question: "没有进入人们视野的客观事物不会与人构成价值关系，对人也不具有现实的价值。随着实践和认识的发展，人们发现了更多的客体，掌握了它们的属性，从而在主客体的相互作用中把客体潜在的价值转化为现实的价值。这说明主客体之间的价值关系是(    )。",
+                options: [
+                    "A.一种自然的现成关系",
+                    "B.主体在实践基础上确立的同客体之间的一种创造性关系",
+                    "C.主体需要与客体属性之间随机相遇的关系",
+                    "D.由人的主观愿望决定的"
+                ],
+                answer: ["B"],
+                explanation: "价值关系是在实践基础上主体与客体的创造性互动。"
+            },
+            {
+                id: 78,
+                type: "multi",
+                unit: "第二章",
+                question: "人与世界的关系主要包括两个方面：（ ）。",
+                options: [
+                    "A.认识世界",
+                    "B.认识历史",
+                    "C.改造世界",
+                    "D.改造历史"
+                ],
+                answer: ["A", "C"],
+                explanation: "人与世界的关系是认识世界和改造世界的统一。"
+            },
+            {
+                id: 79,
+                type: "multi",
+                unit: "第二章",
+                question: "实践的基本特征包括（ ）。",
+                options: [
+                    "A.物质性",
+                    "B.自觉能动性",
+                    "C.社会历史性",
+                    "D.客观实在性"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "实践的物质性、自觉能动性和社会历史性是其基本特征。"
+            },
+            {
+                id: 82,
+                type: "multi",
+                unit: "第二章",
+                question: "感性认识和理性认识密切相关，主要体现在（ ）。",
+                options: [
+                    "A.理性认识依赖于感性认识",
+                    "B.感性认识有待于深化和发展为理性认识",
+                    "C.感性认识和理性认识相互包含",
+                    "D.感性认识和理性认识相互渗透"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "感性认识和理性认识在实践基础上相互依赖、相互转化、相互渗透。"
+            },
+            {
+                id: 83,
+                type: "multi",
+                unit: "第二章",
+                question: "感性认识上升为理性认识所具备的条件是（ ）。",
+                options: [
+                    "A.投身实践，深入调查，获取合乎实际的感性材料",
+                    "B.将感性材料整理后，用来指导实践",
+                    "C.坚持理论和实际相结合的原则",
+                    "D.经过思考的作用，运用理论思维和科学抽象对感性材料进行加工"
+                ],
+                answer: ["A", "D"],
+                explanation: "感性材料的加工需要通过实践获取真实数据，并通过科学抽象形成理性认识。"
+            },
+            {
+                id: 84,
+                type: "multi",
+                unit: "第二章",
+                question: "毛泽东指出：“实践、认识、再实践、再认识，循环往复以至无穷，而实践和认识之每一循环的内容，都比较地进到了高一级的程度。”这段话说明（ ）。",
+                options: [
+                    "A.人们在实践中对真理的认识永远没有完结",
+                    "B.认识过程不是封闭式的循环，也不是直线式的发展",
+                    "C.认识过程是沿着科学性方向不断深化发展的过程",
+                    "D.认识过程是反复循环和无限发展的过程"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "毛泽东揭示了认识过程的无限性和螺旋式上升特性。"
+            },
+            {
+                id: 85,
+                type: "multi",
+                unit: "第二章",
+                question: "习近平强调，“马克思主义就是我们共产党人的‘真经’，‘真经’没念好，总想着‘西天取经’，就要贻误大事！不了解、不熟悉马克思主义基本原理，就不可能真正了解和掌握中国特色社会主义理论体系。”这段话说明（ ）。",
+                options: [
+                    "A.马克思主义正确反映了人类社会的发展规律",
+                    "B.在实践中我们必须以马克思主义为指导",
+                    "C.马克思主义经典作家并没有穷尽真理",
+                    "D.在实践中我们必须丰富和发展马克思主义"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "马克思主义是行动指南，需要结合实践不断创新和发展。"
+            },
+            {
+                id: 86,
+                type: "multi",
+                unit: "第二章",
+                question: "价值评价是一种关于价值现象的认识活动，其特点有（ ）。",
+                options: [
+                    "A.评价结果与评价主体直接相关",
+                    "B.评价是以主客体之间的价值关系为认识对象",
+                    "C.评价结果的正确与否依赖于对客体状况和主体需要的认识",
+                    "D.由于主体的差异，导致价值评价是一种没有任何客观标准的评价"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "价值评价具有主体性，但并非完全缺乏客观标准。"
+            },
+            {
+                id: 87,
+                type: "multi",
+                unit: "第二章",
+                question: "习近平指出：“实践没有止境，理论创新也没有止境。世界每时每刻都在发生变化，中国也每时每刻都在发生变化，我们必须在理论上跟上时代。”这段话说明（ ）。",
+                options: [
+                    "A.实践与认识的辩证运动是循环往复以至无穷的辩证发展过程",
+                    "B.经过两次飞跃，实践与认识的运动既完成了又没有完成",
+                    "C.正确的认识需要从实践到认识再从认识到实践的多次反复才能完成",
+                    "D.认识过程是一个波浪式前进和螺旋式上升的过程"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "实践和认识的互动是动态的、无限的，需不断调整和深化。"
+            },
+            {
+                id: 88,
+                type: "multi",
+                unit: "第二章",
+                question: "何谓实事求是？（ ）",
+                options: [
+                    "A.“实事”就是客观存在着的一切事物",
+                    "B.“是”就是客观事物的内部联系，即规律性",
+                    "C.“求”就是我们去研究",
+                    "D.即从客观存在着的“实事”中找到事物运动变化发展的规律"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "实事求是的核心是尊重客观规律并主动探索。"
+            },
+            {
+                id: 89,
+                type: "multi",
+                unit: "第二章",
+                question: "马克思主义认识论认为，认识的主体与客体之间的关系体现为（ ）。",
+                options: [
+                    "A.认识与被认识的关系",
+                    "B.改造与被改造的关系",
+                    "C.主从关系",
+                    "D.一般与个别的关系"
+                ],
+                answer: ["A", "B"],
+                explanation: "主体与客体在实践和认识中形成双向关系。"
+            },
+            {
+                id: 90,
+                type: "multi",
+                unit: "第二章",
+                question: "在认识的本质问题上，各种哲学派别有着不同的观点。其中，旧唯物主义认识论的缺陷在于(    )。",
+                options: [
+                    "A.没有坚持从物到感觉和思想的认识路线",
+                    "B.离开实践考察认识问题，不了解实践对认识的决定作用",
+                    "C.离开辩证法考察认识问题，不了解认识的辩证本性",
+                    "D.把人的认识看成是消极地、被动地反映"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "旧唯物主义忽视了实践和辩证法在认识中的作用。"
+            },
+            {
+                id: 91,
+                type: "multi",
+                unit: "第二章",
+                question: "自古以来，哲学家们都把真理看作认识所追求的目标，但在对真理的理解上却存在着重大的分歧和尖锐的对立。以下对于真理的描述属于唯心主义真理观的有（    ）。",
+                options: [
+                    "A.真理是人的意识与客观事物相符合",
+                    "B.真理是观念与主体感觉相符合",
+                    "C.真理是思维与它的先验形式相一致",
+                    "D.真理是‘绝对理念’的自我显现"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "唯心主义真理观脱离物质和实践，强调主观性。"
+            },
+            {
+                id: 92,
+                type: "multi",
+                unit: "第二章",
+                question: "马克思科学阐明了人类实践的本质和作用，创立了科学的实践观。科学实践观的创立和发展具有十分重要的意义，主要表现在(    )。",
+                options: [
+                    "A.克服了旧唯物主义的根本缺陷，为辩证唯物主义的创立奠定了科学的理论基础",
+                    "B.揭示了实践对认识的决定作用，为能动的、革命的反映论的创立奠定了科学的理论基础",
+                    "C.在人类思想史上第一次揭示了社会生活的实践本质，为唯物史观的创立奠定了科学的理论基础",
+                    "D.为人们能动地认识世界和改造世界提供了基本的思想方法和工作方法"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "科学实践观是马克思主义理论体系的重要支柱。"
+            },
+            {
+                id: 93,
+                type: "multi",
+                unit: "第二章",
+                question: "努力实现理论创新和实践创新的良性互动，要深刻认识到(    )。",
+                options: [
+                    "A.守正创新彰显着党的理论创新和实践创新的时代要求",
+                    "B.实践创新为理论创新提供不竭的动力源泉",
+                    "C.理论创新为实践创新提供科学的行动指南",
+                    "D.理论创新是获得新认识的源泉"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "理论创新与实践创新相辅相成，需动态平衡。"
+            },
+            {
+                id: 94,
+                type: "short",
+                unit: "第二章",
+                question: "简述真理的客观性、绝对性和相对性。",
+                answer: [
+                    "（1）真理的客观性指真理的内容是对客观事物及其规律的正确反映，真理中包含着不依赖于人和人的意识的客观内容。（4分）",
+                    "（2）真理的绝对性是指真理主客观统一的确定性和发展的无限性。（2分）",
+                    "（3）真理的相对性是指人们在一定条件下对客观事物及其本质和发展规律的正确认识总是有限度的、不完善的。（4分）"
+                ],
+                explanation: "真理的三性体现了真理的客观基础和认识的动态过程。"
+            },
+            {
+                id: 95,
+                type: "short",
+                unit: "第二章",
+                question: "简述真理与价值的辩证关系。",
+                answer: [
+                    "真理和价值是紧密联系，不可分割的辩证统一关系。（2分）",
+                    "首先，价值尺度以真理为前提。要达到实践目的满足人类自身需要必须认识真理，掌握真理。（2分）",
+                    "其次，人类自身需要的内在尺度，推动着人们不断发现新的真理。（2分）",
+                    "最后，真理和价值尺度的统一随着实践的发展而发展，真理由相对转向绝对，人的需要和利益也日益多元化。（2分）",
+                    "真理尺度与价值尺度是否达到了具体的、历史的统一，必须通过实践来验证。（2分）"
+                ],
+                explanation: "真理与价值在实践中相互依存、相互促进。"
+            },
+            {
+                id: 96,
+                type: "short",
+                unit: "第二章",
+                question: "简述实践在认识活动中的决定作用。",
+                answer: [
+                    "第一，实践是认识的来源。认识的内容是在实践活动的基础上产生和发展的。离开实践的认识是不可能产生的。一切真知都是从直接经验发源的。",
+                    "第二，实践是认识发展的动力。实践的需要推动认识的产生和发展，推动人类的科学发现和技术发明，推动人类的思想进步和理论创新。",
+                    "第三，实践是认识的目的。人们通过实践获得认识，不是“猎奇”或“雅兴”，不是为认识而认识，其最终目的是为实践服务，指导实践，以满足人们生活和生产的需要。",
+                    " 第四，实践是检验认识真理性的唯一标准。认识是否具有真理性，既不能从认识本身得到证实，也不能从认识对象中得到回答，只有在实践中才能得到验证。"
+                ],
+                explanation: "实践对认识的决定作用体现在全过程。"
+            },
+            {
+                id: 97,
+                type: "short",
+                unit: "第二章",
+                question: "试述认识世界、改造世界及其辩证关系。",
+                options: [],
+                answer: [
+                    "认识世界，就是主体能动地反映客体，获得关于事物的本质和发展规律的科学知识，探索和掌握真理；改造世界，就是人类按照有利于自己生存和发展的需要，改变事物的现存形式，创造自己的理想世界和生活方式。（5分）",
+                    "认识世界和改造世界是相互依赖、相互制约的辩证统一关系。一方面，认识世界有助于改造世界，正确认识世界是有效改造世界的必要前提；另一方面，人们只有在改造世界的实践中才能不断地深化、拓展对世界的正确认识。（5分）",
+                    "认识世界和改造世界是一个充满矛盾的过程。世界不会自动满足人的需求，人也不会满足于世界的现存形式，因而主观和客观经常处于矛盾状态之中。主观和客观的矛盾是人类认识和实践活动中的基本矛盾，也是人类认识世界和改造世界的根本动力。（5分）"
+                ],
+                explanation: "认识世界与改造世界在实践中相互依存、相互促进，体现了马克思主义实践观的核心思想。"
+            },
+            {
+                id: 98,
+                type: "short",
+                unit: "第二章",
+                question: "毛泽东指出：‘马克思主义的哲学认为十分重要的问题，不在于懂得了客观世界的规律性，因而能够解释世界，而在于拿了这种对于客观规律性的认识去能动地改造世界。’请从认识过程的角度试述你对这段话的理解。",
+                options: [],
+                answer: [
+                    "从实践到认识，认识的过程还没有完成。从认识到实践的飞跃，是更为重要的飞跃，意义更加重大，其必要性和重要性在于以下两方面：（2分）",
+                    "第一，认识世界的目的是改造世界。从感性认识上升到理性认识的第一次飞跃，认识的结果仍然是观念的存在，把观念的存在转变成现实的存在，必须经过从认识到实践的飞跃。（5分）",
+                    "第二，认识的真理性只有在实践中才能得到检验和发展。理论是否正确，在从感性认识到理性认识的第一次飞跃中，是没有得到证实也不可能得到证实的。只有将已经获得的理论运用到实践中去，通过实践的检验, 正确的理论才能得到证实，错误的理论才能被发现、纠正或推翻，并在指导实践、实现自身的过程中得到完善和发展。这就是检验理论和发展理论的过程，是整个认识过程的继续。如果没有这个阶段，对事物的认识就还没有完成。（5分）",
+                    "实现由认识向实践的飞跃，需要经过一定的中介环节，包括确定实践目的；形成实践理念；制定实践方案；进行中间实验；运用科学的实践方法等。（3分）"
+                ],
+                explanation: "毛泽东强调实践的重要性，说明认识的真正价值在于指导实践改造世界。"
+            },
+            {
+                id: 99,
+                type: "short",
+                unit: "第二章",
+                question: "试述实践为什么能够成为检验真理的唯一标准。",
+                options: [],
+                answer: [
+                    "实践之所以能够作为检验真理的唯一标准，是由真理的本性和实践的特点决定的。（3分）",
+                    "第一，从真理的本性看，真理是人们对客观事物及其发展规律的正确反映，它的本性在于主观和客观相符合。检验真理就是检验人的主观认识同客观实际是否相符合以及符合的程度。主观认识本身不能自称正确而将自身作为检验真理的标准，因为用一种认识去检验另一种认识，仍然是在主观范围内兜圈子，达不到检验的目的。不承认这一点，依然会陷入主观真理标准论。同样，检验主观认识同客观实际是否相符合，在认识的客观对象的范围内也无法解决，因为客观事物作为认识的对象，其自身不会也不可能回答人的认识是否同它相符合的问题。可见，检验真理的标准，既不能是主观认识本身，也不能是客观事物，只能是作为主客观联系的桥梁、纽带或“交错点”的社会实践。（6分）",
+                    "第二，从实践的特点看，实践具有直接现实性。实践的直接现实性是它的客观实在性的具体表现。实践能够把一定的认识、理论变成直接的、实实在在的现实，把主观的东西变为客观的东西。如果实践的结果与实践之前的认识和预想相符合，那么之前的认识就得到了证实，成为真理性的认识；相反，则是谬误性的认识。实践的直接现实性的品格，是实践能够成为检验真理唯一标准的主要根据。（6分）"
+                ],
+                explanation: "实践的直接现实性使其成为检验真理的唯一标准，其他标准如逻辑证明只是辅助手段。"
+            },
+            {
+                id: 100,
+                type: "single",
+                unit: "第三章",
+                question: "社会历史观的基本问题是（ ）。",
+                options: [
+                    "A.存在与思维的关系问题",
+                    "B.社会存在与社会意识的关系问题",
+                    "C.物质与意识的关系问题",
+                    "D.生产力与生产关系的关系问题"
+                ],
+                answer: ["B"],
+                explanation: "社会历史观的基本问题是社会存在与社会意识的关系问题，这是划分历史唯物主义和历史唯心主义的根本标准。"
+            },
+            {
+                id: 101,
+                type: "single",
+                unit: "第三章",
+                question: "在对待社会历史发展及其规律问题上，历来存在着两种根本对立的观点，这两种对立的观点是（ ）。",
+                options: [
+                    "A.唯物主义与唯心主义",
+                    "B.原始唯心主义与形而上学唯物主义",
+                    "C.唯物史观与唯心史观",
+                    "D.唯我论与不可知论"
+                ],
+                answer: ["C"],
+                explanation: "唯物史观和唯心史观是历史观上两种根本对立的观点，前者认为社会存在决定社会意识，后者则相反。"
+            },
+            {
+                id: 102,
+                type: "single",
+                unit: "第三章",
+                question: "唯心史观的根本错误在于它片面夸大了（ ）。",
+                options: [
+                    "A.人的作用",
+                    "B.地理环境的作用",
+                    "C.物质生产的作用",
+                    "D.英雄人物的意识和意志的作用"
+                ],
+                answer: ["D"],
+                explanation: "唯心史观夸大英雄人物的意志作用，忽视人民群众和物质生产的决定性作用。"
+            },
+            {
+                id: 103,
+                type: "single",
+                unit: "第三章",
+                question: "（ ）是人类社会生活和全部历史的物质基础。",
+                options: [
+                    "A.生产力",
+                    "B.生产关系",
+                    "C.经济基础",
+                    "D.上层建筑"
+                ],
+                answer: ["A"],
+                explanation: "生产力是人类改造自然的物质力量，构成社会存在和发展的物质基础。"
+            },
+            {
+                id: 104,
+                type: "single",
+                unit: "第三章",
+                question: "生产力是指人们（ ）。",
+                options: [
+                    "A.改造客观世界的能力",
+                    "B.解决生产发展问题的能力",
+                    "C.掌握和运用知识的能力",
+                    "D.改造和影响自然的能力"
+                ],
+                answer: ["D"],
+                explanation: "生产力是人们在生产实践中形成的改造和影响自然的能力。"
+            },
+            {
+                id: 105,
+                type: "single",
+                unit: "第三章",
+                question: "区分社会经济时代的客观依据是（ ）。",
+                options: [
+                    "A.劳动者的素质",
+                    "B.生产工具",
+                    "C.生产管理的科学化程度",
+                    "D.科学技术水平"
+                ],
+                answer: ["B"],
+                explanation: "生产工具是生产力发展水平的客观尺度，也是区分不同经济时代的物质标志。"
+            },
+            {
+                id: 106,
+                type: "single",
+                unit: "第三章",
+                question: "下面关于生产力决定生产关系，理解不正确的是（ ）。",
+                options: [
+                    "A.生产力状况决定生产关系的性质",
+                    "B.生产关系是为适应生产力发展需要而产生的",
+                    "C.生产力的发展决定生产关系的变革",
+                    "D.生产关系必须完全适合生产力的发展才能存在"
+                ],
+                answer: ["D"],
+                explanation: "生产关系只需适合生产力发展要求即可存在，无需‘完全适合’，两者常存在部分矛盾。"
+            },
+            {
+                id: 107,
+                type: "single",
+                unit: "第三章",
+                question: "下列各项，哪一个不属于政治上层建筑（ ）。",
+                options: [
+                    "A.政治法律思想",
+                    "B.政党",
+                    "C.国家政权机构",
+                    "D.法庭"
+                ],
+                answer: ["A"],
+                explanation: "政治法律思想属于观念上层建筑（意识形态），政党、政权、法庭属于政治上层建筑实体。"
+            },
+            {
+                id: 108,
+                type: "single",
+                unit: "第三章",
+                question: "人口因素是构成社会物质生活条件的重要方面，它是指（ ）。",
+                options: [
+                    "A.人民群众的文化素质和道德觉悟",
+                    "B.人们从事生产劳动的积极性和创造性",
+                    "C.人口的分布状况和受教育程度",
+                    "D.人口的数量、素质和结构等状况对社会发展的制约和影响作用"
+                ],
+                answer: ["D"],
+                explanation: "人口因素通过数量、质量、结构等对社会发展起加速或延缓作用，但不是决定性力量。"
+            },
+            {
+                id: 109,
+                type: "single",
+                unit: "第三章",
+                question: "地理环境在社会存在和发展中的重要作用表现在（ ）。",
+                options: [
+                    "A.它是划分社会经济形态的依据",
+                    "B.它是人类社会存在和发展的永恒的、必要的条件",
+                    "C.它是社会制度变更的决定力量",
+                    "D.它是社会性质的决定性因素"
+                ],
+                answer: ["B"],
+                explanation: "地理环境提供生存资源和生产条件，是社会发展的必要前提，但不决定社会性质和制度变更。"
+            },
+            {
+                id: 110,
+                type: "single",
+                unit: "第三章",
+                question: "中国特色社会主义进入新时代的重要标志和依据是（ ）。",
+                options: [
+                    "A.改革进入攻坚阶段",
+                    "B.新的主要矛盾的形成和出现",
+                    "C.全面建成小康社会目标的实现",
+                    "D.经济发展进入新常态"
+                ],
+                answer: ["B"],
+                explanation: "社会主要矛盾转化为‘人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾’是新时代的根本标志。"
+            },
+            {
+                id: 111,
+                type: "single",
+                unit: "第三章",
+                question: "以习近平同志为核心的党中央提出坚持以人民为中心的思想，创造性地运用和发展了唯物史观关于（ ）。",
+                options: [
+                    "A.生产关系要适应生产力发展的基本原理",
+                    "B.社会历史发展基本规律原理",
+                    "C.人民群众创造历史的基本原理",
+                    "D.社会意识具有相对独立性的原理"
+                ],
+                answer: ["C"],
+                explanation: "以人民为中心的思想深化了唯物史观关于人民群众是历史创造者的原理。"
+            },
+            {
+                id: 112,
+                type: "single",
+                unit: "第三章",
+                question: "社会意识形态是指（ ）。",
+                options: [
+                    "A.个人意识和群体意识的总和",
+                    "B.包括社会心理在内的不同层次的社会意识的总和",
+                    "C.政治法律思想、道德、宗教、艺术、哲学等",
+                    "D.社会科学、自然科学和思维科学所构成的意识形态总和"
+                ],
+                answer: ["C"],
+                explanation: "社会意识形态是反映经济基础的系统化思想体系，包括政治法律思想、道德、宗教等具体形式。"
+            },
+            {
+                id: 113,
+                type: "single",
+                unit: "第三章",
+                question: "阶级斗争对阶级社会发展的推动作用突出地表现在（ ）。",
+                options: [
+                    "A.自每个新社会诞生以后的整个发展过程中",
+                    "B.社会形态的更替中",
+                    "C.每一个社会的各个发展阶段",
+                    "D.某个社会阶段完结以前的瞬间"
+                ],
+                answer: ["B"],
+                explanation: "阶级斗争通过革命实现社会形态更替，是推动阶级社会发展的直接动力。"
+            },
+            {
+                id: 114,
+                type: "single",
+                unit: "第三章",
+                question: "（ ）是一定社会为了解决社会基本矛盾而对生产关系和上层建筑进行的深刻的改变和革新，它是社会制度的自我调整和完善，是同一种社会形态发展过程中的量变和部分质变，是推动社会发展的又一重要动力。",
+                options: [
+                    "A.革命",
+                    "B.改革",
+                    "C.发展",
+                    "D.变化"
+                ],
+                answer: ["B"],
+                explanation: "改革是在社会根本制度不变的前提下，对生产关系和上层建筑的自我完善，是社会发展的重要动力。"
+            },
+            {
+                id: 115,
+                type: "single",
+                unit: "第三章",
+                question: "（ ）是先进生产力的集中体现和主要标志。",
+                options: [
+                    "A.劳动者",
+                    "B.劳动对象",
+                    "C.科学技术",
+                    "D.管理方式"
+                ],
+                answer: ["C"],
+                explanation: "科学技术渗透于生产力各要素，是衡量先进生产力的核心指标。"
+            },
+            {
+                id: 116,
+                type: "single",
+                unit: "第三章",
+                question: "在马克思主义产生之前，（ ）是一直占统治地位的历史观。",
+                options: [
+                    "A.圣人史观",
+                    "B.唯物史观",
+                    "C.唯心史观",
+                    "D.神学史观"
+                ],
+                answer: ["C"],
+                explanation: "唯心史观长期占据主导，将精神或英雄意志视为历史决定因素，直到马克思创立唯物史观。"
+            },
+            {
+                id: 117,
+                type: "single",
+                unit: "第三章",
+                question: "（ ）与其他社会意识形式不同，它是以更为间接和抽象的方式反映社会存在的意识形式。",
+                options: [
+                    "A.哲学",
+                    "B.道德",
+                    "C.艺术",
+                    "D.宗教"
+                ],
+                answer: ["A"],
+                explanation: "哲学通过抽象概念和逻辑体系反映世界，是离经济基础最远的意识形态形式。"
+            },
+            {
+                id: 118,
+                type: "single",
+                unit: "第三章",
+                question: "生产关系反映的是人们在物质生产过程中形成的不以人的意志为转移的（ ）。",
+                options: [
+                    "A.经济关系",
+                    "B.政治关系",
+                    "C.思想关系",
+                    "D.血缘关系"
+                ],
+                answer: ["A"],
+                explanation: "生产关系本质上是物质利益关系，由生产力客观决定，不以人的主观意志为转移。"
+            },
+            {
+                id: 119,
+                type: "multi",
+                unit: "第三章",
+                question: "下列说法中，关于‘社会存在’的正确理解是（ ）。",
+                options: [
+                    "A.社会存在也就是指社会物质生活条件，或者说是社会生活的物质方面",
+                    "B.社会存在是指物质生活资料的生产及其生产方式",
+                    "C.社会存在是由社会意识所引导和决定的",
+                    "D.地理环境和人口因素也属于社会存在的范畴"
+                ],
+                answer: ["A", "B", "D"],
+                explanation: "社会存在包括生产方式（核心）、地理环境和人口因素，其中生产方式起决定作用，社会存在不依赖于社会意识。"
+            },
+            {
+                id: 120,
+                type: "multi",
+                unit: "第三章",
+                question: "社会意识的相对独立性主要表现在（ ）。",
+                options: [
+                    "A.社会意识对社会存在的反映有自身特有的发展形式和规律",
+                    "B.社会意识与社会存在的发展具有不平衡性，经济发展水平相对落后的国家，其社会意识的某些方面却可以领先于经济发达的国家或地区",
+                    "C.社会意识内部各种形式均有自成系统、前后相继的历史链条，也都有其发展的特殊规律",
+                    "D.社会意识对社会存在具有能动的反作用"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "社会意识相对独立性的四大表现：自身发展规律、发展不平衡性、历史继承性、能动反作用。"
+            },
+            {
+                id: 121,
+                type: "multi",
+                unit: "第三章",
+                question: "社会存在和社会意识辩证关系原理的重要意义在于（ ）。",
+                options: [
+                    "A.在人类思想史上第一次正确回答了社会历史观的基本问题",
+                    "B.宣告了唯心史观的彻底破产",
+                    "C.为科学揭示人类社会发展的规律，破解‘历史之谜’提供了理论依据",
+                    "D.对于推进社会发展包括社会文化建设具有重要指导意义"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "该原理是唯物史观的基石，解决了历史观基本问题，为社会科学和社会实践提供根本指导。"
+            },
+            {
+                id: 122,
+                type: "multi",
+                unit: "第三章",
+                question: "文化是社会意识的重要组成部分，文化对社会发展的重要作用主要表现在（ ）。",
+                options: [
+                    "A.文化为社会发展提供智力支持",
+                    "B.文化为社会发展提供凝聚力量",
+                    "C.文化为社会发展提供精神动力",
+                    "D.文化为社会发展提供思想指引"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "文化的四大功能：智力支持（科学知识）、凝聚力量（价值认同）、精神动力（理想激励）、思想指引（方向引导）。"
+            },
+            {
+                id: 123,
+                type: "multi",
+                unit: "第三章",
+                question: "人类社会是不断发展的，社会的根本性变革和进步是通过社会形态的更替实现的。社会形态的更替具有如下特征（ ）。",
+                options: [
+                    "A.社会形态的更替是统一性和多样性的统一",
+                    "B.社会形态的更替是必然性和人们的历史选择性的统一",
+                    "C.社会形态的更替是斗争性和曲折性的统一",
+                    "D.社会形态的更替是连续性和跨越性的统一"
+                ],
+                answer: ["A", "B", "D"],
+                explanation: "社会形态更替的三大特征：统一性（普遍规律）与多样性（具体形式）统一；必然性（客观规律）与历史选择性（主体能动）统一；连续性（渐进发展）与跨越性（特殊跃迁）统一。"
+            },
+            {
+                id: 124,
+                type: "multi",
+                unit: "第三章",
+                question: "马克思主义依据国家的性质和政权的组织形式，相应地将国家分为（ ）两个方面。",
+                options: [
+                    "A.国务",
+                    "B.国体",
+                    "C.政府",
+                    "D.政体"
+                ],
+                answer: ["B", "D"],
+                explanation: "国体（阶级性质，如无产阶级专政）决定国家类型，政体（政权组织形式，如人民代表大会制）是国体的实现形式。"
+            },
+            {
+                id: 125,
+                type: "multi",
+                unit: "第三章",
+                question: "理解经济基础的内涵要把握两点（ ）。",
+                options: [
+                    "A.社会的一定发展阶段上往往存在多种生产关系，但决定一个社会性质的是其中占支配地位的生产关系",
+                    "B.经济基础与经济体制具有内在联系",
+                    "C.它决定并且制约着参与社会发展过程中自然界发展的客观规律",
+                    "D.经济基础与上层建筑是辩证统一的"
+                ],
+                answer: ["A", "B"],
+                explanation: "经济基础的内涵要点：1）占支配地位的生产关系决定社会性质；2）经济体制是经济基础的具体实现形式。"
+            },
+            {
+                id: 126,
+                type: "multi",
+                unit: "第三章",
+                question: "根据交往内容和交往方式不同，人们把交往划分为各种不同的类型。总体来说，可以分为（ ）。",
+                options: [
+                    "A.商品交往",
+                    "B.财富交往",
+                    "C.物质交往",
+                    "D.精神交往"
+                ],
+                answer: ["C", "D"],
+                explanation: "物质交往（生产工具交换等）和精神交往（文化传播等）是人类交往的两大基本类型。"
+            },
+            {
+                id: 127,
+                type: "multi",
+                unit: "第三章",
+                question: "社会形态包括（ ），是三者具体的、历史的统一。",
+                options: [
+                    "A.经济形态",
+                    "B.政治形态",
+                    "C.意识形态",
+                    "D.文化形态"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "社会形态是经济基础（经济形态）与上层建筑（政治形态+意识形态）的统一体。"
+            },
+            {
+                id: 128,
+                type: "multi",
+                unit: "第三章",
+                question: "自然科学和语言学、逻辑形式等一部分社会科学属于非意识形态，原因在于它们（ ）。",
+                options: [
+                    "A.不具有社会经济形态和政治制度的性质",
+                    "B.不反映特定社会集团的利益和要求",
+                    "C.不服务于特定经济政治制度",
+                    "D.不服务于特定阶级"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "非意识形态的社会意识（如自然科学）无阶级性，不反映特定经济关系和阶级利益，具有全人类性。"
+            },
+            {
+                id: 129,
+                type: "multi",
+                unit: "第三章",
+                question: "规律的客观性并不否定人们历史活动的能动性，并不排斥人们在遵循社会发展规律的基础上，对于某种社会形态的历史选择性。人们的历史选择性包含（ ）。",
+                options: [
+                    "A.社会发展的必然性为人们的历史选择提供了基础、范围和可能性空间",
+                    "B.社会形态更替的过程是一个主观能动性与客观规律性相统一的过程",
+                    "C.人们的历史选择性归根结底是人民群众的选择性",
+                    "D.社会形态更替归根结底是社会基本矛盾运动的结果"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "历史选择性的四大内涵：必然性提供可能空间；主客观统一性；人民群众的主体性；社会基本矛盾的根本决定性。"
+            },
+            {
+                id: 130,
+                type: "multi",
+                unit: "第三章",
+                question: "人民群众是社会历史实践的主体，在创造历史中起决定性作用。主要体现在（ ）。",
+                options: [
+                    "A.人民群众是社会物质财富的创造者",
+                    "B.人民群众是社会文化财富的创造者",
+                    "C.人民群众是社会精神财富的创造者",
+                    "D.人民群众是社会变革的决定力量"
+                ],
+                answer: ["A", "C", "D"],
+                explanation: "人民群众的决定性作用：物质财富创造者（生产力主体）、精神财富创造者（文化源泉）、社会变革决定力量（革命主力）。"
+            },
+            {
+                id: 131,
+                type: "short",
+                unit: "第三章",
+                question: "简述物质资料的生产方式成为社会发展决定性力量的原因。",
+                options: [],
+                answer: [
+                    "（1）物质生产活动及生产方式是人类社会赖以存在和发展的基础，是人类其他一切活动的首要前提。（4分）",
+                    "（2）物质生产活动及生产方式决定着社会的结构、性质和面貌，制约着人们的经济生活、政治生活和精神生活等全部社会生活。（4分）",
+                    "（3）物质生产活动及生产方式的变化发展决定整个社会历史的变化发展，决定社会形态从低级向高级的更替和发展。（2分）"
+                ],
+                explanation: "答案参考教材P129"
+            },
+            {
+                id: 132,
+                type: "short",
+                unit: "第三章",
+                question: "简述社会存在和社会意识辩证关系的原理。",
+                options: [],
+                answer: [
+                    "（1）社会存在和社会意识是辩证统一的。社会存在决定社会意识，社会意识是社会存在的反映，并反作用于社会存在。（4分）",
+                    "（2）社会存在是社会意识内容的客观来源，社会意识是社会物质生活过程及其条件的主观反映。（2分）",
+                    "（3）社会意识是人们进行社会物质交往的产物。（2分）",
+                    "（4）社会意识是具体的、历史的。随着社会存在的发展，社会意识也相应地或早或迟地变化和发展。（2分）"
+                ],
+                explanation: "答案参考教材P131-132"
+            },
+            {
+                id: 133,
+                type: "short",
+                unit: "第三章",
+                question: "简述交往及其作用。",
+                options: [],
+                answer: [
+                    "交往是唯物史观的重要范畴，指在一定历史条件下的现实的个人、群体、阶级、民族、国家之间在物质和精神上相互往来、相互作用、彼此联系的活动。（2分）",
+                    "交往是人类实践活动的重要组成部分，对社会生活有着重要的影响。第一，促进生产力的发展。（2分）",
+                    "第二，促进社会关系的进步。（2分）第三，促进文化的发展与传播。（2分）第四，促进人的全面发展。（2分）"
+                ],
+                explanation: "答案参考教材P144-145"
+            },
+            {
+                id: 134,
+                type: "short",
+                unit: "第三章",
+                question: "结合上层建筑一定要适合经济基础状况的规律，试述中国目前积极稳妥推进上层建筑领域改革和发展的重要意义。",
+                options: [],
+                answer: ["（1）经济基础决定上层建筑。经济基础是上层建筑赖以产生、存在和发展的物质基础，上层建筑是经济基础得以确立统治地位并巩固和发展不可缺少的政治、思想条件。经济基础的性质决定上层建筑的性质，有什么样的经济基础就有什么样的上层建筑。经济基础的变更必然引起上层建筑的变革，并决定着其变革的方向。（4分）（2）上层建筑对经济基础具有能动的反作用。这主要表现在：上层建筑为自己的经济基础的形成和巩固服务，确立或维护其在社会中的统治地位。上层建筑的反作用可能是积极的进步的，也可能是消极的，当它为适合生产力发展要求的经济基础服务时，就成为推动社会发展的进步力量，反之，就会成为阻碍社会发展的消极力量。（4分）（3）经济基础和上层建筑之间的内在联系构成了上层建筑一定要适合经济基础状况的规律。经济基础状况决定上层建筑的发展方向，决定上层建筑相应的调整和变革，而不允许上层建筑长期落后于或不适应自己的发展；上层建筑的反作用也必须取决于和服从于经济基础的性质和客观要求，而不允许上层建筑脱离经济基础的发展状况和水平。（4分）（4）在当代中国，深入理解上层建筑一定要适合经济基础状况的规律，必须正确把握经济基础与上层建筑矛盾运动过程中存在的各种利益关系。在社会主义条件下，上层建筑对经济基础的保护从根本上说就是为了保障最广大人民群众的物质利益。所以，要坚持中国特色社会主义政治发展道路，积极稳妥地推进上层建筑领域的改革和发展，实现好、维护好、发展好最广大人民的根本利益。（3分）"],
+                explanation: "答案参考教材P142-143"
+            },
+            {
+                id: 135,
+                type: "short",
+                unit: "第三章",
+                question: "试述生产力与生产关系矛盾运动规律的原理及其重要的理论和现实意义。",
+                options: [],
+                answer: ["（1）原理内容：生产关系一定要适合生产力发展状况的规律，其基本内容包括：一方面，生产力的状况决定一定的生产关系的产生及其变化发展的方向和形式；另一方面，生产关系反作用于生产力，当生产关系适合生产力的状况时对生产力发展起着促进作用，反之将起着阻碍作用。生产力和生产关系的这种矛盾运动循环往复、不断推动社会生产发展，进而推动整个社会逐步走向高级阶段。（5分）（2）理论意义：这一原理在人类思想史上彻底否定了单纯以道德作为评判历史功过是非标准的思想体系，第一次科学地确立了生产力发展是“社会进步的最高标准”，并且把生产力和生产关系矛盾运动的规律作为判断时代变革的客观依据，为正确评价历史和现实中的事件、人物以及各种社会集团的理论、主张，为正确认识社会和历史提供了基本观点和方法。（5分）（3）现实意义：这一规律是马克思主义政党制定路线、方针、政策的重要依据。在全面深化改革中，要把坚持发展作为解决我国所有问题的关键，推动我国社会生产力不断向前发展，进而推动社会的全面进步和人的全面发展。（5分）"],
+                explanation: "答案参考教材P137-139"
+            },
+            {
+                id: 136,
+                type: "short",
+                unit: "第三章",
+                question: "试述科技革命如何成为推动经济和社会发展的强大杠杆，我国应该怎么做？",
+                options: [],
+                answer: ["每一次科技革命，都不同程度地引起了生产方式、生活方式和思维方式的深刻变化和社会的巨大进步。（2分）首先，对生产方式产生了深刻影响。其一，改变了社会生产力的构成要素。其二，改变了人们的劳动形式。其三，改变了社会经济结构，特别是导致产业结构发生变革。（3分）其次，对生活方式产生了巨大影响。现代科技革命把人们带入了信息时代，要求人们不断更新和充实知识，以适应时代发展的需要。（3分）最后，促进了思维方式的变革。现代科技革命对人的思维方式产生了重要影响，主要表现为新的科学理论和技术手段通过影响思维主体、思维客体和思维工具，引起了思维方式的变革。（3分）当今世界科学技术突飞猛进，一个国家、一个民族若能在科学技术上不断进步，就有可能实现社会经济的跨越式发展。为了迎接新一轮科技革命的挑战，我国应加强前瞻布局，加快产业结构调整升级和创新驱动发展，构筑一个具有先进技术基础的现代产业体系。（4分）"],
+                explanation: "答案参考教材P166-168"
+            },
+            {
+                "id": 137,
+                "type": "single",
+                "unit": "第四章",
+                "question": "1.商品的二因素是（ ）。",
+                "options": [
+                    "A.使用价值和价值",
+                    "B.价值和交换价值",
+                    "C.使用价值和交换价值",
+                    "D.价值和价值形式"
+                ],
+                "answer": ["A"],
+                "explanation": "商品二因素指使用价值（物的有用性）和价值（凝结的无差别人类劳动）。"
+            },
+            {
+                "id": 138,
+                "type": "single",
+                "unit": "第四章",
+                "question": "2.商品的价值量是由（ ）决定的。",
+                "options": [
+                    "A.个别劳动时间",
+                    "B.必要劳动时间",
+                    "C.社会必要劳动时间",
+                    "D.剩余劳动时间"
+                ],
+                "answer": ["C"],
+                "explanation": "价值量由社会必要劳动时间决定，即在正常生产条件下，社会平均劳动熟练程度下制造商品所需时间。"
+            },
+            {
+                "id": 139,
+                "type": "single",
+                "unit": "第四章",
+                "question": "3.货币是在长期交换过程中形成的固定充当（ ）的商品。",
+                "options": [
+                    "A.简单等价物",
+                    "B.扩大等价物",
+                    "C.一般等价物",
+                    "D.特殊等价物"
+                ],
+                "answer": ["C"],
+                "explanation": "货币本质是一般等价物，可与其他所有商品交换。"
+            },
+            {
+                "id": 140,
+                "type": "single",
+                "unit": "第四章",
+                "question": "4.在商品经济中，价值规律的表现形式是（ ）。",
+                "options": [
+                    "A.商品价格围绕价值上下波动",
+                    "B.价值围绕商品价格上下波动",
+                    "C.价格和价值始终不一致",
+                    "D.价格和价值始终一致"
+                ],
+                "answer": ["A"],
+                "explanation": "受供求影响，价格偏离价值，但长期看总趋势是价格向价值回归。"
+            },
+            {
+                "id": 141,
+                "type": "single",
+                "unit": "第四章",
+                "question": "5.被称为\"理解政治经济学枢纽\"的理论是（ ）。",
+                "options": [
+                    "A.商品二因素理论",
+                    "B.劳动二重性理论",
+                    "C.剩余价值理论",
+                    "D.资本积累理论"
+                ],
+                "answer": ["B"],
+                "explanation": "劳动二重性（具体劳动创造使用价值，抽象劳动形成价值）是马克思经济学体系的基石。"
+            },
+            {
+                "id": 142,
+                "type": "single",
+                "unit": "第四章",
+                "question": "6.劳动力商品的价值是由（ ）决定的。",
+                "options": [
+                    "A.生产、发展、维持和延续劳动力所必需的生活必需品的价值",
+                    "B.生理、道德和社会因素",
+                    "C.无产阶级和资产阶级的力量对比",
+                    "D.劳动力自身生存和繁衍后代所需要的生活资料价值"
+                ],
+                "answer": ["A"],
+                "explanation": "劳动力价值包括劳动者本人及家属生存所需生活资料价值、教育培训费用等。"
+            },
+            {
+                "id": 143,
+                "type": "single",
+                "unit": "第四章",
+                "question": "7.剩余价值率反映的是（ ）。",
+                "options": [
+                    "A.不变资本价值的增殖程度",
+                    "B.资本家的赚钱程度",
+                    "C.固定资本价值的增殖程度",
+                    "D.资本家对工人的剥削程度"
+                ],
+                "answer": ["D"],
+                "explanation": "剩余价值率(m')=剩余价值(m)/可变资本(v)，直接表现剥削率。"
+            },
+            {
+                "id": 144,
+                "type": "single",
+                "unit": "第四章",
+                "question": "8.资本积累的真正来源是（ ）。",
+                "options": [
+                    "A.劳动生产率的提高",
+                    "B.大资本吞并中小资本的结果",
+                    "C.资本家节俭的结果",
+                    "D.工人创造的剩余价值"
+                ],
+                "answer": ["D"],
+                "explanation": "资本积累是剩余价值资本化，即剥削工人创造的剩余价值转化为新资本。"
+            },
+            {
+                "id": 145,
+                "type": "single",
+                "unit": "第四章",
+                "question": "9.资本有机构成是指（ ）。",
+                "options": [
+                    "A.反映生产资料和劳动力比例关系的资本有机构成",
+                    "B.反映不变资本和可变资本比例关系的资本有机构成",
+                    "C.由资本的技术构成决定并反映技术构成变化的资本价值构成",
+                    "D.由资本的价值构成决定并反映价值构成变化的资本技术构成"
+                ],
+                "answer": ["C"],
+                "explanation": "技术构成（生产资料:劳动力）决定价值构成（不变资本c:可变资本v），两者统一为有机构成。"
+            },
+            {
+                "id": 146,
+                "type": "single",
+                "unit": "第四章",
+                "question": "10.资本主义生产方式的基本矛盾是（ ）。",
+                "options": [
+                    "A.私人劳动和社会劳动的矛盾",
+                    "B.生产力和生产关系的矛盾",
+                    "C.生产社会化和生产资料资本主义私人占有之间的矛盾",
+                    "D.生产的高度社会化和产品相对过剩的矛盾"
+                ],
+                "answer": ["C"],
+                "explanation": "生产社会化要求共同占有生产资料，但资本主义私有制导致矛盾激化，引发经济危机。"
+            },
+            {
+                "id": 147,
+                "type": "single",
+                "unit": "第四章",
+                "question": "11.从实际政治作用看，资本主义国家选举的实质是（ ）。",
+                "options": [
+                    "A.资产阶级和无产阶级分权",
+                    "B.人民当家作主",
+                    "C.每个公民都能通过竞选参与政治活动，表达自己的愿望和要求",
+                    "D.协调统治阶级内部利益关系和矛盾的重要措施"
+                ],
+                "answer": ["D"],
+                "explanation": "选举本质是资产阶级内部权力分配，维护阶级统治的工具。"
+            },
+            {
+                "id": 148,
+                "type": "single",
+                "unit": "第四章",
+                "question": "12.（ ）是指需要经过专门训练和培养，具有一定文化知识和技术专长的劳动者所从事的劳动。",
+                "options": [
+                    "A.简单劳动",
+                    "B.复杂劳动",
+                    "C.抽象劳动",
+                    "D.具体劳动"
+                ],
+                "answer": ["B"],
+                "explanation": "复杂劳动需专门培训，单位时间创造更多价值，是简单劳动的倍加。"
+            },
+            {
+                "id": 149,
+                "type": "single",
+                "unit": "第四章",
+                "question": "13.马克思把（ ）称为\"商品的惊险的跳跃\"。这个跳跃如果不成功，摔坏的不是商品，但一定是商品的所有者。",
+                "options": [
+                    "A.货币转化为资本",
+                    "B.价值转化为使用价值",
+                    "C.抽象劳动转化为具体劳动",
+                    "D.商品转化货币"
+                ],
+                "answer": ["D"],
+                "explanation": "商品能否卖出（W-G）决定生产者命运，是私人劳动转化为社会劳动的关键环节。"
+            },
+            {
+                "id": 150,
+                "type": "single",
+                "unit": "第四章",
+                "question": "14.在资本主义商品价值c+v+m中，工人新创造的价值是（ ）。",
+                "options": [
+                    "A.c+v",
+                    "B.v+m",
+                    "C.c+m",
+                    "D.c+v+m"
+                ],
+                "answer": ["B"],
+                "explanation": "工人劳动创造新价值(v+m)，其中v补偿劳动力价值，m是剩余价值；c是生产资料转移的旧价值。"
+            },
+            {
+                "id": 151,
+                "type": "single",
+                "unit": "第四章",
+                "question": "15.列宁指出，\"所有一切压迫阶级，为了维持自己的统治，都需要两种社会职能：一种是刽子手的职能，另一种是牧师的职能\"，\"牧师的使命是安慰被压迫者，给他们描绘一幅在保存阶级统治的条件下减少苦难和牺牲的前景\"，\"从而使他们顺从这种统治\"。这段表述所体现的是资本主义意识形态的本质哪一方面（ ）。",
+                "options": [
+                    "A.资本主义意识形态是为资本主义国家的政治上层建筑服务的",
+                    "B.资本主义意识形态是资产阶级的阶级意识的集中体现",
+                    "C.意识形态来自统治阶级的实践",
+                    "D.意识形态可以成为统治阶级进一步进行阶级统治的指导思想"
+                ],
+                "answer": ["B"],
+                "explanation": "\"牧师职能\"指资产阶级意识形态通过美化统治，麻痹被剥削阶级，维护阶级利益。"
+            },
+            {
+                "id": 152,
+                "type": "single",
+                "unit": "第四章",
+                "question": "16.《资本论》中有这样的表述：\"对上衣来说，无论是裁缝自己穿还是他的顾客穿，都是一样的。\"这主要是因为无论谁穿，( )。",
+                "options": [
+                    "A.上衣都起着使用价值的作用",
+                    "B.上衣都起着价值的作用",
+                    "C.上衣都是抽象劳动的结果",
+                    "D.上衣都是社会劳动的结果"
+                ],
+                "answer": ["A"],
+                "explanation": "使用价值是商品满足需求的自然属性，与使用者身份无关。"
+            },
+            {
+                "id": 153,
+                "type": "single",
+                "unit": "第四章",
+                "question": "17.在相同的劳动时间里，复杂劳动创造的价值大于简单劳动创造的价值。在以私有制为基础的商品经济条件下，复杂劳动转化为简单劳动是（ ）。",
+                "options": [
+                    "A.商品生产者自觉计算出来的",
+                    "B.市场管理部门事先规定的",
+                    "C.商品生产者协商出来的",
+                    "D.商品交换过程中自发实现的"
+                ],
+                "answer": ["D"],
+                "explanation": "复杂劳动折合为多倍简单劳动的过程，通过市场竞争自发完成。"
+            },
+            {
+                "id": 154,
+                "type": "single",
+                "unit": "第四章",
+                "question": "18.商品内在的使用价值和价值的矛盾，其完备的外在表现形式是（ ）。",
+                "options": [
+                    "A.商品与商品的对立",
+                    "B.具体劳动与抽象劳动的对立",
+                    "C.私人劳动与社会劳动的对立",
+                    "D.商品与货币的对立"
+                ],
+                "answer": ["D"],
+                "explanation": "货币出现后，商品内在矛盾外化为商品（使用价值）与货币（价值）的对立。"
+            },
+            {
+                "id": 155,
+                "type": "single",
+                "unit": "第四章",
+                "question": "19.货币转化为资本的前提是（ ）。",
+                "options": [
+                    "A.商品的不等价交换",
+                    "B.小生产者有人身自由",
+                    "C.资本的原始累积",
+                    "D.劳动力成为商品"
+                ],
+                "answer": ["D"],
+                "explanation": "劳动力成为商品提供剩余价值来源，使货币增殖成为资本。"
+            },
+            {
+                "id": 156,
+                "type": "single",
+                "unit": "第四章",
+                "question": "20.绝对剩余价值是指在（ ）不变的条件下，由于延长工作日的长度或提高劳动强度而生产的剩余价值。",
+                "options": [
+                    "A.剩余劳动时间",
+                    "B.私人劳动时间",
+                    "C.必要劳动时间",
+                    "D.社会必要劳动时间"
+                ],
+                "answer": ["C"],
+                "explanation": "必要劳动时间不变，延长工作日或提高强度直接增加剩余劳动时间。"
+            },
+            {
+                "id": 157,
+                "type": "single",
+                "unit": "第四章",
+                "question": "21.资本家获得相对剩余价值是（ ）。",
+                "options": [
+                    "A.工作日绝对延长的结果",
+                    "B.工人工资低于劳动力价值的结果",
+                    "C.劳动力供过于求的结果",
+                    "D.技术进步和生产率提高的结果"
+                ],
+                "answer": ["D"],
+                "explanation": "全社会生产率提高降低劳动力价值，缩短必要劳动时间，相对延长剩余劳动时间。"
+            },
+            {
+                "id": 158,
+                "type": "single",
+                "unit": "第四章",
+                "question": "22.为了得到尽可能高的利润率和尽可能多的利润，不同生产部门的资本家之间必然展开激烈的竞争，大量资本必然从利润率低的部门转投到利润率高的部门，从而导致（ ）平均化。",
+                "options": [
+                    "A.剩余价值率",
+                    "B.利润率",
+                    "C.生产价格",
+                    "D.价值"
+                ],
+                "answer": ["B"],
+                "explanation": "资本自由流动促使不同部门利润率趋近，形成平均利润率。"
+            },
+            {
+                "id": 159,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "23.商品经济得以产生的社会历史条件是（ ）。",
+                "options": [
+                    "A.劳动的出现",
+                    "B.生产资料和劳动产品属于不同的所有者",
+                    "C.社会分工的出现",
+                    "D.生产资料和劳动产品属于同一的所有者"
+                ],
+                "answer": ["B", "C"],
+                "explanation": "社会分工使生产者需要交换；生产资料和产品分属不同所有者决定必须等价交换。"
+            },
+            {
+                "id": 160,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "24.商品价值和交换价值的关系是（ ）。",
+                "options": [
+                    "A.价值是交换价值的基础",
+                    "B.交换价值是价值的基础",
+                    "C.交换价值是价值的表现形式",
+                    "D.价值是交换价值的表现形式"
+                ],
+                "answer": ["A", "C"],
+                "explanation": "价值是内在本质，决定交换比例；交换价值是价值的外在表现。"
+            },
+            {
+                "id": 161,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "25.马克思在继承英国古典政治经济学劳动创造价值理论的同时，创立了劳动二重性理论（ ）。",
+                "options": [
+                    "A.第一次确定了什么样的劳动形成价值、为什么形成价值以及怎样形成价值",
+                    "B.阐明了具体劳动和抽象劳动在商品价值形成中的不同作用",
+                    "C.为揭示剩余价值的真正来源、创立剩余价值理论奠定了基础",
+                    "D.助力资本有机构成理论、资本积累理论等政治经济学重要理论的创立"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "劳动二重性理论是理解政治经济学的枢纽，贯穿整个马克思经济学体系。"
+            },
+            {
+                "id": 162,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "26.商品是劳动产品，生产商品的劳动具有二重性，即（ ）。",
+                "options": [
+                    "A.价值",
+                    "B.使用价值",
+                    "C.具体劳动",
+                    "D.抽象劳动"
+                ],
+                "answer": ["C", "D"],
+                "explanation": "具体劳动创造使用价值（自然属性），抽象劳动形成价值（社会属性）。"
+            },
+            {
+                "id": 163,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "27.货币具有（ ）等职能。",
+                "options": [
+                    "A.价值尺度",
+                    "B.流通手段",
+                    "C.贮藏手段",
+                    "D.支付手段和世界货币"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "货币五大职能：价值尺度、流通手段、贮藏手段、支付手段、世界货币。"
+            },
+            {
+                "id": 164,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "28.资本主义条件下的生产自动化是资本家获取高额剩余价值的手段，而雇佣工人的剩余劳动仍然是这种剩余价值的唯一源泉。这是因为（ ）。",
+                "options": [
+                    "A.资本主义条件下的生产自动化只是意味着剩余价值生产所使用的生产工具更加先进了",
+                    "B.不论是机器人、自动化生产线还是\"无人工厂\"，在本质上依然是物化劳动或不变资本的实物形式，它们在参加产品的生产时，只是把原有的价值转移到产品中去，而不创造新价值，更不能创造剩余价值",
+                    "C.在生产自动化条件下，直接从事生产劳动的工人相对减少，而从事科研、设计、技术和管理劳动的人员日益增加，\"总体工人\"中脑力劳动者的比重不断增大",
+                    "D.劳动的复杂程度和强度日益提高，生产力日益提升，从而创造出更多的价值和剩余价值"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "自动化设备属不变资本，只转移价值；剩余价值始终由总体工人的剩余劳动创造。"
+            },
+            {
+                "id": 165,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "29.生产物质资料的劳动过程包括三个基本要素，即（ ）。",
+                "options": [
+                    "A.劳动者的劳动",
+                    "B.生产关系",
+                    "C.劳动资料",
+                    "D.劳动对象"
+                ],
+                "answer": ["A", "C", "D"],
+                "explanation": "劳动三要素：劳动者（主体）、劳动资料（媒介）、劳动对象（客体）。"
+            },
+            {
+                "id": 166,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "30.资本主义劳动过程的两个特点：（ ）。",
+                "options": [
+                    "A.工人在资本家的监督下劳动，他们的劳动隶属于资本家",
+                    "B.工人在资本家的雇佣下劳动，他们的劳动隶属于自身",
+                    "C.劳动的成果或者产品全部归资本家所有",
+                    "D.劳动的成果或者产品部分归劳动者所有"
+                ],
+                "answer": ["A", "C"],
+                "explanation": "资本主义劳动过程特点：劳动隶属于资本，劳动产品归资本家所有。"
+            },
+            {
+                "id": 167,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "31.根据资本在剩余价值生产中所起的不同作用，可以将资本划分为（ ）。",
+                "options": [
+                    "A.不变资本",
+                    "B.私有资本",
+                    "C.剩余资本",
+                    "D.可变资本"
+                ],
+                "answer": ["A", "D"],
+                "explanation": "不变资本(c)购买生产资料，价值转移；可变资本(v)购买劳动力，创造剩余价值。"
+            },
+            {
+                "id": 168,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "32.资本原始积累的主要途径有（ ）。",
+                "options": [
+                    "A.用暴力手段剥夺农民的土地",
+                    "B.用暴力手段掠夺小生产者的工厂",
+                    "C.用暴力手段掠夺货币财富",
+                    "D.用暴力手段掠夺商人的财富"
+                ],
+                "answer": ["A", "C"],
+                "explanation": "典型途径：圈地运动（剥夺土地）、殖民掠夺（积累货币财富）。"
+            },
+            {
+                "id": 169,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "33.商品的价值是（ ）。",
+                "options": [
+                    "A.凝结在商品中无差别的一般人类劳动",
+                    "B.商品的社会属性",
+                    "C.交换价值的基础",
+                    "D.反映商品生产者之间的社会关系"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "价值是抽象劳动的凝结，体现商品的社会属性和生产者之间的生产关系。"
+            },
+            {
+                "id": 170,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "34.资本家生产剩余价值的基本方法有（ ）。",
+                "options": [
+                    "A.内涵扩大再生产",
+                    "B.外延扩大再生产",
+                    "C.绝对剩余价值的生产",
+                    "D.相对剩余价值的生产"
+                ],
+                "answer": ["C", "D"],
+                "explanation": "绝对剩余价值：延长工作日；相对剩余价值：提高生产率缩短必要劳动时间。"
+            },
+            {
+                "id": 171,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "35.为了追逐最大化的利润，资本家总是想方设法地进行资本积累，而资本积累的源泉是剩余价值。一般而言，资本积累规模的大小取决于（ ）。",
+                "options": [
+                    "A.资本家对工人的剥削程度",
+                    "B.劳动生产率的高低",
+                    "C.资本家垫付资本的大小",
+                    "D.所用资本与所费资本之间的差额"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "剥削程度越高、生产率越高、预付资本越多、固定资产损耗越少，积累规模越大。"
+            },
+            {
+                "id": 172,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "36.私有制商品经济条件下商品世界的拜物教性质的产生具有必然性，主要体现在（ ）。",
+                "options": [
+                    "A.劳动产品只有釆取商品的形式才能进行交换",
+                    "B.劳动量只有釆取价值量这一物的形式才能进行计算和比较",
+                    "C.生产者的劳动关系的社会性质只有采取物与物之间相交换的形式才能间接地表现出来",
+                    "D.人类劳动的等同性只有采取同质的价值形式才能在交换中体现出来"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "商品拜物教指人与人的关系被物与物的关系掩盖，根源在于私有制商品经济的基本矛盾。"
+            },
+            {
+                "id": 173,
+                "type": "multi",
+                "unit": "第四章",
+                "question": "37.关于剩余价值理论的意义，下列表述正确的是（ ）。",
+                "options": [
+                    "A.揭露了资本主义生产关系的剥削本质",
+                    "B.阐明了资产阶级与无产阶级之间阶级斗争的经济根源",
+                    "C.指岀了无产阶级革命的历史必然性",
+                    "D.揭示了商品经济的一般规律，为劳动价值论奠定理论基础"
+                ],
+                "answer": ["A", "B", "C"],
+                "explanation": "剩余价值理论是马克思经济学的核心，揭示资本主义剥削本质和必然灭亡规律。"
+            },
+            {
+                id: 174,
+                type: "multi",
+                unit: "第四章",
+                question: "资本主义国家的职能包括（ ）。",
+                options: [
+                    "A.政治统治",
+                    "B.社会管理",
+                    "C.国际交往",
+                    "D.维护国家安全及利益"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "资本主义国家的基本职能包括对内实行政治统治和社会管理，对外进行国际交往并维护国家安全及利益，这些职能共同服务于资产阶级统治。"
+            },
+            {
+                id: 175,
+                type: "multi",
+                unit: "第四章",
+                question: "资本主义政治制度的历史局限性体现在（ ）。",
+                options: [
+                    "A.资本主义的民主是金钱操纵下的民主",
+                    "B.法律名义上的平等掩盖着事实上的不平等",
+                    "C.资本主义国家的政党制是一种维护资产阶级统治的政治制度",
+                    "D.政党恶斗相互掣肘，决策效率低下，激化社会矛盾"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "资本主义政治制度的局限性表现为民主受资本操控导致实质不平等，法律形式平等掩盖阶级差异，政党制维护资产阶级利益，以及多党竞争引发效率低下和社会矛盾，反映了其历史性和阶级本质。"
+            },
+            {
+                "id": 176,
+                "type": "short",
+                "unit": "第四章",
+                "question": "40.简述价值规律在市场配置资源过程中的作用。",
+                "options": [],
+                "answer": ["第一，自发地调节生产资料和劳动力在社会各生产部门之间的分配比例。（2分）第二，自发地刺激社会生产力的发展。（2分）第三，自发地调节社会收入的分配。（2分）价值规律在对经济活动进行自发调节时，也会造成一些消极的后果。其一，导致社会资源浪费。其二，阻碍技术进步。其三，导致收入两极分化。（4分）"],
+                "explanation": "价值规律通过价格波动调节资源配置：1. 自发调节生产资料和劳动力在社会生产各部门的分配；2. 刺激商品生产者改进技术提高生产率；3. 导致优胜劣汰，实现资源向优势企业集中。"
+            },
+            {
+                "id": 177,
+                "type": "short",
+                "unit": "第四章",
+                "question": "41.简述商品按照生产价格而不是价值出售，是否违背价值规律。",
+                "options": [],
+                "answer": ["P224-225商品按照生产价格而不是价值出售并不违背价值规律。因为：（1）从全社会看, 整个资本家阶级获得的利润总额与雇佣工人所创造的剩余价值总额是相等的。（2分）（2）从个别部门看，商品的生产价格同价值不一致，但从全社会来看，商品的生产价格总额和价值总额相等。（4分）（3）生产价格随着商品价值的变化而变动，生产商品的社会必要劳动时间减少，生产价格就会降低；反之，生产价格就会提高。（4分）"],
+                "explanation": "不违背。生产价格=成本价格+平均利润，是价值的转化形式。虽然单个商品生产价格与价值可能偏离，但全社会生产价格总和等于价值总和，且生产价格的变动最终由价值变动决定，因此仍符合价值规律。"
+            },
+            {
+                "id": 178,
+                "type": "short",
+                "unit": "第四章",
+                "question": "42.简述经济危机作为资本主义制度的必然产物的原因。",
+                "options": [],
+                "answer": ["资本主义经济危机爆发的根本原因是资本主义的基本矛盾，这一基本矛盾具体表现在以下两个方面:第一，生产无限扩大的趋势与劳动人民有支付能力的需求相对缩小的矛盾。第二，个别企业内部生产的有组织性和整个社会生产的无政府状态之间的矛盾。资本主义经济危机具有周期性，这是由资本主义基本矛盾运动的阶段性决定的。只要存在资本主义度，经济危机就是不可避免的。"],
+                "explanation": "根源在于资本主义基本矛盾：1. 生产社会化与生产资料私有制矛盾，导致个别企业有组织性与整个社会无政府状态矛盾；2. 生产无限扩大趋势与劳动人民有支付能力需求相对缩小矛盾。矛盾激化引发生产相对过剩危机，周期性爆发。"
+            },
+            {
+                "id": 179,
+                "type": "short",
+                "unit": "第四章",
+                "question": "43.试述以私有制为基础的商品经济的基本矛盾。",
+                "options": [],
+                "answer": ["私人劳动与社会劳动的矛盾：1. 社会分工决定劳动具有社会性（社会总劳动的一部分）；2. 生产资料私有制决定劳动直接表现为私人性。矛盾表现：私人劳动需通过交换转化为社会劳动。这一矛盾是商品经济一切矛盾的根源（如使用价值与价值、具体劳动与抽象劳动的矛盾），决定商品生产者的命运。"],
+                "explanation": "私人劳动与社会劳动的矛盾：1. 社会分工决定劳动具有社会性（社会总劳动的一部分）；2. 生产资料私有制决定劳动直接表现为私人性。矛盾表现：私人劳动需通过交换转化为社会劳动。这一矛盾是商品经济一切矛盾的根源（如使用价值与价值、具体劳动与抽象劳动的矛盾），决定商品生产者的命运。"
+            },
+            {
+                "id": 180,
+                "type": "short",
+                "unit": "第四章",
+                "question": "44.试述劳动力成为商品的基本条件及劳动力商品的特点。",
+                "options": [],
+                "answer": ["劳动力是指人的劳动能力，是人的脑力和体力的总和。人的劳动是任何社会进行生产都不可缺少的基本条件、基本要素，没有劳动就不可能有人类社会的生存与发展。（2分）劳动力成为商品，要具备两个基本条件：其一，劳动者在法律上是自由人，能够把自己的劳动力当作自己的商品来支配；其二，劳动者没有任何生产资料，没有生活资料来源，因而不得不依靠出卖劳动力为生。劳动力成为商品的两个条件并不是自古以来就有的，而是在封建社会后期发生的资本原始积累过程中逐渐形成的。（3分）劳动力商品也具有价值和使用价值。但是，劳动力是特殊的商品，它的价值和使用价值具有不同于普通商品的特点。劳动力的使用价值即劳动。劳动力的价值，是由生产、发展、维持和延续劳动力所必需的生活必需品的价值决定的。它包括三个部分：（1）维持劳动者本人生存所必需的生活资料的价值；（2）维持劳动者家属的生存所必需的生活资料的价值。（3）劳动者接受教育和训练所支出的费用。（5分）劳动力商品在使用价值上有一个很突出的特点，就是它的使用价值是价值的源泉，在消费过程中能够创造新的价值，而且这个新的价值比劳动力本身的价值更大。正是由于这一特点，货币所有者购买到劳动力以后, 在消费过程中，不仅能够收回他在购买这种特殊商品时支付的价值，还能得到一个增殖的价值即剩余价值。而一旦货币购买的劳动力带来剩余价值，货币也就变成了资本。（5分）"],
+                "explanation": "基本条件：1. 劳动者有人身自由，可出卖劳动力；2. 劳动者丧失生产资料，只能出卖劳动力。特点：1. 价值构成：包括劳动者本人及家属生存所需生活资料价值、教育培训费用；2. 使用价值特殊性：能创造大于自身价值的价值（即剩余价值），是剩余价值的源泉。"
+            },
+            {
+                id: 181,
+                type: "single",
+                unit: "第五章",
+                question: "为国家垄断资本主义奠定理论基础的杰出人物及著作是（ ）。",
+                options: [
+                    "A.亚当·斯密的《国富论》",
+                    "B.马歇尔的《经济学原理》",
+                    "C.穆勒的《政治经济学原理》",
+                    "D.凯恩斯的《就业、利息和货币通论》"
+                ],
+                answer: ["D"],
+                explanation: "凯恩斯在《就业、利息和货币通论》中提出国家干预经济理论，成为国家垄断资本主义的理论基础。"
+            },
+            {
+                id: 182,
+                type: "single",
+                unit: "第五章",
+                question: "国际垄断同盟（ ）。",
+                options: [
+                    "A.在领土上瓜分世界",
+                    "B.其趋势基本结束",
+                    "C.在当代以混合联合公司为主",
+                    "D.在经济上瓜分世界"
+                ],
+                answer: ["D"],
+                explanation: "国际垄断同盟是各国垄断组织通过协议瓜分国际市场（经济瓜分），而非领土瓜分。"
+            },
+            {
+                id: 183,
+                type: "single",
+                unit: "第五章",
+                question: "第二次世界大战后，在美国的主导下建立了国际货币体系，即（ ），该体系对促进世界经济的恢复和发展发挥了重要作用，但也维护了美国的世界经济霸权地位。",
+                options: [
+                    "A.雅尔塔体系",
+                    "B.布雷顿森林体系",
+                    "C.威斯特伐利亚体系",
+                    "D.凡尔赛体系"
+                ],
+                answer: ["B"],
+                explanation: "布雷顿森林体系确立美元与黄金挂钩、各国货币与美元挂钩的汇率机制，确立了美国经济霸权。"
+            },
+            {
+                id: 184,
+                type: "single",
+                unit: "第五章",
+                question: "19世纪末20世纪初的资本主义占主导地位的所有制形式是（ ）。",
+                options: [
+                    "A.个体资本所有制",
+                    "B.私人股份资本所有制",
+                    "C.法人资本所有制",
+                    "D.国家资本所有制"
+                ],
+                answer: ["B"],
+                explanation: "19世纪末20世纪初，股份公司成为主要企业组织形式，私人股份资本所有制取代个体资本所有制占据主导。"
+            },
+            {
+                id: 185,
+                type: "single",
+                unit: "第五章",
+                question: "20世纪70年代之后，（ ）的发展为经济全球化提供适宜的企业组织形式。",
+                options: [
+                    "A.发展科学技术",
+                    "B.改善劳资关系",
+                    "C.跨国公司",
+                    "D.完善法律法规"
+                ],
+                answer: ["C"],
+                explanation: "跨国公司通过全球生产网络和投资，成为推动贸易、金融和生产全球化的核心载体。"
+            },
+            {
+                id: 186,
+                type: "single",
+                unit: "第五章",
+                question: "垄断资本主义国家实际的控制者是（ ）。",
+                options: [
+                    "A.垄断组织",
+                    "B.金融寡头",
+                    "C.官僚集团",
+                    "D.金融资本"
+                ],
+                answer: ["B"],
+                explanation: "金融寡头通过'参与制'控制经济命脉，并通过人事结合等方式支配国家政权。"
+            },
+            {
+                id: 187,
+                type: "single",
+                unit: "第五章",
+                question: "垄断利润的实现主要是通过（ ）。",
+                options: [
+                    "A.平均利润",
+                    "B.剩余价值",
+                    "C.垄断价格",
+                    "D.成本价格"
+                ],
+                answer: ["C"],
+                explanation: "垄断组织凭借市场支配地位制定垄断高价或低价，是获取高额垄断利润的主要手段。"
+            },
+            {
+                id: 188,
+                type: "single",
+                unit: "第五章",
+                question: "帝国主义的实质是（ ）。",
+                options: [
+                    "A.瓜分世界",
+                    "B.取得垄断地位",
+                    "C.发动世界大战",
+                    "D.垄断资本凭借垄断地位，获取高额垄断利润"
+                ],
+                answer: ["D"],
+                explanation: "列宁指出，帝国主义根本特征是垄断，其本质是垄断资本通过国内外垄断地位攫取超额利润。"
+            },
+            {
+                id: 189,
+                type: "single",
+                unit: "第五章",
+                question: "第二次世界大战后，资本主义生产资料所有制发展的新形式是（ ）。",
+                options: [
+                    "A.私人股份资本所有制",
+                    "B.法人资本所有制",
+                    "C.国家资本所有制",
+                    "D.国际垄断资本所有制"
+                ],
+                answer: ["B"],
+                explanation: "法人资本所有制（机构投资者持股）成为二战后居主导地位的所有制形式，区别于战前的私人股份资本所有制。"
+            },
+            {
+                id: 190,
+                type: "single",
+                unit: "第五章",
+                question: "以下不属于当代资本主义国家产业结构方面新变化的是（ ）。",
+                options: [
+                    "A.形成了以金融化为主要特征的产业结构模式",
+                    "B.产业工人数量大幅增加",
+                    "C.一般制造业占比逐渐下降",
+                    "D.高新技术产业占比日趋上升"
+                ],
+                answer: ["B"],
+                explanation: "当代产业结构变化表现为'去工业化'：制造业比重下降、服务业和金融业上升，产业工人数量减少而非增加。"
+            },
+            {
+                id: 191,
+                type: "single",
+                unit: "第五章",
+                question: "国家垄断资本主义的产生，是垄断资本主义生产关系在自身范围内的（ ），标志着资本主义发展进入了新阶段。",
+                options: [
+                    "A.完全质变",
+                    "B.完全量变",
+                    "C.部分质变",
+                    "D.部分量变"
+                ],
+                answer: ["C"],
+                explanation: "国家垄断资本主义是资本主义生产关系的自我扬弃，属于部分质变（量变过程中的阶段性飞跃），但未改变资本主义根本性质。"
+            },
+            {
+                id: 192,
+                type: "single",
+                unit: "第五章",
+                question: "关于垄断利润的表述中不正确的是（ ）。",
+                options: [
+                    "A.凭借垄断地位获得的利润",
+                    "B.超过平均利润的高额利润",
+                    "C.通过资本自由转移而形成的一种利润",
+                    "D.限制了利润平均化的趋势"
+                ],
+                answer: ["C"],
+                explanation: "垄断利润恰是因资本自由转移受阻（存在垄断壁垒）而形成的高额利润，故C表述错误。"
+            },
+            {
+                id: 193,
+                type: "multi",
+                unit: "第五章",
+                question: "资本家追求剩余价值，必然会导致（ ）。",
+                options: [
+                    "A.自由竞争",
+                    "B.资本集中",
+                    "C.生产集中",
+                    "D.垄断"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "剩余价值驱动资本家扩大生产（生产集中），通过竞争兼并（资本集中），最终形成垄断。"
+            },
+            {
+                id: 194,
+                type: "multi",
+                unit: "第五章",
+                question: "垄断条件下竞争的新特点（ ）。",
+                options: [
+                    "A.竞争目的是获取高额垄断利润",
+                    "B.竞争手段主要运用经济手段",
+                    "C.竞争手段主要运用非经济手段",
+                    "D.竞争范围扩大到经济领域以外进行"
+                ],
+                answer: ["A", "C", "D"],
+                explanation: "垄断竞争目的更高额（A），常采取政治打压等非经济手段（C），范围扩展至政治等领域（D）。"
+            },
+            {
+                id: 195,
+                type: "multi",
+                unit: "第五章",
+                question: "垄断价格之所以没有否定价值规律，是因为（ ）。",
+                options: [
+                    "A.垄断价格围绕价值上下波动",
+                    "B.垄断价格不能完全脱离商品的价值",
+                    "C.全社会的商品价值总额和商品价格总额总体上一致",
+                    "D.垄断价格改变的只是价值规律作用的表现形式"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "价值规律仍起作用：垄断价以价值为基础（B），社会总价与总值仍相等（C），仅表现形式变化（D）。"
+            },
+            {
+                id: 196,
+                type: "multi",
+                unit: "第五章",
+                question: "国家垄断资本主义的实质是（ ）。",
+                options: [
+                    "A.资本主义生产关系发生了根本的变化",
+                    "B.私人垄断资本利用国家机器为其发展服务的手段",
+                    "C.资本主义经济制度内的经济关系调整",
+                    "D.资本主义生产关系的局部调整"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "本质是国家为私人垄断资本服务（B），属资本主义框架内的调整（C、D），非根本变革（A错）。"
+            },
+            {
+                id: 197,
+                type: "multi",
+                unit: "第五章",
+                question: "经济全球化的表现主要有（ ）。",
+                options: [
+                    "A.国际分工进一步深化",
+                    "B.贸易全球化",
+                    "C.金融全球化",
+                    "D.生产全球化"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "经济全球化涵盖生产全球化（D）、贸易全球化（B）、金融全球化（C），均以国际分工深化（A）为基础。"
+            },
+            {
+                id: 198,
+                type: "multi",
+                unit: "第五章",
+                question: "当代资本主义阶层和阶级结构发生的新变化有（ ）。",
+                options: [
+                    "A.资本家的地位和作用发生很大变化",
+                    "B.知识型和服务型劳动者数量增加",
+                    "C.实现了从传统劳动方式向现代劳动方式的转变",
+                    "D.高级职业经理成为大公司经营活动的实际控制者"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "资本家职能分化（A），知识劳动者增加（B），劳动方式信息化（C），经理阶层掌权（D）均为新变化。"
+            },
+            {
+                id: 199,
+                type: "multi",
+                unit: "第五章",
+                question: "国家垄断资本主义的主要形式有（ ）。",
+                options: [
+                    "A.国家所有并直接经营企业",
+                    "B.国家与私人共有、合营企业",
+                    "C.国家通过多种形式参与私人垄断资本的再生产过程",
+                    "D.宏观调节"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "主要形式包括：国营企业（A）、公私合营（B）、政策扶持私人资本（C）、宏观调控（D）。"
+            },
+            {
+                id: 200,
+                type: "multi",
+                unit: "第五章",
+                question: "金融资本是由（ ）和（ ）融合在一起而形成的一种垄断资本。",
+                options: [
+                    "A.国家垄断资本",
+                    "B.私人垄断资本",
+                    "C.工业垄断资本",
+                    "D.银行垄断资本"
+                ],
+                answer: ["C", "D"],
+                explanation: "金融资本是工业垄断资本与银行垄断资本通过金融联系、资本交织和人事结合形成的融合资本。"
+            },
+            {
+                id: 201,
+                type: "multi",
+                unit: "第五章",
+                question: "当代资本主义变化的新特征体现在（ ）。",
+                options: [
+                    "A.科技创新加速资本主义生产方式变化",
+                    "B.国际金融垄断资本主义影响日益显现",
+                    "C.社会阶级层级结构呈现复杂性、多样化",
+                    "D.发达资本主义国家在世界范围内推行霸权主义和强权政治"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "新特征包括科技驱动生产方式变革（A）、金融垄断国际化（B）、阶级结构复杂化（C）、霸权主义持续（D）。"
+            },
+            {
+                id: 202,
+                type: "multi",
+                unit: "第五章",
+                question: "伴随生产力发展、科技进步及阶级关系调整，当代资本主义社会的劳资关系和分配关系发生了很大变化。其中，资本家及其代理人为缓和劳资关系所采取的激励制度有（ ）。",
+                options: [
+                    "A.职工参与决策制度",
+                    "B.职工终身雇佣制度",
+                    "C.职工选举管理者制度",
+                    "D.职工持股制度"
+                ],
+                answer: ["A", "B", "D"],
+                explanation: "缓和劳资矛盾的制度包括职工参与管理（A）、终身雇佣（B）、职工持股（D）。选举管理者（C）非常规手段。"
+            },
+            {
+                id: 203,
+                type: "multi",
+                unit: "第五章",
+                question: "国家垄断资本主义是国家政权和私人垄断资本融合在一起的垄断资本主义。第二次世界大战结束以来，在国家垄断资本主义获得充分发展的同时，资本主义国家通过微观规制对生产、流通、分配和消费各个环节的干预也更加深入。微观规制的类型主要有（ ）。",
+                options: [
+                    "A.公众生活规制",
+                    "B.公共事业规制",
+                    "C.社会经济规制",
+                    "D.反托拉斯法"
+                ],
+                answer: ["B", "C", "D"],
+                explanation: "微观规制包括公共事业管制（如水电价格，B）、社会经济规制（如环保标准，C）、反垄断法规（D）。公众生活规制（A）不属经济范畴。"
+            },
+            {
+                id: 204,
+                type: "short",
+                unit: "第五章",
+                question: "简述垄断是怎样产生的？",
+                options: [],
+                answer: ["第一，当生产集中发展到相当高的程度，极少数企业就会联合起来，操纵和控制本部门的生产和销售，实行垄断，以获得高额利润。（4分）第二，企业规模巨大，形成对竞争的限制，也会产生垄断。（2分）第三，激烈的竞争给竞争各方带来的损失越来越严重，为了避免两败俱伤，企业之间会达成妥协，联合起来，实行垄断。（4分）"],
+                explanation: "垄断的产生过程：①自由竞争引起生产集中（资本家为追求剩余价值扩大规模，竞争中大企业吞并中小企业）；②生产集中发展到一定阶段必然形成垄断（少数大企业为避免两败俱伤，通过协议联合控制生产和市场）。根本原因是生产社会化与资本主义私有制矛盾的发展。"
+            },
+            {
+                id: 205,
+                type: "short",
+                unit: "第五章",
+                question: "简述为什么垄断并没有消除竞争？",
+                options: [],
+                answer: ["垄断是在自由竞争中形成的，垄断并不能消除竞争，反而使竞争变得更加复杂和剧烈。这是因为：第一，垄断没有消除产生竞争的经济条件。竞争是商品经济的一般规律。垄断产生以后，不但没有改变生产资料的资本主义私有制，而且又促进商品经济继续发展，所以不可能消除竞争。（4分）第二，垄断必须通过竞争来维持。各个垄断组织通过竞争发展壮大起来，在取得了一定的垄断地位后，垄断组织必须不断增强自己的竞争实力，巩固自己的垄断地位。（4分）第三，社会生产是复杂多样的，任何垄断组织都不可能把包罗万象的社会生产都包下来。（2分）"],
+                explanation: "垄断无法消除竞争的原因：①垄断资本主义仍是商品经济，竞争是商品经济的必然产物；②不存在'绝对垄断'，垄断组织之间、垄断组织与非垄断企业（'局外企业'）之间、垄断组织内部均存在竞争；③科技发展加速产业更替，新垄断组织不断涌现。垄断与竞争并存是垄断资本主义的本质特征。"
+            },
+            {
+                id: 206,
+                type: "short",
+                unit: "第五章",
+                question: "简述如何认识和把握经济全球化的影响。",
+                options: [],
+                answer: ["经济全球化体现了生产社会化的要求，对发达国家和发展中国家都有积极的影响，也有负面影响，它是一把“双刃剑”。（2分）它对发展中国家的积极作用表现在：第一，提供先进技术和管理经验。第二，为发展中国家提供更多的就业机会。第三，推动发展中国家国际贸易发展。第四，促进发展中国家跨国公司的发展。（4分）负面影响表现在：第一，发达国家与发展中国家在经济全球化进程中的地位和收益不平等、不平衡。第二，加剧了发展中国家资源短缺和环境污染。第三，一定程度上增加经济风险。（4分）"],
+                explanation: "经济全球化的影响需辩证分析：\n积极影响：①优化全球资源配置，促进生产力发展；②推动技术扩散和产业升级；③为发展中国家提供发展机遇。\n消极影响：①加剧世界经济发展不平衡（南北差距扩大）；②增加全球经济系统性风险（金融危机传导）；③发达国家转移污染产业，破坏生态环境；④侵蚀国家经济主权。\n应积极引导全球化向包容、普惠方向发展。"
+            },
+            {
+                id: 207,
+                type: "short",
+                unit: "第五章",
+                question: "试述近年来资本主义社会发生了哪些新变化？并分析其原因及影响。",
+                options: [],
+                answer: ["P261-268第二次世界大战后，资本主义发生了一系列新变化，主要表现在以下方面：第一，生产资料所有制的变化。第二，劳资关系和分配关系的新变化。第三，社会阶层和阶级结构的变化。第四，经济调节机制和经济危机形态的变化。第五，政治制度的变化。（5分）之所以出现这些新变化，主要原因是：第一，科学技术革命和生产力的发展，是资本主义发生变化的根本推动力量。第二，工人阶级争取自身权利和利益的斗争，是推动资本主义发生变化的重要力量。第三，社会主义制度初步显示的优越性对资本主义产生了重要影响。第四，主张改良主义政党对资本主义制度的改革。（5分）资本主义新变化的影响：第一，当代资本主义发生的变化从根本上说是人类社会发展一般规律和资本主义经济规律作用的结果。第二，当代资本主义发生的变化是在资本主义制度基本框架内的变化，并不意味着资本主义生产关系的根本性质发生了变化。（5分）"],
+                explanation: "新变化及原因影响：\n1. 变化：\n   - 所有制：法人资本所有制主导，股权分散化\n   - 产业结构：服务业和金融业占比上升，'去工业化'\n   - 阶级结构：中间阶层扩大，知识型劳动者增加\n   - 劳资关系：职工持股、参与管理等措施缓和矛盾\n2. 原因：\n   - 根本：科技进步（信息技术革命）\n   - 直接：资本主义自我调节（国家干预、福利制度）\n   - 外部：经济全球化压力\n3. 影响：\n   - 积极：延缓经济危机，维持社会稳定\n   - 消极：加深寄生性（金融投机），加剧社会撕裂（贫富分化）\n   → 未改变资本主义基本矛盾，为社会主义准备物质条件"
+            },
+            {
+                id: 208,
+                type: "short",
+                unit: "第五章",
+                question: "试述如何理解资本主义的历史地位及其为社会主义所代替的历史必然性。",
+                options: [],
+                answer: ["资本主义的历史地位：与封建社会相比，资本主义显示了巨大的历史进步性。第一，资本主义将科学技术转变为强大的生产力。第二，资本追求剩余价值的内在动力和竞争的外在压力推动了社会生产力的迅速发展。第三，资本主义的意识形态和政治制度作为上层建筑在战胜封建社会自给自足的小生产的生产方式，保护、促进和完善资本主义生产方式方面起着重要作用。（5分）资本主义的局限性表现在：第一，资本主义基本矛盾阻碍社会生产力的发展。第二，资本主义制度下财富占有两极分化，引发经济危机。第三，资本家支配和控制资本主义经济和政治的发展和运行，不断激化社会矛盾和冲突。（5分）资本主义为社会主义所代替的历史必然性：资本主义的内在矛盾决定了资本主义必然被社会主义所代替。第一，资本主义基本矛盾“包含着现代的一切冲突的萌芽”。第二，资本积累推动资本主义基本矛盾不断激化并最终否定资本主义自身。第三，国家垄断资本主义是资本社会化的更高形式，将成为社会主义的前奏。第四，资本主义社会存在着资产阶级和无产阶级两大阶级之间的矛盾和斗争。（5分）"],
+                explanation: "资本主义的历史地位与必然灭亡：\n1. 历史地位：\n   - 进步性：推翻封建制度，极大解放生产力（'资产阶级在它不到一百年的阶级统治中所创造的生产力，比过去一切世代创造的全部生产力还要多'—《共产党宣言》）\n   - 局限性：生产资料私有制与生产社会化矛盾不可调和\n2. 必然被社会主义代替的原因：\n   - 根本矛盾：生产社会化与资本主义私人占有矛盾导致周期性经济危机\n   - 阶级基础：无产阶级壮大并成为资本主义掘墓人\n   - 物质准备：垄断资本主义是'社会主义的入口'（列宁），为社会主义奠定社会化大生产基础\n   - 历史规律：生产关系必须适应生产力发展的客观要求（资本主义私有制终将成为生产力桎梏）\n结论：资本主义过渡到社会主义是客观历史规律。"
+            },
+            {
+                "id": 209,
+                "type": "single",
+                "unit": "第六章",
+                "question": "（ ）是科学社会主义的核心命题。",
+                "options": [
+                    "A.资本主义必然灭亡，社会主义必然胜利",
+                    "B.资本主义必然灭亡，共产主义必然胜利",
+                    "C.历史唯物主义",
+                    "D.剩余价值学说"
+                ],
+                "answer": "A",
+                "explanation": "科学社会主义的核心命题揭示了资本主义被社会主义取代的历史必然性，A选项准确表述了这一规律。"
+            },
+            {
+                "id": 210,
+                "type": "single",
+                "unit": "第六章",
+                "question": "无产阶级政党实行（ ）的组织原则。",
+                "options": [
+                    "A.实事求是",
+                    "B.理论联系实际",
+                    "C.民主集中制",
+                    "D.松散联合制"
+                ],
+                "answer": "C",
+                "explanation": "民主集中制是马克思主义政党的根本组织原则，强调民主基础上的集中和集中指导下的民主相结合。"
+            },
+            {
+                "id": 211,
+                "type": "single",
+                "unit": "第六章",
+                "question": "东欧剧变、苏联解体的最根本原因是（ ）岀了问题。",
+                "options": [
+                    "A.经济方向",
+                    "B.社会方向",
+                    "C.文化方向",
+                    "D.政治方向"
+                ],
+                "answer": "D",
+                "explanation": "政治方向的根本性错误（如放弃党的领导、背离社会主义道路）导致苏东社会主义阵营系统性崩溃。"
+            },
+            {
+                "id": 212,
+                "type": "single",
+                "unit": "第六章",
+                "question": "（ ）实现了社会主义从理想到现实的伟大飞跃，开辟了人类历史的新纪元。",
+                "options": [
+                    "A.巴黎公社",
+                    "B.西里西亚纺织工人起义",
+                    "C.宪章运动",
+                    "D.十月革命"
+                ],
+                "answer": "D",
+                "explanation": "十月革命建立人类第一个社会主义国家，使科学社会主义从理论变为现实制度实践。"
+            },
+            {
+                "id": 213,
+                "type": "single",
+                "unit": "第六章",
+                "question": "中国共产党跳出治乱兴衰历史周期率的第二个答案是（ ）。",
+                "options": [
+                    "A.自我革命",
+                    "B.自我完善",
+                    "C.自我革新",
+                    "D.自我提高能力"
+                ],
+                "answer": "A",
+                "explanation": "自我革命是党永葆先进性的根本途径，通过刀刃向内的勇气解决自身问题，区别于外部监督的第一个答案（人民监督）。"
+            },
+            {
+                "id": 214,
+                "type": "single",
+                "unit": "第六章",
+                "question": "（ ）是中国共产党区别于其他政党的显著标志。",
+                "options": [
+                    "A.勇于自我革命",
+                    "B.勇于自我完善",
+                    "C.勇于自我革新",
+                    "D.勇于自我提高能力"
+                ],
+                "answer": "A",
+                "explanation": "自我革命体现党的政治品格，主动修正错误、净化肌体，使党始终成为坚强领导核心。"
+            },
+            {
+                "id": 215,
+                "type": "single",
+                "unit": "第六章",
+                "question": "无产阶级夺取政权的第一次伟大尝试是( )。",
+                "options": [
+                    "A.1848年革命",
+                    "B.成立第二国际",
+                    "C.巴黎公社革命",
+                    "D.十月革命"
+                ],
+                "answer": "C",
+                "explanation": "巴黎公社首次建立无产阶级政权（1871年），虽短暂但提供了宝贵经验，如打碎旧国家机器。"
+            },
+            {
+                "id": 216,
+                "type": "single",
+                "unit": "第六章",
+                "question": "科学社会主义创立的理论基础是( )。",
+                "options": [
+                    "A.英国古典政治经济学",
+                    "B.德国古典哲学",
+                    "C.唯物史观和剩余价值学说",
+                    "D.空想社会主义学说"
+                ],
+                "answer": "C",
+                "explanation": "唯物史观揭示社会发展规律，剩余价值学说揭露资本主义剥削本质，二者使社会主义从空想变为科学。"
+            },
+            {
+                "id": 217,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "以三大空想社会主义者为代表人物的空想社会主义学说，在理论上致力于对社会制度的分析，他们（ ）。",
+                "options": [
+                    "A.揭示了资本主义必然灭亡、社会主义必然胜利的客观规律",
+                    "B.对资本主义旧制度的辛辣批判，包含着许多切中要害的见解",
+                    "C.对社会主义新制度的描绘，闪烁着诸多天才的火花",
+                    "D.找到了变革社会的革命力量"
+                ],
+                "answer": ["B", "C"],
+                "explanation": "空想社会主义批判资本主义深刻（B）并构想未来社会（C），但未发现客观规律（A）和依靠力量（D），这是其局限。"
+            },
+            {
+                "id": 218,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "19世纪初期的三大空想社会主义者是（ ）。",
+                "options": [
+                    "A.圣西门",
+                    "B.傅立叶",
+                    "C.蒲鲁东",
+                    "D.欧文"
+                ],
+                "answer": ["A", "B", "D"],
+                "explanation": "圣西门（法）、傅立叶（法）、欧文（英）是空想社会主义巅峰代表；蒲鲁东属小资产阶级社会主义者。"
+            },
+            {
+                "id": 219,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "中国共产党坚持'两个结合'，是指（ ）。",
+                "options": [
+                    "A.坚持将马克思主义基本原理同中国具体实际相结合",
+                    "B.坚持将马克思主义基本原理同中华优秀传统文化相结合",
+                    "C.坚持将中华优秀传统文化同中国具体实际相结合",
+                    "D.坚持将中国具体实际同人类优秀文化相结合"
+                ],
+                "answer": ["A", "B"],
+                "explanation": "'两个结合'是中国特色社会主义的理论根基：A强调实践导向（中国化时代化），B强调文化根基（马克思主义本土化）。"
+            },
+            {
+                "id": 220,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "正确把握科学社会主义基本原则（ ）。",
+                "options": [
+                    "A.必须始终坚持科学社会主义基本原则",
+                    "B.要善于把科学社会主义基本原则与本国实际和时代特征相结合",
+                    "C.要紧跟时代和实践的发展",
+                    "D.要在不断总结新鲜经验中进一步丰富和发展科学社会主义基本原则"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "四者辩证统一：A是根本立场，B是实践方法，C是时代要求，D是理论创新，共同构成发展社会主义的科学路径。"
+            },
+            {
+                "id": 221,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "社会主义建设过程的长期性体现在（ ）。",
+                "options": [
+                    "A.生产力发展状况的制约",
+                    "B.经济基础和上层建筑发展状况的制约",
+                    "C.国际环境的严峻挑战",
+                    "D.理论来源于实践，又随着实践的发展而发展"
+                ],
+                "answer": ["A", "B", "C"],
+                "explanation": "长期性源于客观条件：生产力落后需长期发展（A），制度完善需渐进过程（B），西方围堵加大难度（C）。D是理论特征，非长期性原因。"
+            },
+            {
+                "id": 222,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "社会主义发展道路必然呈现出多样性的特点，这是因为（ ）。",
+                "options": [
+                    "A.各国探索社会主义发展道路的领导人不同，是造成社会主义发展道路多样性的根本原因",
+                    "B.历史文化传统的差异性是造成不同国家社会主义发展道路多样性的重要条件",
+                    "C.时代和实践的不断发展，是造成社会主义发展道路多样性的现实原因",
+                    "D.各个国家的生产力发展状况和社会发展阶段决定了社会主义发展道路具有不同的特点"
+                ],
+                "answer": ["B", "C", "D"],
+                "explanation": "多样性源于客观差异：历史文化传统（B）、时代条件（C）、生产力水平（D）。A错误，领导人非根本原因，国情才是决定因素。"
+            },
+            {
+                "id": 223,
+                "type": "multi",
+                "unit": "第六章",
+                "question": "马克思、恩格斯高度评价了巴黎公社的意义，他们总结的巴黎公社的经验主要有（ ）。",
+                "options": [
+                    "A.无产阶级政权是为人民服务的机关",
+                    "B.必须打碎旧的国家机器，建立无产阶级的新型国家",
+                    "C.无产阶级革命取得成功并保持胜利果实的首要条件是要有革命的武装",
+                    "D.必须建立无产阶级政党，发挥党的政治作用"
+                ],
+                "answer": ["A", "B", "C", "D"],
+                "explanation": "巴黎公社经验是科学社会主义重要实践来源：A揭示政权本质，B指明国家改造路径，C强调武装斗争必要性，D突出党的领导作用（虽公社未完全做到）。"
+            },
+            {
+                "id": 224,
+                "type": "short",
+                "unit": "第六章",
+                "question": "简述为什么'在实践中开拓前进是社会主义事业发展的必然要求'。",
+                "options": [],
+                "answer": ["在实践中开拓前进是社会主义事业发展的必然要求（2分）首先，社会主义是亿万人民群众的伟大实践。（2分）其次，社会主义实践是一个不断探索的过程。（2分）再次，实践探索中出现某种曲折并不改变社会主义的前进趋势。（2分）最后，推进社会主义实践发展必须有开拓奋进的精神状态。（2分）"],
+                "explanation": "第一，社会主义是崭新事业，无现成模式可循，必须通过实践探索符合国情的道路。第二，社会主义矛盾运动具有特殊性，需在实践中不断认识解决新问题。第三，时代条件动态变化，要求社会主义制度与时俱进、改革创新。第四，实践是检验真理的唯一标准，社会主义理论和政策需在实践中修正完善。"
+            },
+            {
+                "id": 225,
+                "type": "short",
+                "unit": "第六章",
+                "question": "简述中国特色社会主义的成功实践对世界社会主义发展的意义。",
+                "options": [],
+                "answer": ["经过几十年的实践探索，中国特色社会主义取得了举世瞩目的辉煌成就。中国特色社会主义进入新时代，不仅对中国的社会主义事业具有重大现实意义，而且对世界社会主义的发展具有广泛影响。（4分）要深刻认识到，中国特色社会主义虽然只是世界社会主义的一个方面军，但这是社会主义在一个拥有5000多年文明史和14亿多人口的东方大国所取得的成功，是当今世界最大的社会主义国家所取得的成功。中国特色社会主义的历史性成就，必将对世界社会主义的发展态势产生重大影响。（4分）中国特色社会主义的成功，特别是中国特色社会主义进入新时代，使世界人民看到了社会主义的强大活力，极大地鼓舞了人们对社会主义的信心。（2分）"],
+                "explanation": "第一，证明社会主义生命力：打破'历史终结论'，彰显社会主义制度优越性。第二，提供新路径：探索出不同于传统模式的现代化道路，为发展中国家提供借鉴。第三，推动理论创新：形成中国特色社会主义理论体系，丰富科学社会主义内涵。第四，重塑世界格局：增强社会主义力量，推动人类进步事业。"
+            },
+            {
+                "id": 226,
+                "type": "short",
+                "unit": "第六章",
+                "question": "简述既然社会主义发展道路具有多样性，那么如何努力探索适合本国国情的社会主义发展道路。",
+                "options": [],
+                "answer": ["第一，探索社会主义发展道路，必须坚持对待马克思主义的科学态度。（4分）第二，探索社会主义发展道路，必须从当时当地的历史条件出发，坚持“走自己的路”。（4分）第三，探索社会主义发展道路，必须充分吸收人类一切优秀文明成果。（2分）"],
+                "explanation": "第一，立足国情：深入分析本国生产力水平、历史文化传统和社会结构。第二，坚持科学原则：遵循社会主义本质要求（如公有制主体、共同富裕）。第三，吸收国际经验：借鉴他国成败教训，避免照搬模式。第四，尊重人民实践：发挥群众首创精神，及时总结基层经验。第五，与时俱进：根据时代变化调整发展战略，保持制度弹性。"
+            },
+            {
+                id: 227,
+                type: "single",
+                unit: "第七章",
+                question: "马克思主义最崇高的社会理想和人类历史发展的必然趋势是（ ）。",
+                options: [
+                    "A.消灭资本主义",
+                    "B.建立社会主义",
+                    "C.实现共产主义",
+                    "D.发展生产力"
+                ],
+                answer: "C",
+                explanation: "马克思主义的终极目标是实现共产主义，这是基于人类社会发展规律得出的必然结论，体现了社会形态从低级向高级发展的历史趋势。"
+            },
+            {
+                id: 228,
+                type: "single",
+                unit: "第七章",
+                question: "在展望未来社会的问题上，马克思主义与空想社会主义的根本区别在于（ ）。",
+                options: [
+                    "A.是否深刻地批判资本主义社会",
+                    "B.是否详尽地描述未来的理想社会",
+                    "C.是否坚持科学的立场、观点和方法",
+                    "D.是否提出具体的变革措施"
+                ],
+                answer: "C",
+                explanation: "马克思主义基于唯物史观和剩余价值理论科学揭示社会发展规律，而空想社会主义仅凭主观愿望构想未来，缺乏科学依据。"
+            },
+            {
+                id: 229,
+                type: "single",
+                unit: "第七章",
+                question: "空想社会主义的开山之作是1516年英国人托马斯-莫尔所著（ ）一书。",
+                options: [
+                    "A.《太阳城》",
+                    "B.《基督城》",
+                    "C.《乌托邦》",
+                    "D.《新世界》"
+                ],
+                answer: "C",
+                explanation: "托马斯·莫尔的《乌托邦》首次系统描绘了一个财产公有、按需分配的理想社会，奠定了空想社会主义的理论基础。"
+            },
+            {
+                id: 230,
+                type: "single",
+                unit: "第七章",
+                question: "马克思主义追求的根本价值目标和共产主义社会的根本特征是（ ）。",
+                options: [
+                    "A.实现人对自然的征服",
+                    "B.实现人的自由而全面的发展",
+                    "C.人的个性的充分实现",
+                    "D.劳动成为生活的第一需要"
+                ],
+                answer: "B",
+                explanation: "人的自由全面发展是共产主义社会的核心标志，包括能力、个性、社会关系的全面解放，是马克思主义的最高价值追求。"
+            },
+            {
+                id: 231,
+                type: "single",
+                unit: "第七章",
+                question: "在共产主义社会，（ ）成为\"生活的第一需要\"。",
+                options: [
+                    "A.劳动",
+                    "B.娱乐",
+                    "C.休闲",
+                    "D.工作"
+                ],
+                answer: "A",
+                explanation: "劳动不再是被迫的谋生手段，而是人们自觉的、创造性的活动，成为实现自我价值和社会贡献的内在需求。"
+            },
+            {
+                id: 232,
+                type: "single",
+                unit: "第七章",
+                question: "我们党的最高行动纲领是（ ）。",
+                options: [
+                    "A.消灭资本主义",
+                    "B.进行新民主主义革命",
+                    "C.建设社会主义",
+                    "D.实现共产主义"
+                ],
+                answer: "D",
+                explanation: "实现共产主义是党的最高纲领，体现了无产阶级政党的最终奋斗目标，贯穿于党的全部理论和实践。"
+            },
+            {
+                id: 233,
+                type: "multi",
+                unit: "第七章",
+                question: "马克思主义经典作家揭示的共产主义的基本特征包括（ ）。",
+                options: [
+                    "A.物质财富极大丰富，消费资料按需分配",
+                    "B.社会关系高度和谐，人们精神境界极大提高",
+                    "C.人自由而全面的发展",
+                    "D.人类实现从必然王国向自由王国飞跃"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "共产主义的基本特征涵盖物质生产、社会关系、人的发展及自由程度四个维度，构成一个有机整体。"
+            },
+            {
+                id: 234,
+                type: "multi",
+                unit: "第七章",
+                question: "三大差别是指（ ）。",
+                options: [
+                    "A.工业与农业",
+                    "B.城市与乡村",
+                    "C.脑力劳动与体力劳动",
+                    "D.农业与服务业"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "三大差别是阶级社会的历史产物，将在共产主义社会彻底消失，实现社会分工的完全平等与融合。"
+            },
+            {
+                id: 235,
+                type: "multi",
+                unit: "第七章",
+                question: "实现共产主义，必须找到现实的阶级力量，这就是（ ）。",
+                options: [
+                    "A.现代资产阶级",
+                    "B.现代农民阶级",
+                    "C.现代工人阶级",
+                    "D.无产阶级"
+                ],
+                answer: ["C", "D"],
+                explanation: "无产阶级（现代工人阶级）是资本主义的掘墓人，其历史使命和革命性决定了它是实现共产主义的根本力量。"
+            },
+            {
+                id: 236,
+                type: "multi",
+                unit: "第七章",
+                question: "正确认识和把握共产主义远大理想与中国特色社会主义共同理想的关系（ ）。",
+                options: [
+                    "A.从时间上看，是最终理想与阶段性理想的关系",
+                    "B.从层次上看，是最高纲领与最低纲领的关系",
+                    "C.从范围上看，是全人类理想与全体中国人民理想的关系",
+                    "D.必须以辩证思维和历史思维把握和处理远大理想和共同理想的关系"
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "两者辩证统一：共同理想是远大理想在当前阶段的具体实践，远大理想为共同理想提供最终方向指引。"
+            },
+            {
+                id: 237,
+                type: "multi",
+                unit: "第七章",
+                question: "新时代的中国青年要以实现中华民族伟大复兴为己任，增强做中国人的（ ）。",
+                options: [
+                    "A.志气",
+                    "B.骨气",
+                    "C.底气",
+                    "D.勇气"
+                ],
+                answer: ["A", "B", "C"],
+                explanation: "志气体现理想信念，骨气彰显民族精神，底气源于发展成就，三者共同构成青年担当民族复兴使命的精神支柱。"
+            },
+            {
+                id: 238,
+                type: "multi",
+                unit: "第七章",
+                question: "到共产主义社会，国家将消亡，这是指（ ）。",
+                options: [
+                    "A.社会组织管理机构的消亡",
+                    "B.政治国家的消亡",
+                    "C.作为阶级压迫工具的国家机器的消亡",
+                    "D.阶级消亡"
+                ],
+                answer: ["B", "C"],
+                explanation: "国家消亡特指作为阶级统治工具的政治权力消失，社会管理职能将保留并由非政治性机构承担。"
+            },
+            {
+                id: 239,
+                type: "multi",
+                unit: "第七章",
+                question: "人的自由而全面的发展的实现条件是（ ）。",
+                options: [
+                    "A.资本主义的灭亡",
+                    "B.旧式分工的消除",
+                    "C.自由时间的大大延长",
+                    "D.劳动不再是单纯的谋生手段，而成为\"生活的第一需要\""
+                ],
+                answer: ["A", "B", "C", "D"],
+                explanation: "人的全面发展需破除资本主义制度束缚、消灭固定分工、增加自由支配时间，并使劳动升华为自觉需求。"
+            },
+            {
+                id: 240,
+                type: "multi",
+                unit: "第七章",
+                question: "马克思主义经典作家站在科学的立场上，预见未来社会的科学方法是（ ）。",
+                options: [
+                    "A.在揭示人类社会发展一般规律的基础上指明社会发展的方向",
+                    "B.在剖析资本主义社会旧世界中阐发未来新世界的特点",
+                    "C.在剖析资本主义社会旧世界中阐发未来新世界的具体情况",
+                    "D.立足于揭示未来社会的一般特点，而不作详尽的细节描写"
+                ],
+                answer: ["A", "B", "D"],
+                explanation: "马克思主义通过分析资本主义矛盾运动规律，抽象出未来社会基本原则，拒绝脱离实际的空想细节。"
+            },
+            {
+                id: 241,
+                type: "short",
+                unit: "第七章",
+                question: "简述远大理想和共同理想的辩证关系。",
+                options: [],
+                answer: ["远大理想和共同理想是辩证统一的关系。从时间上看，远大理想与共同理想的关系是最终理想与阶段性理想的关系。从层次上看，远大理想与共同理想的关系是最高纲领与最低纲领的关系。从范围来看，远大理想与共司理想的关系也是全人类理想与全体中国人民理想的关系。总之，必须以辩证思维和历史思维把握和处理远大理想和共同理想的关系，不能用简单化的态度来对待它。"],
+                explanation: "辩证关系体现为：1. 时间维度：共产主义是最终理想，中国特色社会主义是阶段性理想；2. 层次维度：共产主义是最高纲领，中国特色社会主义是最低纲领；3. 实践维度：共同理想是远大理想的基础和必经阶段，远大理想为共同理想提供方向指引；4. 二者统一于中华民族伟大复兴的实践进程。"
+            },
+            {
+                id: 242,
+                type: "short",
+                unit: "第七章",
+                question: "试述如何理解\"共产主义理想一定会实现，是以人类社会发展规律以及资本主义社会的基本矛盾发展为依据的\"。",
+                options: [],
+                answer: ["马克思主义不仅从社会形态更替规律上对共产主义理想实现的必然性作了一般性的历史观论证，而且通过对资本主义社会的科学批判与“病理解剖”作了具体实证的阐明。（3分）马克思深入研究资本主义社会，特别是研究资本主义的经济运动，揭示了资本主义生产方式的特点，论证了资本主义发展自我否定的趋势；（3分）揭示了生产社会化与生产资料资本主义私人占有之间的基本矛盾，论证了资本主义的历史暂时性；（3分）揭示了资本主义剥削的秘密与资本主义的非正义性，论证了工人阶级推翻旧世界、建设新世界的历史使命；（3分）揭示了工人阶级和资产阶级斗争的发展规律和趋势，论证了工人阶级解放斗争胜利的必然性。（3分）"],
+                explanation: "依据在于：1. 人类社会发展规律决定社会形态由低级向高级更替，资本主义必然被更先进的共产主义取代；2. 资本主义基本矛盾（生产社会化与生产资料私有制）导致周期性经济危机、阶级对立等不可调和的冲突；3. 资本主义为共产主义奠定物质基础（高度发达的生产力）和阶级基础（无产阶级壮大）；4. 社会主义实践已验证人类社会发展规律的科学性，为共产主义实现提供现实路径。"
+            }
+        ];
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', function () {
+            // 初始化变量
+            let currentQuestionIndex = 0;
+            let userAnswers = {};
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || [];
+            let userNotes = JSON.parse(localStorage.getItem('userNotes')) || {};
+            let userStats = JSON.parse(localStorage.getItem('userStats')) || {
+                total: 0,
+                correct: 0,
+                wrong: 0,
+                favorites: 0
+            };
+            let currentTab = 'questions'; // 当前选中的选项卡
+            let filteredQuestions = [...questions]; // 当前显示的题目列表
+
+            // DOM元素
+            const questionList = document.getElementById('questionList');
+            const questionType = document.getElementById('questionType');
+            const questionId = document.getElementById('questionId');
+            const questionText = document.getElementById('questionText');
+            const optionsContainer = document.getElementById('optionsContainer');
+            const shortAnswerContainer = document.getElementById('shortAnswerContainer');
+            const answerTextarea = document.getElementById('answerTextarea');
+            const resultPanel = document.getElementById('resultPanel');
+            const correctAnswer = document.getElementById('correctAnswer');
+            const explanation = document.getElementById('explanation');
+            const submitBtn = document.getElementById('submitBtn');
+            const favoriteBtn = document.getElementById('favoriteBtn');
+            const addNoteBtn = document.getElementById('addNoteBtn');
+            const tabs = document.querySelectorAll('.tab');
+            const addQuestionForm = document.getElementById('addQuestionForm');
+            const totalQuestions = document.getElementById('totalQuestions');
+            const correctCount = document.getElementById('correctCount');
+            const wrongCount = document.getElementById('wrongCount');
+            const favoriteCount = document.getElementById('favoriteCount');
+            const unitTitle = document.getElementById('unitTitle');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const questionTypeSelect = document.getElementById('questionTypeSelect');
+            const optionsGroup = document.getElementById('optionsGroup');
+            // 获取重置按钮
+            const resetBtn = document.getElementById('resetBtn');
+
+            // 添加重置按钮点击事件
+            resetBtn.addEventListener('click', function () {
+                if (confirm('确定要重置学习进度吗？这将清空所有收藏、错题、笔记和统计信息！')) {
+                    // 清除本地存储数据
+                    localStorage.removeItem('favorites');
+                    localStorage.removeItem('wrongAnswers');
+                    localStorage.removeItem('userNotes');
+                    localStorage.removeItem('userStats');
+
+                    // 重置内存变量
+                    favorites = [];
+                    wrongAnswers = [];
+                    userNotes = {};
+                    userStats = {
+                        total: 0,
+                        correct: 0,
+                        wrong: 0,
+                        favorites: 0
+                    };
+                    userAnswers = {};
+
+                    // 更新统计显示
+                    updateStats();
+
+                    // 刷新题目列表
+                    filterQuestions();
+                    generateQuestionList();
+                    displayQuestion();
+
+                    alert('学习进度已重置！');
+                }
+            });
+            // 初始化统计信息
+            function updateStats() {
+                totalQuestions.textContent = questions.length;
+                correctCount.textContent = userStats.correct;
+                wrongCount.textContent = userStats.wrong;
+                favoriteCount.textContent = userStats.favorites;
+
+                // 更新进度条
+                const progress = Math.round((userStats.correct / questions.length) * 100);
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `${progress}% (${userStats.correct}/${questions.length}题)`;
+            }
+
+            // 根据当前选项卡过滤题目
+            function filterQuestions() {
+                switch (currentTab) {
+                    case 'wrong':
+                        filteredQuestions = questions.filter(q => wrongAnswers.includes(q.id));
+                        unitTitle.textContent = "错题集";
+                        break;
+                    case 'favorites':
+                        filteredQuestions = questions.filter(q => favorites.includes(q.id));
+                        unitTitle.textContent = "收藏夹";
+                        break;
+                    case 'questions':
+                    default:
+                        filteredQuestions = [...questions];
+                        unitTitle.textContent = "23版 导论";
+                        break;
+                }
+
+                // 重置当前题目索引
+                currentQuestionIndex = 0;
+            }
+
+            // 生成题目列表
+            function generateQuestionList() {
+                questionList.innerHTML = '';
+
+                if (filteredQuestions.length === 0) {
+                    // 显示空状态
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'empty-state';
+
+                    switch (currentTab) {
+                        case 'wrong':
+                            emptyState.innerHTML = `
+                                <i class="fas fa-check-circle"></i>
+                                <h3>暂无错题</h3>
+                                <p>您还没有做错的题目，继续保持！</p>
+                                <button class="btn btn-submit" onclick="switchTab('questions')">
+                                    <i class="fas fa-book"></i> 去刷题
+                                </button>
+                            `;
+                            break;
+                        case 'favorites':
+                            emptyState.innerHTML = `
+                                <i class="fas fa-star"></i>
+                                <h3>暂无收藏</h3>
+                                <p>您还没有收藏题目，点击题目下方的"收藏题目"按钮可以收藏重要题目</p>
+                                <button class="btn btn-favorite" onclick="switchTab('questions')">
+                                    <i class="fas fa-book"></i> 去刷题
+                                </button>
+                            `;
+                            break;
+                        default:
+                            emptyState.innerHTML = `
+                                <i class="fas fa-book"></i>
+                                <h3>暂无题目</h3>
+                                <p>当前没有题目可供练习</p>
+                            `;
+                    }
+
+                    questionList.appendChild(emptyState);
+                    return;
+                }
+
+                filteredQuestions.forEach((q, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'question-item';
+                    if (index === currentQuestionIndex) {
+                        li.classList.add('active');
+                    }
+
+                    // 添加收藏标记
+                    const isFavorited = favorites.includes(q.id);
+                    const starIcon = isFavorited ?
+                        `<i class="fas fa-star favorite-icon favorited" style="margin-left: 8px;"></i>` : '';
+
+                    // 题目类型标签
+                    let typeTag = '';
+                    let typeClass = '';
+                    if (q.type === 'single') {
+                        typeTag = '单选题';
+                        typeClass = 'single';
+                    } else if (q.type === 'multi') {
+                        typeTag = '多选题';
+                        typeClass = 'multi';
+                    } else if (q.type === 'short') {
+                        typeTag = '简答题';
+                        typeClass = 'short';
+                    }
+
+                    li.innerHTML = `
+                        <div class="question-number">${q.id}</div>
+                        <div class="question-content">${q.question}</div>
+                        <div class="question-tag ${typeClass}">${typeTag}</div>
+                        ${starIcon}
+                    `;
+
+                    li.addEventListener('click', () => {
+                        currentQuestionIndex = index;
+                        displayQuestion();
+                        document.querySelectorAll('.question-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        li.classList.add('active');
+
+                        // 点击列表项时滚动到该题目
+                        li.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    });
+
+                    questionList.appendChild(li);
+                });
+            }
+
+            // 显示题目
+            function displayQuestion() {
+                // 检查是否有题目
+                if (filteredQuestions.length === 0) {
+                    questionType.textContent = "";
+                    questionId.textContent = "";
+                    questionText.textContent = "当前没有题目";
+                    optionsContainer.innerHTML = "";
+                    shortAnswerContainer.style.display = "none";
+                    resultPanel.style.display = "none";
+                    notesSection.style.display = "none";
+                    return;
+                }
+
+                const question = filteredQuestions[currentQuestionIndex];
+
+                // 更新题目信息
+                if (question.type === 'single') {
+                    questionType.innerHTML = `<i class="fas fa-list-ol"></i> 单项选择题`;
+                } else if (question.type === 'multi') {
+                    questionType.innerHTML = `<i class="fas fa-tasks"></i> 多项选择题`;
+                } else if (question.type === 'short') {
+                    questionType.innerHTML = `<i class="fas fa-pen"></i> 简答题`;
+                }
+
+                questionId.textContent = `题号: ${question.id}`;
+                questionText.textContent = question.question;
+
+                // 根据题目类型显示不同内容
+                if (question.type === 'short') {
+                    // 简答题
+                    optionsContainer.style.display = 'none';
+                    shortAnswerContainer.style.display = 'block';
+                    answerTextarea.value = userAnswers[question.id] || '';
+                } else {
+                    // 选择题
+                    optionsContainer.style.display = 'block';
+                    shortAnswerContainer.style.display = 'none';
+
+                    // 清空选项容器
+                    optionsContainer.innerHTML = '';
+
+                    // 生成选项
+                    question.options.forEach(option => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option';
+                        optionDiv.dataset.value = option.substring(0, 1);
+
+                        const isSelected = userAnswers[question.id] &&
+                            (question.type === 'single' ?
+                                userAnswers[question.id][0] === option.substring(0, 1) :
+                                userAnswers[question.id].includes(option.substring(0, 1)));
+
+                        if (isSelected) {
+                            optionDiv.classList.add('selected');
+                        }
+
+                        optionDiv.innerHTML = `
+                            <div class="option-prefix">${option.substring(0, 1)}</div>
+                            <div class="option-text">${option.substring(2)}</div>
+                        `;
+
+                        // 添加选项点击事件
+                        optionDiv.addEventListener('click', () => {
+                            if (question.type === 'single') {
+                                document.querySelectorAll('.option').forEach(opt => {
+                                    opt.classList.remove('selected');
+                                });
+                                optionDiv.classList.add('selected');
+                                userAnswers[question.id] = [optionDiv.dataset.value];
+                            } else if (question.type === 'multi') {
+                                optionDiv.classList.toggle('selected');
+
+                                const selectedOptions = Array.from(document.querySelectorAll('.option.selected'))
+                                    .map(opt => opt.dataset.value);
+                                userAnswers[question.id] = selectedOptions;
+                            }
+                        });
+
+                        optionsContainer.appendChild(optionDiv);
+                    });
+                }
+
+                // 更新收藏按钮状态
+                const isFavorited = favorites.includes(question.id);
+                favoriteBtn.innerHTML = isFavorited ?
+                    `<i class="fas fa-star"></i> 取消收藏` :
+                    `<i class="far fa-star"></i> 收藏题目`;
+
+                // 更新笔记
+                if (userNotes[question.id]) {
+                    notesContent.textContent = userNotes[question.id];
+                    notesSection.style.display = 'block';
+                } else {
+                    notesSection.style.display = 'none';
+                }
+
+                // 隐藏结果面板
+                resultPanel.style.display = 'none';
+            }
+
+            // 提交答案
+            submitBtn.addEventListener('click', () => {
+                if (filteredQuestions.length === 0) return;
+
+                const question = filteredQuestions[currentQuestionIndex];
+                let selected = [];
+
+                if (question.type === 'short') {
+                    // 简答题
+                    selected = answerTextarea.value.trim();
+                    if (!selected) {
+                        alert('请填写答案！');
+                        return;
+                    }
+                    userAnswers[question.id] = selected;
+                } else {
+                    // 选择题
+                    selected = userAnswers[question.id] || [];
+                    if (selected.length === 0) {
+                        alert('请先选择答案！');
+                        return;
+                    }
+                }
+
+                // 显示结果面板
+                resultPanel.style.display = 'block';
+
+                // 判断答案是否正确（仅选择题）
+                let isCorrect = false;
+                if (question.type !== 'short') {
+                    isCorrect = Array.isArray(question.answer) ?
+                        selected.sort().join('') === question.answer.sort().join('') :
+                        selected[0] === question.answer;
+
+                    // 更新统计信息
+                    userStats.total++;
+                    if (isCorrect) {
+                        userStats.correct++;
+                        resultPanel.style.backgroundColor = '#e8f5e9';
+                        resultPanel.style.borderLeftColor = '#43a047';
+
+                        // 从错题集中移除（如果存在）
+                        const wrongIndex = wrongAnswers.indexOf(question.id);
+                        if (wrongIndex !== -1) {
+                            wrongAnswers.splice(wrongIndex, 1);
+                            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
+                        }
+                    } else {
+                        userStats.wrong++;
+                        resultPanel.style.backgroundColor = '#ffebee';
+                        resultPanel.style.borderLeftColor = '#e53935';
+
+                        // 添加到错题集
+                        if (!wrongAnswers.includes(question.id)) {
+                            wrongAnswers.push(question.id);
+                            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
+                        }
+                    }
+                } else {
+                    // 简答题不判断对错
+                    resultPanel.style.backgroundColor = '#e3f2fd';
+                    resultPanel.style.borderLeftColor = '#1e88e5';
+                }
+
+                // 显示正确答案和解析
+                correctAnswer.textContent = Array.isArray(question.answer) ?
+                    question.answer.join('、') : question.answer;
+                explanation.textContent = question.explanation;
+
+                // 更新统计显示
+                updateStats();
+                localStorage.setItem('userStats', JSON.stringify(userStats));
+            });
+
+            // 收藏题目
+            favoriteBtn.addEventListener('click', () => {
+                if (filteredQuestions.length === 0) return;
+
+                const questionId = filteredQuestions[currentQuestionIndex].id;
+                const index = favorites.indexOf(questionId);
+
+                if (index === -1) {
+                    // 添加到收藏
+                    favorites.push(questionId);
+                    userStats.favorites++;
+                    favoriteBtn.innerHTML = `<i class="fas fa-star"></i> 取消收藏`;
+                } else {
+                    // 从收藏中移除
+                    favorites.splice(index, 1);
+                    userStats.favorites--;
+                    favoriteBtn.innerHTML = `<i class="far fa-star"></i> 收藏题目`;
+                }
+
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                localStorage.setItem('userStats', JSON.stringify(userStats));
+                updateStats();
+
+                // 如果当前在收藏夹选项卡，需要刷新题目列表
+                if (currentTab === 'favorites') {
+                    filterQuestions();
+                    generateQuestionList();
+                    displayQuestion();
+                }
+            });
+
+            // 添加笔记
+            addNoteBtn.addEventListener('click', () => {
+                if (filteredQuestions.length === 0) return;
+
+                const questionId = filteredQuestions[currentQuestionIndex].id;
+                const note = prompt("请输入您的学习笔记：", userNotes[questionId] || "");
+
+                if (note !== null) {
+                    if (note.trim()) {
+                        userNotes[questionId] = note;
+                        notesContent.textContent = note;
+                        notesSection.style.display = 'block';
+                    } else {
+                        delete userNotes[questionId];
+                        notesSection.style.display = 'none';
+                    }
+                    localStorage.setItem('userNotes', JSON.stringify(userNotes));
+                }
+            });
+
+            // 选项卡切换
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 移除所有active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // 为当前选项卡添加active类
+                    tab.classList.add('active');
+
+                    // 更新当前选项卡
+                    currentTab = tab.dataset.tab;
+
+                    // 显示相应内容
+                    if (currentTab === 'add') {
+                        addQuestionForm.style.display = 'block';
+                        // 隐藏题目面板
+                        document.querySelector('.question-header').style.display = 'none';
+                        document.querySelector('.question-text').style.display = 'none';
+                        optionsContainer.style.display = 'none';
+                        shortAnswerContainer.style.display = 'none';
+                        document.querySelector('.actions').style.display = 'none';
+                        resultPanel.style.display = 'none';
+                        notesSection.style.display = 'none';
+                        document.querySelector('.statistics').style.display = 'none';
+                    } else if (currentTab === 'notes') {
+                        addQuestionForm.style.display = 'none';
+                        // 显示笔记面板
+                        document.querySelector('.question-header').style.display = 'none';
+                        document.querySelector('.question-text').style.display = 'none';
+                        optionsContainer.style.display = 'none';
+                        shortAnswerContainer.style.display = 'none';
+                        document.querySelector('.actions').style.display = 'none';
+                        resultPanel.style.display = 'none';
+                        document.querySelector('.statistics').style.display = 'none';
+                        notesSection.style.display = 'block';
+                        notesContent.innerHTML = `
+                            <h3>我的学习笔记</h3>
+                            <p>${Object.keys(userNotes).length} 条笔记</p>
+                            <ul>
+                                ${Object.entries(userNotes).map(([id, note]) =>
+                            `<li><strong>题目 ${id}:</strong> ${note.substring(0, 80)}${note.length > 80 ? '...' : ''}</li>`
+                        ).join('')}
+                            </ul>
+                        `;
+                    } else {
+                        addQuestionForm.style.display = 'none';
+                        // 显示题目面板
+                        document.querySelector('.question-header').style.display = 'flex';
+                        document.querySelector('.question-text').style.display = 'block';
+                        document.querySelector('.actions').style.display = 'flex';
+                        document.querySelector('.statistics').style.display = 'flex';
+                        notesSection.style.display = 'none';
+
+                        // 过滤题目并更新显示
+                        filterQuestions();
+                        generateQuestionList();
+                        displayQuestion();
+                    }
+                });
+            });
+
+            // 题目类型选择变化
+            questionTypeSelect.addEventListener('change', function () {
+                if (this.value === 'short') {
+                    optionsGroup.style.display = 'none';
+                } else {
+                    optionsGroup.style.display = 'block';
+                }
+            });
+
+            // 添加选项按钮
+            document.querySelectorAll('.add-option-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const container = this.parentElement.parentElement;
+                    if (container.children.length < 10) {
+                        const optionCount = container.children.length;
+                        const newChar = String.fromCharCode(65 + optionCount);
+
+                        const newOption = document.createElement('div');
+                        newOption.className = 'option-input';
+                        newOption.innerHTML = `
+                            <input type="text" placeholder="选项${newChar}内容">
+                            <button class="add-option-btn" type="button">+</button>
+                        `;
+
+                        container.appendChild(newOption);
+
+                        // 为新按钮添加事件
+                        newOption.querySelector('.add-option-btn').addEventListener('click', function () {
+                            const container = this.parentElement.parentElement;
+                            if (container.children.length < 10) {
+                                const optionCount = container.children.length;
+                                const newChar = String.fromCharCode(65 + optionCount);
+
+                                const newOption = document.createElement('div');
+                                newOption.className = 'option-input';
+                                newOption.innerHTML = `
+                                    <input type="text" placeholder="选项${newChar}内容">
+                                    <button class="add-option-btn" type="button">+</button>
+                                `;
+
+                                container.appendChild(newOption);
+
+                                // 为新按钮添加事件
+                                newOption.querySelector('.add-option-btn').addEventListener('click', arguments.callee);
+                            } else {
+                                alert('最多只能添加10个选项！');
+                            }
+                        });
+                    } else {
+                        alert('最多只能添加10个选项！');
+                    }
+                });
+            });
+
+            // 提交新题目表单
+            document.getElementById('submitFormBtn').addEventListener('click', function () {
+                alert('题目添加成功！在实际应用中，这里会将新题目添加到题库中。');
+                // 在实际应用中，这里会有表单验证和添加到题库的逻辑
+            });
+
+            // 上一题
+            prevBtn.addEventListener('click', () => {
+                if (filteredQuestions.length === 0) return;
+                currentQuestionIndex = (currentQuestionIndex - 1 + filteredQuestions.length) % filteredQuestions.length;
+                displayQuestion();
+                updateQuestionListHighlight();
+            });
+
+            // 下一题
+            nextBtn.addEventListener('click', () => {
+                if (filteredQuestions.length === 0) return;
+                currentQuestionIndex = (currentQuestionIndex + 1) % filteredQuestions.length;
+                displayQuestion();
+                updateQuestionListHighlight();
+            });
+
+            // 更新题目列表高亮
+            function updateQuestionListHighlight() {
+                const items = document.querySelectorAll('.question-item');
+                items.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentQuestionIndex);
+                });
+            }
+
+            // 切换选项卡的全局函数
+            window.switchTab = function (tab) {
+                document.querySelectorAll('.tab').forEach(t => {
+                    if (t.dataset.tab === tab) {
+                        t.click();
+                    }
+                });
+            };
+
+            // 初始化应用
+            updateStats();
+            filterQuestions();
+            generateQuestionList();
+            displayQuestion();
+        });
+    </script>
+</body>
+
+</html>

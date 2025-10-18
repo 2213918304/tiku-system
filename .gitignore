@@ -1,0 +1,90 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Spring Boot
+spring-boot-devtools.properties
+
+# Database
+*.db
+*.sqlite
+*.h2.db
+
+# Node.js (前端)
+tiku-frontend/node_modules/
+tiku-frontend/dist/
+tiku-frontend/.env.local
+tiku-frontend/.env.*.local
+tiku-frontend/npm-debug.log*
+tiku-frontend/yarn-debug.log*
+tiku-frontend/yarn-error.log*
+tiku-frontend/pnpm-debug.log*
+
+# 环境变量
+.env
+.env.local
+.env.production.local
+.env.*.local
+
+# 临时文件
+tmp/
+temp/
+uploads/
+*.tmp
+
+# Excel文件处理目录（题库数据）
+xlsx/*.xlsx
+xlsx/*.xls
+xlsx/*.csv
+xlsx/*.py
+!xlsx/智能批量导入模板*.xlsx
+
+# 文档（保留必要的）
+!README.md
+!docs/
+!*.md
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# 其他
+*.bak
+*.swp
+*.swo

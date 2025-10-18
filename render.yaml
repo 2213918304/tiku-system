@@ -1,0 +1,34 @@
+services:
+  # 数据库
+  - type: pserv
+    name: tiku-db
+    env: docker
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: POSTGRES_USER
+        value: tiku_user
+      - key: POSTGRES_PASSWORD
+        generateValue: true
+      - key: POSTGRES_DB
+        value: tiku
+
+  # Spring Boot应用
+  - type: web
+    name: tiku-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://tiku-db:5432/tiku
+      - key: SPRING_DATASOURCE_USERNAME
+        value: tiku_user
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_JPA_DATABASE_PLATFORM
+        value: org.hibernate.dialect.PostgreSQLDialect
+

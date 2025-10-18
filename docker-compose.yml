@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # MySQL数据库
+  mysql:
+    image: mysql:8.0
+    container_name: tiku-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: tiku
+      MYSQL_USER: tiku_user
+      MYSQL_PASSWORD: tiku_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src/main/resources/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - tiku-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Spring Boot应用
+  app:
+    build: .
+    container_name: tiku-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiku?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+      SPRING_DATASOURCE_USERNAME: tiku_user
+      SPRING_DATASOURCE_PASSWORD: tiku_pass
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiku-network
+
+volumes:
+  mysql_data:
+
+networks:
+  tiku-network:
+    driver: bridge
+

@@ -1,0 +1,127 @@
+spring:
+  application:
+    name: TIKU
+  
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tiku_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: luo125314
+    # 连接池配置
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+  
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 
+      database: 0
+      timeout: 3000
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+  
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  
+  # JSON配置
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# JWT配置
+jwt:
+  secret: tiku-system-jwt-secret-key-2024-very-long-secret-key-for-security
+  expiration: 604800000 # 7天，单位毫秒
+  header: Authorization
+  prefix: Bearer 
+
+# AI配置 - 硅基流动（SiliconCloud）
+ai:
+  siliconflow:
+    # API密钥（必填）- 从 https://cloud.siliconflow.cn/account/ak 获取
+    api-key: YOUR_API_KEY_FROM_CLOUD_SILICONFLOW_CN
+    # API基础URL（必填）
+    base-url: https://api.siliconflow.cn/v1
+    # 默认模型（可选）- 推荐使用 Qwen2.5 系列
+    model: Qwen/Qwen2.5-7B-Instruct
+    # 温度参数（0-1）- 控制生成的随机性，越低越确定
+    temperature: 0.3
+    # 最大token数 - 控制回复长度
+    max-tokens: 2000
+    # 请求超时时间（毫秒）
+    timeout: 30000
+  # AI判题配置
+  grading:
+    enabled: true
+    confidence-threshold: 0.75 # 置信度阈值，低于此值转人工
+    retry-times: 2 # 重试次数
+    cache-enabled: true # 是否缓存判题结果
+
+# Swagger配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.springboot.tiku: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
+  file:
+    name: logs/tiku.log
+    max-size: 10MB
+    max-history: 30
+
+# 自定义配置
+app:
+  # 文件存储路径
+  file:
+    upload-path: ./uploads
+    temp-path: ./temp
+  # 默认管理员账号
+  admin:
+    username: admin
+    password: admin123
+    email: admin@tiku.com
+

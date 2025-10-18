@@ -1,0 +1,173 @@
+// 响应式断点
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1600px;
+
+// 响应式Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-sm) and (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// 响应式工具类
+.hide-on-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hide-on-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hide-on-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.show-on-mobile {
+  display: none !important;
+
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.show-on-tablet {
+  display: none !important;
+
+  @include tablet {
+    display: block !important;
+  }
+}
+
+.show-on-desktop {
+  display: none !important;
+
+  @include desktop {
+    display: block !important;
+  }
+}
+
+// 移动端优化
+@include mobile {
+  // 页面容器
+  .page-container {
+    padding: 12px !important;
+  }
+
+  // 卡片间距
+  .el-card {
+    margin-bottom: 12px !important;
+  }
+
+  // 表单
+  .el-form--inline .el-form-item {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  // 按钮组
+  .el-button-group {
+    display: flex;
+    width: 100%;
+
+    .el-button {
+      flex: 1;
+    }
+  }
+
+  // 统计卡片
+  .stat-card {
+    .stat-value {
+      font-size: 24px !important;
+    }
+
+    .stat-icon {
+      width: 48px !important;
+      height: 48px !important;
+      font-size: 24px !important;
+    }
+  }
+
+  // 对话框
+  .el-dialog {
+    width: 95% !important;
+    margin: 5vh auto !important;
+  }
+
+  // 表格
+  .el-table {
+    font-size: 12px;
+
+    .el-button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  }
+
+  // 分页
+  .el-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+
+    .el-pagination__sizes,
+    .el-pagination__jump {
+      margin: 0;
+    }
+  }
+}
+
+// 触摸优化
+@media (hover: none) and (pointer: coarse) {
+  // 增大可点击区域
+  .el-button {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  // 增大输入框
+  .el-input__inner {
+    min-height: 44px;
+    font-size: 16px; // 防止iOS自动缩放
+  }
+
+  .el-textarea__inner {
+    font-size: 16px;
+  }
+
+  // 增大选择器
+  .el-select .el-input__inner {
+    min-height: 44px;
+  }
+}
+
+
+

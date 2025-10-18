@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.idea
+.vscode
+*.iml
+*.swp
+*.swo
+
+# Build outputs
+target/
+tiku-frontend/dist/
+tiku-frontend/node_modules/
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!DEPLOY.md
+docs/
+
+# Test files
+*.test.js
+*.spec.js
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+tmp/
+temp/
+xlsx/
+

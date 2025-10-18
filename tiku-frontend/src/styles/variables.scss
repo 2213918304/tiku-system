@@ -1,0 +1,56 @@
+// Arco Design风格配色
+$primary-color: #165DFF; // 主蓝色
+$primary-light: #4080FF;
+$primary-lighter: #6AA1FF;
+$primary-lightest: #E8F3FF;
+
+$success-color: #00B42A;
+$warning-color: #FF7D00;
+$danger-color: #F53F3F;
+$info-color: #909399;
+
+// 中性色
+$text-primary: #1D2129;
+$text-regular: #4E5969;
+$text-secondary: #86909C;
+$text-placeholder: #C9CDD4;
+
+$bg-white: #FFFFFF;
+$bg-gray: #F7F8FA;
+$bg-hover: #F2F3F5;
+
+$border-color: #E5E6EB;
+$border-light: #F2F3F5;
+
+// 布局变量
+$sidebar-width: 240px;
+$sidebar-collapsed-width: 64px;
+$header-height: 64px;
+
+// 间距
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// 圆角
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-xl: 12px;
+
+// 阴影
+$box-shadow-sm: 0 2px 8px 0 rgba(29, 33, 41, 0.04);
+$box-shadow-md: 0 4px 16px 0 rgba(29, 33, 41, 0.08);
+$box-shadow-lg: 0 8px 24px 0 rgba(29, 33, 41, 0.12);
+
+// 动画
+$transition-fast: 0.15s;
+$transition-base: 0.3s;
+$transition-slow: 0.5s;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-modal: 2000;
+$z-index-toast: 3000;
