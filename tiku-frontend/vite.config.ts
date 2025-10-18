@@ -26,14 +26,8 @@ export default defineConfig({
         }
       }
     },
-    // 压缩配置
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // 生产环境移除console
-        drop_debugger: true
-      }
-    }
+    // 使用esbuild压缩（更快且配置简单）
+    minify: 'esbuild'
   },
   // 开发服务器配置
   server: {
