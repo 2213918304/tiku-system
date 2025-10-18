@@ -1,5 +1,5 @@
 # 多阶段构建 - 前端
-FROM node:18-alpine AS frontend-build
+FROM node:20-alpine AS frontend-build
 WORKDIR /app
 COPY tiku-frontend/package*.json ./
 RUN npm install
