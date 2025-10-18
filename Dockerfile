@@ -10,7 +10,7 @@ RUN echo "VITE_API_BASE_URL=/api" > .env.production && \
 RUN npm run build
 
 # 多阶段构建 - 后端（包含前端）
-FROM maven:3.8.6-openjdk-17 AS backend-build
+FROM maven:3.9-eclipse-temurin-17 AS backend-build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
@@ -20,7 +20,7 @@ COPY --from=frontend-build /app/dist ./src/main/resources/static/
 RUN mvn clean package -DskipTests -Pprod
 
 # 最终镜像
-FROM openjdk:17-jre-slim
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # 安装curl（用于健康检查）、中文字体和时区数据
