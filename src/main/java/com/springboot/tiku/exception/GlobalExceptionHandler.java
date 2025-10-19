@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(NoResourceFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public void handleNoResourceFoundException(NoResourceFoundException e, HttpServletRequest request) {
+    public void handleNoResourceFoundException(NoResourceFoundException e, HttpServletRequest request) throws NoResourceFoundException {
         String uri = request.getRequestURI();
         // 静态资源404不记录详细日志，避免刷屏
         if (uri.startsWith("/assets/") || uri.endsWith(".css") || uri.endsWith(".js") || 
