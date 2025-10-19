@@ -78,31 +78,19 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // 配置授权规则
                 .authorizeHttpRequests(auth -> auth
-                        // 静态资源和前端页面（完全公开）
-                        .requestMatchers(
-                                "/",                  // 首页
-                                "/index.html",        // 主页面
-                                "/assets/**",         // 静态资源
-                                "/vite.svg",          // 图标
-                                "/favicon.ico"        // 图标
-                        ).permitAll()
-                        // API公开接口
-                        .requestMatchers(
-                                "/api/auth/**",       // 认证接口
-                                "/api/actuator/health" // 健康检查
-                        ).permitAll()
+                        // API公开接口（优先匹配）
+                        .requestMatchers("/api/auth/**").permitAll()
+                        // 健康检查
+                        .requestMatchers("/actuator/health", "/api/actuator/health").permitAll()
                         // Swagger文档
-                        .requestMatchers(
-                                "/swagger-ui/**",     // Swagger UI
-                                "/v3/api-docs/**"     // API文档
-                        ).permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         // 管理员接口
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         // 教师接口
                         .requestMatchers("/api/teacher/**").hasAnyRole("TEACHER", "ADMIN")
                         // API其他请求需要认证
                         .requestMatchers("/api/**").authenticated()
-                        // 其他路径（前端路由）允许访问
+                        // 所有其他请求（包括静态资源和前端路由）允许访问
                         .anyRequest().permitAll()
                 )
                 // 添加认证提供者

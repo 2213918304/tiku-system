@@ -17,25 +17,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // 配置前端静态资源
-        registry.addResourceHandler("/**")
+        // 配置前端静态资源（只处理真实的静态文件）
+        registry.addResourceHandler("/assets/**", "/vite.svg", "/favicon.ico", "/index.html")
                 .addResourceLocations("classpath:/static/")
-                .setCachePeriod(3600);
+                .setCachePeriod(3600)
+                .resourceChain(false);
         
         // 配置上传文件访问
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:./uploads/")
                 .setCachePeriod(3600);
-    }
-    
-    /**
-     * 配置视图控制器，支持前端路由
-     * 所有非API请求都转发到index.html，由前端路由处理
-     */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/")
-                .setViewName("forward:/index.html");
     }
 }
 
