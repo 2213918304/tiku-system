@@ -2,7 +2,6 @@ package com.springboot.tiku.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -17,16 +16,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // 配置前端静态资源（只处理真实的静态文件）
-        registry.addResourceHandler("/assets/**", "/vite.svg", "/favicon.ico", "/index.html")
-                .addResourceLocations("classpath:/static/")
-                .setCachePeriod(3600)
-                .resourceChain(false);
+        // 不设置缓存，避免开发时缓存问题
+        // Spring Boot会自动处理classpath:/static/下的静态资源
         
         // 配置上传文件访问
         registry.addResourceHandler("/uploads/**")
-                .addResourceLocations("file:./uploads/")
-                .setCachePeriod(3600);
+                .addResourceLocations("file:./uploads/");
     }
 }
 

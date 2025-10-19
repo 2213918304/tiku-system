@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,10 +25,28 @@ import java.util.stream.Collectors;
 
 /**
  * 全局异常处理器
+ * 只处理API请求的异常，不处理静态资源请求
  */
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.springboot.tiku.controller")
 public class GlobalExceptionHandler {
+    
+    /**
+     * 静态资源未找到异常 - 不处理，让Spring默认处理
+     */
+    @ExceptionHandler(NoResourceFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleNoResourceFoundException(NoResourceFoundException e, HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        // 静态资源404不记录详细日志，避免刷屏
+        if (uri.startsWith("/assets/") || uri.endsWith(".css") || uri.endsWith(".js") || 
+            uri.endsWith(".ico") || uri.endsWith(".svg")) {
+            log.warn("静态资源未找到: {}", uri);
+            throw e; // 重新抛出，让Spring默认处理
+        }
+        log.error("资源未找到: {}", uri);
+        throw e;
+    }
     
     /**
      * 业务异常
@@ -161,7 +181,14 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result<?> handleRuntimeException(RuntimeException e) {
+    public Result<?> handleRuntimeException(RuntimeException e, HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        // 如果是静态资源相关的异常，重新抛出让Spring处理
+        if (uri.startsWith("/assets/") || uri.endsWith(".css") || uri.endsWith(".js") || 
+            uri.endsWith(".ico") || uri.endsWith(".svg") || uri.equals("/") || uri.equals("/index.html")) {
+            log.warn("静态资源处理异常: {}", uri);
+            throw e;
+        }
         log.error("运行时异常", e);
         return Result.error(ResultCode.ERROR.getCode(), "服务器内部错误：" + e.getMessage());
     }
@@ -171,7 +198,14 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result<?> handleException(Exception e) {
+    public Result<?> handleException(Exception e, HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        // 如果是静态资源相关的异常，重新抛出让Spring处理
+        if (uri.startsWith("/assets/") || uri.endsWith(".css") || uri.endsWith(".js") || 
+            uri.endsWith(".ico") || uri.endsWith(".svg") || uri.equals("/") || uri.equals("/index.html")) {
+            log.warn("静态资源处理异常: {}", uri, e);
+            throw new RuntimeException(e);
+        }
         log.error("未知异常", e);
         return Result.error(ResultCode.ERROR.getCode(), "服务器内部错误");
     }
