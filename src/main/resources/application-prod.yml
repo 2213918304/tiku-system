@@ -42,6 +42,8 @@ spring:
 # 服务器配置
 server:
   port: ${PORT:8080}
+  servlet:
+    context-path: ${SERVER_SERVLET_CONTEXT_PATH:}
 
 # JWT配置
 jwt:
