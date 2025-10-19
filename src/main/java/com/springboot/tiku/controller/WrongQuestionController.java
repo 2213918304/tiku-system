@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Tag(name = "错题本", description = "错题本管理功能")
 @RestController
-@RequestMapping("/wrong-questions")
+@RequestMapping("/api/wrong-questions")
 @RequiredArgsConstructor
 public class WrongQuestionController {
     

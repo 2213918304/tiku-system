@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Tag(name = "学科管理", description = "学科的增删改查接口")
 @RestController
-@RequestMapping("/subjects")
+@RequestMapping("/api/subjects")
 @RequiredArgsConstructor
 public class SubjectController {
     

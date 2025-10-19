@@ -81,13 +81,13 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@/layout/MainLayout.vue'),
-    redirect: '/dashboard',
+    redirect: '/login',
     children: [
       {
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/Index.vue'),
-        meta: { title: '首页', icon: 'HomeFilled' }
+        meta: { title: '首页', icon: 'HomeFilled', requiresAuth: true }
       },
       {
         path: 'practice',
@@ -96,38 +96,32 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '开始刷题', icon: 'EditPen', requiresAuth: true }
       },
       {
-        path: 'practice/session',
+        path: 'practice/:sessionId',
         name: 'PracticeSession',
         component: () => import('@/views/practice/Session.vue'),
         meta: { title: '答题中', hidden: true, requiresAuth: true }
       },
       {
-        path: 'practice/result',
-        name: 'PracticeResult',
-        component: () => import('@/views/practice/Result.vue'),
-        meta: { title: '练习结果', hidden: true, requiresAuth: true }
-      },
-      {
         path: 'subjects',
         name: 'Subjects',
         component: () => import('@/views/subjects/Index.vue'),
-        meta: { title: '题库', icon: 'Reading' }
+        meta: { title: '题库', icon: 'Reading', requiresAuth: true }
       },
       {
-        path: 'collection',
-        name: 'Collection',
+        path: 'my-collection',
+        name: 'MyCollection',
         component: () => import('@/views/collection/Index.vue'),
         meta: { title: '我的收藏', icon: 'Star', requiresAuth: true }
       },
       {
-        path: 'notes',
-        name: 'Notes',
+        path: 'my-notes',
+        name: 'MyNotes',
         component: () => import('@/views/notes/Index.vue'),
         meta: { title: '我的笔记', icon: 'Notebook', requiresAuth: true }
       },
       {
-        path: 'wrong',
-        name: 'Wrong',
+        path: 'wrong-questions',
+        name: 'WrongQuestions',
         component: () => import('@/views/wrong/Index.vue'),
         meta: { title: '错题本', icon: 'WarningFilled', requiresAuth: true }
       },
@@ -141,7 +135,7 @@ const routes: RouteRecordRaw[] = [
         path: 'ranking',
         name: 'Ranking',
         component: () => import('@/views/ranking/Index.vue'),
-        meta: { title: '排行榜', icon: 'TrophyBase' }
+        meta: { title: '排行榜', icon: 'TrophyBase', requiresAuth: true }
       },
       {
         path: 'profile',

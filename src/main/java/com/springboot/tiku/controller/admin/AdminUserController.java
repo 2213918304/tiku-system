@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Tag(name = "管理员-用户管理", description = "管理员管理所有用户")
 @RestController
-@RequestMapping("/admin/users")
+@RequestMapping("/api/admin/users")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('ADMIN', 'TEACHER')")
 public class AdminUserController {

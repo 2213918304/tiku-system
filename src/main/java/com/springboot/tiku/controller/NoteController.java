@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Tag(name = "笔记管理", description = "题目笔记功能")
 @RestController
-@RequestMapping("/notes")
+@RequestMapping("/api/notes")
 @RequiredArgsConstructor
 public class NoteController {
     

@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Tag(name = "判题管理", description = "提交答案和判题接口")
 @RestController
-@RequestMapping("/grading")
+@RequestMapping("/api/grading")
 @RequiredArgsConstructor
 public class GradingController {
     

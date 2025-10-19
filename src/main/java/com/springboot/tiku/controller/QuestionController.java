@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Tag(name = "题库管理", description = "题目的增删改查接口")
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/api/questions")
 @RequiredArgsConstructor
 public class QuestionController {
     

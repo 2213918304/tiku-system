@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Tag(name = "数据导入", description = "题库数据导入接口（仅管理员）")
 @RestController
-@RequestMapping("/admin/data-import")
+@RequestMapping("/api/admin/data-import")
 @RequiredArgsConstructor
 @PreAuthorize("hasRole('ADMIN')")
 public class DataImportController {

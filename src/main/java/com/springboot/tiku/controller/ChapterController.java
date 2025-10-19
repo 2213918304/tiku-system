@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Tag(name = "章节管理", description = "章节的增删改查接口")
 @RestController
-@RequestMapping("/chapters")
+@RequestMapping("/api/chapters")
 @RequiredArgsConstructor
 public class ChapterController {
     

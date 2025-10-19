@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  */
 @Tag(name = "管理员-Dashboard统计", description = "管理后台仪表盘数据")
 @RestController
-@RequestMapping("/admin/dashboard")
+@RequestMapping("/api/admin/dashboard")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('ADMIN', 'TEACHER')")
 public class AdminDashboardController {

@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Tag(name = "统计分析", description = "用户学习数据统计分析")
 @RestController
-@RequestMapping("/statistics")
+@RequestMapping("/api/statistics")
 @RequiredArgsConstructor
 public class StatisticsController {
     

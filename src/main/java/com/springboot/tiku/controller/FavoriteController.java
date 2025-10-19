@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Tag(name = "收藏管理", description = "题目收藏功能")
 @RestController
-@RequestMapping("/favorites")
+@RequestMapping("/api/favorites")
 @RequiredArgsConstructor
 public class FavoriteController {
     

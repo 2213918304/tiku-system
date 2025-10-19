@@ -101,28 +101,6 @@
           </div>
         </el-form>
 
-        <!-- 快速登录 -->
-        <el-divider>
-          <span class="divider-text">快速登录</span>
-        </el-divider>
-
-        <div class="quick-login">
-          <el-button
-            class="quick-btn"
-            @click="quickLogin('admin', 'admin123')"
-          >
-            <el-icon><UserFilled /></el-icon>
-            <span>管理员</span>
-          </el-button>
-          <el-button
-            class="quick-btn"
-            @click="quickLogin('student001', '123456')"
-          >
-            <el-icon><User /></el-icon>
-            <span>学生</span>
-          </el-button>
-        </div>
-
         <!-- 底部信息 -->
         <div class="form-info">
           <el-icon><InfoFilled /></el-icon>

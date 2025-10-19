@@ -25,7 +25,7 @@ import java.util.Map;
  */
 @Tag(name = "管理员-答题记录管理", description = "管理员查看所有答题记录")
 @RestController
-@RequestMapping("/admin/answer-records")
+@RequestMapping("/api/admin/answer-records")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('ADMIN', 'TEACHER')")
 public class AdminAnswerRecordController {

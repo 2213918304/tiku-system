@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Tag(name = "排行榜", description = "各类排行榜功能")
 @RestController
-@RequestMapping("/ranking")
+@RequestMapping("/api/ranking")
 @RequiredArgsConstructor
 public class RankingController {
     

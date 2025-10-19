@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Tag(name = "管理员-系统设置", description = "系统配置和信息管理")
 @RestController
-@RequestMapping("/admin/system")
+@RequestMapping("/api/admin/system")
 @RequiredArgsConstructor
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminSystemController {

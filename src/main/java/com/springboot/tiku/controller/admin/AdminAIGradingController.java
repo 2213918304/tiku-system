@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Tag(name = "管理员-AI判题审核", description = "审核AI判题结果")
 @RestController
-@RequestMapping("/admin/ai-grading")
+@RequestMapping("/api/admin/ai-grading")
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyRole('ADMIN', 'TEACHER')")
 public class AdminAIGradingController {

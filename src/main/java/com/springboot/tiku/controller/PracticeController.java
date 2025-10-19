@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  */
 @Tag(name = "刷题模式", description = "9种刷题模式接口")
 @RestController
-@RequestMapping("/practice")
+@RequestMapping("/api/practice")
 @RequiredArgsConstructor
 public class PracticeController {
     
