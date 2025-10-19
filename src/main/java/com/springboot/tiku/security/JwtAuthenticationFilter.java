@@ -37,6 +37,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String prefix;
     
     @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI();
+        // 跳过静态资源、健康检查等不需要JWT认证的路径
+        return path.startsWith("/assets/") || 
+               path.startsWith("/actuator/") ||
+               path.equals("/") ||
+               path.equals("/index.html") ||
+               path.equals("/vite.svg") ||
+               path.equals("/favicon.ico");
+    }
+    
+    @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) 
             throws ServletException, IOException {
         
